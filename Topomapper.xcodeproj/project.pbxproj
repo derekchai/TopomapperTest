@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A894C8552C242F1F00423C92 /* TopomapperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8542C242F1F00423C92 /* TopomapperApp.swift */; };
+		A894C8572C242F1F00423C92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8562C242F1F00423C92 /* ContentView.swift */; };
+		A894C8592C242F1F00423C92 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8582C242F1F00423C92 /* Item.swift */; };
+		A894C85B2C242F2100423C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A894C85A2C242F2100423C92 /* Assets.xcassets */; };
+		A894C85E2C242F2100423C92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A894C85D2C242F2100423C92 /* Preview Assets.xcassets */; };
+		A894C8682C242F2100423C92 /* TopomapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8672C242F2100423C92 /* TopomapperTests.swift */; };
+		A894C8722C242F2100423C92 /* TopomapperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8712C242F2100423C92 /* TopomapperUITests.swift */; };
+		A894C8742C242F2100423C92 /* TopomapperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8732C242F2100423C92 /* TopomapperUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A894C8642C242F2100423C92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A894C8492C242F1F00423C92 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A894C8502C242F1F00423C92;
+			remoteInfo = Topomapper;
+		};
+		A894C86E2C242F2100423C92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A894C8492C242F1F00423C92 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A894C8502C242F1F00423C92;
+			remoteInfo = Topomapper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A894C8512C242F1F00423C92 /* Topomapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Topomapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A894C8542C242F1F00423C92 /* TopomapperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopomapperApp.swift; sourceTree = "<group>"; };
+		A894C8562C242F1F00423C92 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A894C8582C242F1F00423C92 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		A894C85A2C242F2100423C92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A894C85D2C242F2100423C92 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A894C8632C242F2100423C92 /* TopomapperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopomapperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A894C8672C242F2100423C92 /* TopomapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopomapperTests.swift; sourceTree = "<group>"; };
+		A894C86D2C242F2100423C92 /* TopomapperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopomapperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A894C8712C242F2100423C92 /* TopomapperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopomapperUITests.swift; sourceTree = "<group>"; };
+		A894C8732C242F2100423C92 /* TopomapperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopomapperUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A894C84E2C242F1F00423C92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A894C8602C242F2100423C92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A894C86A2C242F2100423C92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A894C8482C242F1F00423C92 = {
+			isa = PBXGroup;
+			children = (
+				A894C8532C242F1F00423C92 /* Topomapper */,
+				A894C8662C242F2100423C92 /* TopomapperTests */,
+				A894C8702C242F2100423C92 /* TopomapperUITests */,
+				A894C8522C242F1F00423C92 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A894C8522C242F1F00423C92 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A894C8512C242F1F00423C92 /* Topomapper.app */,
+				A894C8632C242F2100423C92 /* TopomapperTests.xctest */,
+				A894C86D2C242F2100423C92 /* TopomapperUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A894C8532C242F1F00423C92 /* Topomapper */ = {
+			isa = PBXGroup;
+			children = (
+				A894C8542C242F1F00423C92 /* TopomapperApp.swift */,
+				A894C8562C242F1F00423C92 /* ContentView.swift */,
+				A894C8582C242F1F00423C92 /* Item.swift */,
+				A894C85A2C242F2100423C92 /* Assets.xcassets */,
+				A894C85C2C242F2100423C92 /* Preview Content */,
+			);
+			path = Topomapper;
+			sourceTree = "<group>";
+		};
+		A894C85C2C242F2100423C92 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A894C85D2C242F2100423C92 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A894C8662C242F2100423C92 /* TopomapperTests */ = {
+			isa = PBXGroup;
+			children = (
+				A894C8672C242F2100423C92 /* TopomapperTests.swift */,
+			);
+			path = TopomapperTests;
+			sourceTree = "<group>";
+		};
+		A894C8702C242F2100423C92 /* TopomapperUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A894C8712C242F2100423C92 /* TopomapperUITests.swift */,
+				A894C8732C242F2100423C92 /* TopomapperUITestsLaunchTests.swift */,
+			);
+			path = TopomapperUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A894C8502C242F1F00423C92 /* Topomapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A894C8772C242F2100423C92 /* Build configuration list for PBXNativeTarget "Topomapper" */;
+			buildPhases = (
+				A894C84D2C242F1F00423C92 /* Sources */,
+				A894C84E2C242F1F00423C92 /* Frameworks */,
+				A894C84F2C242F1F00423C92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Topomapper;
+			productName = Topomapper;
+			productReference = A894C8512C242F1F00423C92 /* Topomapper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A894C8622C242F2100423C92 /* TopomapperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A894C87A2C242F2100423C92 /* Build configuration list for PBXNativeTarget "TopomapperTests" */;
+			buildPhases = (
+				A894C85F2C242F2100423C92 /* Sources */,
+				A894C8602C242F2100423C92 /* Frameworks */,
+				A894C8612C242F2100423C92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A894C8652C242F2100423C92 /* PBXTargetDependency */,
+			);
+			name = TopomapperTests;
+			productName = TopomapperTests;
+			productReference = A894C8632C242F2100423C92 /* TopomapperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A894C86C2C242F2100423C92 /* TopomapperUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A894C87D2C242F2100423C92 /* Build configuration list for PBXNativeTarget "TopomapperUITests" */;
+			buildPhases = (
+				A894C8692C242F2100423C92 /* Sources */,
+				A894C86A2C242F2100423C92 /* Frameworks */,
+				A894C86B2C242F2100423C92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A894C86F2C242F2100423C92 /* PBXTargetDependency */,
+			);
+			name = TopomapperUITests;
+			productName = TopomapperUITests;
+			productReference = A894C86D2C242F2100423C92 /* TopomapperUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A894C8492C242F1F00423C92 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					A894C8502C242F1F00423C92 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					A894C8622C242F2100423C92 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = A894C8502C242F1F00423C92;
+					};
+					A894C86C2C242F2100423C92 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = A894C8502C242F1F00423C92;
+					};
+				};
+			};
+			buildConfigurationList = A894C84C2C242F1F00423C92 /* Build configuration list for PBXProject "Topomapper" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A894C8482C242F1F00423C92;
+			productRefGroup = A894C8522C242F1F00423C92 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A894C8502C242F1F00423C92 /* Topomapper */,
+				A894C8622C242F2100423C92 /* TopomapperTests */,
+				A894C86C2C242F2100423C92 /* TopomapperUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A894C84F2C242F1F00423C92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A894C85E2C242F2100423C92 /* Preview Assets.xcassets in Resources */,
+				A894C85B2C242F2100423C92 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A894C8612C242F2100423C92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A894C86B2C242F2100423C92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A894C84D2C242F1F00423C92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A894C8572C242F1F00423C92 /* ContentView.swift in Sources */,
+				A894C8592C242F1F00423C92 /* Item.swift in Sources */,
+				A894C8552C242F1F00423C92 /* TopomapperApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A894C85F2C242F2100423C92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A894C8682C242F2100423C92 /* TopomapperTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A894C8692C242F2100423C92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A894C8722C242F2100423C92 /* TopomapperUITests.swift in Sources */,
+				A894C8742C242F2100423C92 /* TopomapperUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A894C8652C242F2100423C92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A894C8502C242F1F00423C92 /* Topomapper */;
+			targetProxy = A894C8642C242F2100423C92 /* PBXContainerItemProxy */;
+		};
+		A894C86F2C242F2100423C92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A894C8502C242F1F00423C92 /* Topomapper */;
+			targetProxy = A894C86E2C242F2100423C92 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A894C8752C242F2100423C92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A894C8762C242F2100423C92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A894C8782C242F2100423C92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Topomapper/Preview Content\"";
+				DEVELOPMENT_TEAM = FR86D5B46K;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = youngboris.Topomapper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A894C8792C242F2100423C92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Topomapper/Preview Content\"";
+				DEVELOPMENT_TEAM = FR86D5B46K;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = youngboris.Topomapper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A894C87B2C242F2100423C92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FR86D5B46K;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = youngboris.TopomapperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Topomapper.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Topomapper";
+			};
+			name = Debug;
+		};
+		A894C87C2C242F2100423C92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FR86D5B46K;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = youngboris.TopomapperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Topomapper.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Topomapper";
+			};
+			name = Release;
+		};
+		A894C87E2C242F2100423C92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FR86D5B46K;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = youngboris.TopomapperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Topomapper;
+			};
+			name = Debug;
+		};
+		A894C87F2C242F2100423C92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FR86D5B46K;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = youngboris.TopomapperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Topomapper;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A894C84C2C242F1F00423C92 /* Build configuration list for PBXProject "Topomapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A894C8752C242F2100423C92 /* Debug */,
+				A894C8762C242F2100423C92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A894C8772C242F2100423C92 /* Build configuration list for PBXNativeTarget "Topomapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A894C8782C242F2100423C92 /* Debug */,
+				A894C8792C242F2100423C92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A894C87A2C242F2100423C92 /* Build configuration list for PBXNativeTarget "TopomapperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A894C87B2C242F2100423C92 /* Debug */,
+				A894C87C2C242F2100423C92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A894C87D2C242F2100423C92 /* Build configuration list for PBXNativeTarget "TopomapperUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A894C87E2C242F2100423C92 /* Debug */,
+				A894C87F2C242F2100423C92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A894C8492C242F1F00423C92 /* Project object */;
+}
