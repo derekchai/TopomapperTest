@@ -12,12 +12,22 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
 
+    @State private var searchText = ""
+    
     var body: some View {
-        NavigationSplitView {
+        NavigationStack {
             MapViewController()
                 .ignoresSafeArea()
-        } detail: {
-            Text("Select an item")
+                .sheet(isPresented: .constant(true)) {
+                    NavigationStack {
+                        SheetView()
+                            .toolbar(.automatic)
+                    }
+                        .presentationDetents([.fraction(0.1), .medium, .large])
+                        .interactiveDismissDisabled()
+                        .presentationBackgroundInteraction(.enabled(upThrough: .large))
+                        .presentationContentInteraction(.scrolls)
+                }
         }
     }
 
