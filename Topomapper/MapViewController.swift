@@ -43,7 +43,7 @@ struct MapViewController: UIViewControllerRepresentable {
             urlTemplate: MapViewController.topo50MapURLTemplate
         )
         overlay.canReplaceMapContent = false
-        mapView.addOverlay(overlay, level: .aboveLabels)
+        mapView.addOverlay(overlay, level: .aboveRoads)
         
         viewController.view.addSubview(mapView)
         return viewController
