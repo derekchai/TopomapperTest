@@ -31,9 +31,13 @@ struct MapViewController: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
         let viewController = UIViewController()
         let mapView = MKMapView()
+        
         mapView.delegate = context.coordinator
         mapView.frame = viewController.view.frame
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        mapView.showsCompass = true
+        mapView.showsScale = true
         
         let overlay = MKTileOverlay(
             urlTemplate: MapViewController.topo50MapURLTemplate
