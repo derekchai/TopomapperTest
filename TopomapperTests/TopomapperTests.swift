@@ -6,12 +6,23 @@
 //
 
 import Testing
+import SwiftUI
 @testable import Topomapper
 
 struct TopomapperTests {
 
-    @Test func testExample() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+    @Test func testGPXParser() async throws {
+        if let fileURL = Bundle.main.url(forResource: "example", withExtension: "gpx") {
+            let parser = GPXParser()
+            let coordinates = try parser.parseGPX(fileURL: fileURL)
+            
+            for coordinate in coordinates {
+                print(
+                    "Coordinate: \(coordinate.latitude), \(coordinate.longitude); elevation: \(String(describing: coordinate.elevation)) m"
+                )
+            }
+            
+            #expect(!coordinates.isEmpty)
+        }
     }
-
 }

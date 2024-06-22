@@ -9,14 +9,15 @@
 /* Begin PBXBuildFile section */
 		A88F2F692C251D0A00A8F239 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F682C251D0A00A8F239 /* SheetView.swift */; };
 		A88F2F6D2C2522AB00A8F239 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F6C2C2522AB00A8F239 /* SearchField.swift */; };
+		A88F2F6F2C2564F300A8F239 /* GPXParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F6E2C2564F300A8F239 /* GPXParser.swift */; };
+		A88F2F762C25694800A8F239 /* example.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A88F2F752C25694800A8F239 /* example.gpx */; };
+		A88F2F782C256E8400A8F239 /* GPXPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F772C256E8400A8F239 /* GPXPoint.swift */; };
 		A894C8552C242F1F00423C92 /* TopomapperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8542C242F1F00423C92 /* TopomapperApp.swift */; };
 		A894C8572C242F1F00423C92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8562C242F1F00423C92 /* ContentView.swift */; };
 		A894C8592C242F1F00423C92 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8582C242F1F00423C92 /* Item.swift */; };
 		A894C85B2C242F2100423C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A894C85A2C242F2100423C92 /* Assets.xcassets */; };
 		A894C85E2C242F2100423C92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A894C85D2C242F2100423C92 /* Preview Assets.xcassets */; };
 		A894C8682C242F2100423C92 /* TopomapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8672C242F2100423C92 /* TopomapperTests.swift */; };
-		A894C8722C242F2100423C92 /* TopomapperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8712C242F2100423C92 /* TopomapperUITests.swift */; };
-		A894C8742C242F2100423C92 /* TopomapperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8732C242F2100423C92 /* TopomapperUITestsLaunchTests.swift */; };
 		A894C8812C243AF800423C92 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8802C243AF800423C92 /* MapViewController.swift */; };
 		A894C8852C250C4000423C92 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A894C8842C250C3C00423C92 /* .gitignore */; };
 		A894C8872C250C5C00423C92 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8862C250C5C00423C92 /* Key.swift */; };
@@ -42,6 +43,9 @@
 /* Begin PBXFileReference section */
 		A88F2F682C251D0A00A8F239 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		A88F2F6C2C2522AB00A8F239 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
+		A88F2F6E2C2564F300A8F239 /* GPXParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXParser.swift; sourceTree = "<group>"; };
+		A88F2F752C25694800A8F239 /* example.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = example.gpx; sourceTree = "<group>"; };
+		A88F2F772C256E8400A8F239 /* GPXPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXPoint.swift; sourceTree = "<group>"; };
 		A894C8512C242F1F00423C92 /* Topomapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Topomapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A894C8542C242F1F00423C92 /* TopomapperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopomapperApp.swift; sourceTree = "<group>"; };
 		A894C8562C242F1F00423C92 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,8 +55,6 @@
 		A894C8632C242F2100423C92 /* TopomapperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopomapperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A894C8672C242F2100423C92 /* TopomapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopomapperTests.swift; sourceTree = "<group>"; };
 		A894C86D2C242F2100423C92 /* TopomapperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopomapperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A894C8712C242F2100423C92 /* TopomapperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopomapperUITests.swift; sourceTree = "<group>"; };
-		A894C8732C242F2100423C92 /* TopomapperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopomapperUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A894C8802C243AF800423C92 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A894C8842C250C3C00423C92 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		A894C8862C250C5C00423C92 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
@@ -100,12 +102,20 @@
 			path = Content;
 			sourceTree = "<group>";
 		};
+		A88F2F742C25692700A8F239 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A88F2F752C25694800A8F239 /* example.gpx */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		A894C8482C242F1F00423C92 = {
 			isa = PBXGroup;
 			children = (
 				A894C8532C242F1F00423C92 /* Topomapper */,
+				A894C8842C250C3C00423C92 /* .gitignore */,
 				A894C8662C242F2100423C92 /* TopomapperTests */,
-				A894C8702C242F2100423C92 /* TopomapperUITests */,
 				A894C8522C242F1F00423C92 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -123,15 +133,17 @@
 		A894C8532C242F1F00423C92 /* Topomapper */ = {
 			isa = PBXGroup;
 			children = (
-				A894C8842C250C3C00423C92 /* .gitignore */,
+				A88F2F742C25692700A8F239 /* Resources */,
 				A894C8542C242F1F00423C92 /* TopomapperApp.swift */,
 				A88F2F6B2C25229A00A8F239 /* Content */,
 				A88F2F6A2C25226E00A8F239 /* Sheet */,
 				A894C8582C242F1F00423C92 /* Item.swift */,
 				A894C85A2C242F2100423C92 /* Assets.xcassets */,
-				A894C85C2C242F2100423C92 /* Preview Content */,
 				A894C8802C243AF800423C92 /* MapViewController.swift */,
 				A894C8862C250C5C00423C92 /* Key.swift */,
+				A894C85C2C242F2100423C92 /* Preview Content */,
+				A88F2F6E2C2564F300A8F239 /* GPXParser.swift */,
+				A88F2F772C256E8400A8F239 /* GPXPoint.swift */,
 			);
 			path = Topomapper;
 			sourceTree = "<group>";
@@ -150,15 +162,6 @@
 				A894C8672C242F2100423C92 /* TopomapperTests.swift */,
 			);
 			path = TopomapperTests;
-			sourceTree = "<group>";
-		};
-		A894C8702C242F2100423C92 /* TopomapperUITests */ = {
-			isa = PBXGroup;
-			children = (
-				A894C8712C242F2100423C92 /* TopomapperUITests.swift */,
-				A894C8732C242F2100423C92 /* TopomapperUITestsLaunchTests.swift */,
-			);
-			path = TopomapperUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +270,7 @@
 			files = (
 				A894C85E2C242F2100423C92 /* Preview Assets.xcassets in Resources */,
 				A894C8852C250C4000423C92 /* .gitignore in Resources */,
+				A88F2F762C25694800A8F239 /* example.gpx in Resources */,
 				A894C85B2C242F2100423C92 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,9 +299,11 @@
 				A894C8572C242F1F00423C92 /* ContentView.swift in Sources */,
 				A894C8872C250C5C00423C92 /* Key.swift in Sources */,
 				A894C8592C242F1F00423C92 /* Item.swift in Sources */,
+				A88F2F782C256E8400A8F239 /* GPXPoint.swift in Sources */,
 				A894C8552C242F1F00423C92 /* TopomapperApp.swift in Sources */,
 				A88F2F6D2C2522AB00A8F239 /* SearchField.swift in Sources */,
 				A88F2F692C251D0A00A8F239 /* SheetView.swift in Sources */,
+				A88F2F6F2C2564F300A8F239 /* GPXParser.swift in Sources */,
 				A894C8812C243AF800423C92 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,8 +320,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A894C8722C242F2100423C92 /* TopomapperUITests.swift in Sources */,
-				A894C8742C242F2100423C92 /* TopomapperUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
