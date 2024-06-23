@@ -11,15 +11,21 @@ struct SheetView: View {
     @State private var searchText = ""
     
     var body: some View {
-        VStack(alignment: .leading) {
-            SearchField(searchText: $searchText)
-                .padding(.bottom)
-            
-            Text("My Routes")
-                .font(.headline)
-                .foregroundStyle(.secondary)
-            
-            Spacer()
+        ScrollView {
+            VStack(alignment: .leading) {
+                SearchField(searchText: $searchText)
+                    .padding(.bottom)
+                
+                Text("My Routes")
+                    .font(.headline)
+                    .foregroundStyle(.secondary)
+                
+                ForEach(0...30, id: \.self) { number in
+                    Text("Item \(number)")
+                }
+                
+                Spacer()
+            }
         }
         .ignoresSafeArea()
         .presentationBackground(.ultraThickMaterial)

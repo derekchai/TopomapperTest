@@ -11,7 +11,7 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
-
+    
     @State private var searchText = ""
     
     var body: some View {
@@ -23,14 +23,14 @@ struct ContentView: View {
                         SheetView()
                             .toolbar(.automatic)
                     }
-                        .presentationDetents([.fraction(0.1), .medium, .large])
-                        .interactiveDismissDisabled()
-                        .presentationBackgroundInteraction(.enabled(upThrough: .large))
-                        .presentationContentInteraction(.scrolls)
+                    .presentationDetents([.fraction(0.1), .medium, .large])
+                    .interactiveDismissDisabled()
+                    .presentationBackgroundInteraction(.enabled(upThrough: .large))
+                    .presentationContentInteraction(.scrolls)
                 }
         }
     }
-
+    
 }
 
 #Preview {
