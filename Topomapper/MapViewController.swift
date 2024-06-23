@@ -10,6 +10,7 @@ import SwiftUI
 import MapKit
 
 struct MapViewController: UIViewControllerRepresentable {
+    
     /// OpenStreetMap XYZ tile server URL template.
     private static let openStreetMapURLTemplate = "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
     

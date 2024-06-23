@@ -7,16 +7,42 @@
 
 import SwiftUI
 
+/// A control that displays an editable search field interface.
 struct SearchField: View {
+    
+    
+    // MARK: - Exposed Properties
+    
+    /// The text to display and edit.
     @Binding var searchText: String
     
-    /// A property wrapper which stores whether or not the text field is currently being focused on.
+    /// Adds an action to perform when the "Cancel" button of this view is 
+    /// pressed.
+    var onCancel: () -> Void = {}
+    
+    /// Adds an action to perform when the clear button of this view is pressed.
+    var onClear: () -> Void = {}
+    
+    /// Adds an action to perform when this view is focused on.
+    var onFocus: () -> Void = {}
+    
+    /// Adds an action to perform when this view is unfocused from.
+    var onUnfocus: () -> Void = {}
+    
+    
+    // MARK: - Internal Variables
+    
+    /// Whether the text field is being focused on.
     @FocusState private var isFocusedOnTextField: Bool
     
-    /// A state variable which mirrors `isFocusedOnTextField`, used for animation.
+    /// A mirror of `isFocusedOnTextField`, used solely for animation purposes.
     @State private var isSearching = false
     
+    /// Whether the "Clear" button should be shown.
     @State private var isShowingClearButton = false
+    
+    
+    // MARK: - Body
     
     var body: some View {
         HStack {
@@ -29,37 +55,53 @@ struct SearchField: View {
                     .focused($isFocusedOnTextField)
                 
                 if isShowingClearButton {
-                    Button("", systemImage: "xmark.circle.fill") {
-                        searchText = ""
-                    }
+                    Button(
+                        "",
+                        systemImage: "xmark.circle.fill",
+                        action: clearSearch
+                    )
                     .foregroundStyle(.secondary)
-                    .animation(.easeInOut(duration: 0.2), value: isShowingClearButton)
+                    .animation(.easeInOut, value: isShowingClearButton)
                     .padding(.trailing, -8)
                 }
             }
             .textFieldSearchBoxStyle()
             .animation(.bouncy, value: isSearching)
             
-            
             if isSearching {
-                Button("Cancel") {
-                    isSearching.toggle()
-                    isFocusedOnTextField.toggle()
-                }
+                Button("Cancel", action: cancelSearch)
             }
         }
-        .onChange(of: isFocusedOnTextField) { oldValue, newValue in
-            withAnimation {
-                isSearching = newValue
+        .onChange(of: isFocusedOnTextField) { oldState, newState in
+            if newState == true {
+                onFocus()
             }
+            
+            withAnimation { isSearching = newState }
         }
-        .onChange(of: searchText.isEmpty) { oldValue, newValue in
-            withAnimation {
-                isShowingClearButton = !newValue
-            }
+        .onChange(of: searchText) { oldText, newText in
+            withAnimation { isShowingClearButton = !newText.isEmpty }
         }
     }
+    
+    
+    // MARK: - Actions
+    
+    private func cancelSearch() {
+        isSearching.toggle()
+        isFocusedOnTextField.toggle()
+        clearSearch()
+        onCancel()
+    }
+    
+    private func clearSearch() {
+        searchText = ""
+        onClear()
+    }
 }
+
+
+// MARK: - Custom View Modifiers
 
 extension View {
     func textFieldSearchBoxStyle() -> some View {
@@ -77,6 +119,9 @@ struct TextFieldSearchBoxStyle: ViewModifier {
             .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 }
+
+
+// MARK: - Preview
 
 #Preview {
     @Previewable @State var searchText = ""

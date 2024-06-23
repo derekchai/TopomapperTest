@@ -8,12 +8,28 @@
 import SwiftUI
 
 struct SheetView: View {
+    
+    
+    // MARK: - Exposed Properties
+    
+    @Binding var selectedDetent: PresentationDetent
+
+    
+     // MARK: - Internal Variables
+    
     @State private var searchText = ""
+    
+    
+    // MARK: - Body
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                SearchField(searchText: $searchText)
+                SearchField(
+                    searchText: $searchText,
+                    onCancel: setDetentToLarge,
+                    onFocus: setDetentToLarge
+                )
                     .padding(.bottom)
                 
                 Text("My Routes")
@@ -28,11 +44,19 @@ struct SheetView: View {
             }
         }
         .ignoresSafeArea()
-        .presentationBackground(.ultraThickMaterial)
-        .padding()
+    }
+    
+    
+    // MARK: - Actions
+    
+    private func setDetentToLarge() {
+        selectedDetent = .large
     }
 }
 
+
+// MARK: - Preview
+
 #Preview {
-    SheetView()
+    SheetView(selectedDetent: .constant(.medium))
 }
