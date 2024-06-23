@@ -3,15 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		A88F2F692C251D0A00A8F239 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F682C251D0A00A8F239 /* SheetView.swift */; };
 		A88F2F6D2C2522AB00A8F239 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F6C2C2522AB00A8F239 /* SearchField.swift */; };
 		A88F2F6F2C2564F300A8F239 /* GPXParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F6E2C2564F300A8F239 /* GPXParser.swift */; };
-		A88F2F762C25694800A8F239 /* example.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A88F2F752C25694800A8F239 /* example.gpx */; };
 		A88F2F782C256E8400A8F239 /* GPXPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F772C256E8400A8F239 /* GPXPoint.swift */; };
+		A88F2F7E2C27EBCD00A8F239 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F7D2C27EBCD00A8F239 /* Downloader.swift */; };
 		A894C8552C242F1F00423C92 /* TopomapperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8542C242F1F00423C92 /* TopomapperApp.swift */; };
 		A894C8572C242F1F00423C92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8562C242F1F00423C92 /* ContentView.swift */; };
 		A894C8592C242F1F00423C92 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8582C242F1F00423C92 /* Item.swift */; };
@@ -44,8 +44,8 @@
 		A88F2F682C251D0A00A8F239 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		A88F2F6C2C2522AB00A8F239 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		A88F2F6E2C2564F300A8F239 /* GPXParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXParser.swift; sourceTree = "<group>"; };
-		A88F2F752C25694800A8F239 /* example.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = example.gpx; sourceTree = "<group>"; };
 		A88F2F772C256E8400A8F239 /* GPXPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXPoint.swift; sourceTree = "<group>"; };
+		A88F2F7D2C27EBCD00A8F239 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		A894C8512C242F1F00423C92 /* Topomapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Topomapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A894C8542C242F1F00423C92 /* TopomapperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopomapperApp.swift; sourceTree = "<group>"; };
 		A894C8562C242F1F00423C92 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +59,10 @@
 		A894C8842C250C3C00423C92 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		A894C8862C250C5C00423C92 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		A88F2F7A2C27EAB100A8F239 /* Resources */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Resources; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A894C84E2C242F1F00423C92 /* Frameworks */ = {
@@ -98,16 +102,21 @@
 			isa = PBXGroup;
 			children = (
 				A894C8562C242F1F00423C92 /* ContentView.swift */,
+				A894C8802C243AF800423C92 /* MapViewController.swift */,
 			);
 			path = Content;
 			sourceTree = "<group>";
 		};
-		A88F2F742C25692700A8F239 /* Resources */ = {
+		A88F2F7C2C27EAD300A8F239 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A88F2F752C25694800A8F239 /* example.gpx */,
+				A894C8582C242F1F00423C92 /* Item.swift */,
+				A894C8862C250C5C00423C92 /* Key.swift */,
+				A88F2F6E2C2564F300A8F239 /* GPXParser.swift */,
+				A88F2F772C256E8400A8F239 /* GPXPoint.swift */,
+				A88F2F7D2C27EBCD00A8F239 /* Downloader.swift */,
 			);
-			path = Resources;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A894C8482C242F1F00423C92 = {
@@ -133,17 +142,13 @@
 		A894C8532C242F1F00423C92 /* Topomapper */ = {
 			isa = PBXGroup;
 			children = (
-				A88F2F742C25692700A8F239 /* Resources */,
 				A894C8542C242F1F00423C92 /* TopomapperApp.swift */,
 				A88F2F6B2C25229A00A8F239 /* Content */,
 				A88F2F6A2C25226E00A8F239 /* Sheet */,
-				A894C8582C242F1F00423C92 /* Item.swift */,
+				A88F2F7C2C27EAD300A8F239 /* Model */,
 				A894C85A2C242F2100423C92 /* Assets.xcassets */,
-				A894C8802C243AF800423C92 /* MapViewController.swift */,
-				A894C8862C250C5C00423C92 /* Key.swift */,
+				A88F2F7A2C27EAB100A8F239 /* Resources */,
 				A894C85C2C242F2100423C92 /* Preview Content */,
-				A88F2F6E2C2564F300A8F239 /* GPXParser.swift */,
-				A88F2F772C256E8400A8F239 /* GPXPoint.swift */,
 			);
 			path = Topomapper;
 			sourceTree = "<group>";
@@ -178,6 +183,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A88F2F7A2C27EAB100A8F239 /* Resources */,
 			);
 			name = Topomapper;
 			productName = Topomapper;
@@ -270,7 +278,6 @@
 			files = (
 				A894C85E2C242F2100423C92 /* Preview Assets.xcassets in Resources */,
 				A894C8852C250C4000423C92 /* .gitignore in Resources */,
-				A88F2F762C25694800A8F239 /* example.gpx in Resources */,
 				A894C85B2C242F2100423C92 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A88F2F7E2C27EBCD00A8F239 /* Downloader.swift in Sources */,
 				A894C8572C242F1F00423C92 /* ContentView.swift in Sources */,
 				A894C8872C250C5C00423C92 /* Key.swift in Sources */,
 				A894C8592C242F1F00423C92 /* Item.swift in Sources */,

@@ -14,7 +14,7 @@ struct TopomapperTests {
     @Test func testGPXParser() async throws {
         if let fileURL = Bundle.main.url(forResource: "example", withExtension: "gpx") {
             let parser = GPXParser()
-            let coordinates = try parser.parseGPX(fileURL: fileURL)
+            let coordinates = try parser.parseGPXFile(from: fileURL)
             
             for coordinate in coordinates {
                 print(
@@ -23,6 +23,22 @@ struct TopomapperTests {
             }
             
             #expect(!coordinates.isEmpty)
+        }
+    }
+    
+    @Test func testDownloader() throws {
+        let downloader = Downloader()
+        
+        do {
+            try downloader
+                .downloadAndSaveToFilesystem(
+                    from: URL(
+                        string: "https://tile.openstreetmap.org/0/0/0.png"
+                    )!,
+                    to: URL(string: "A")!
+                )
+        } catch {
+            print(error)
         }
     }
 }

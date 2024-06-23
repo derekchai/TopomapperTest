@@ -15,9 +15,9 @@ class GPXParser: NSObject, XMLParserDelegate {
     
     /// Parses a GPX file from the given URL, extracting coordinate and
     /// elevation data into an array of `GPXPoint`s.
-    func parseGPX(fileURL: URL) throws(ParsingError) -> [GPXPoint] {
-        guard let parser = XMLParser(contentsOf: fileURL) else {
-            throw ParsingError.unableToCreateXMLParser
+    func parseGPXFile(from url: URL) throws(GPXParsingError) -> [GPXPoint] {
+        guard let parser = XMLParser(contentsOf: url) else {
+            throw GPXParsingError.failedToCreateXMLParser
         }
         
         parser.delegate = self
@@ -25,7 +25,7 @@ class GPXParser: NSObject, XMLParserDelegate {
         let successfullyParsed: Bool = parser.parse()
         
         guard successfullyParsed else {
-            throw GPXParser.ParsingError.unableToParseGPX
+            throw GPXParser.GPXParsingError.failedToParseGPX
         }
         
         return points
@@ -114,8 +114,8 @@ class GPXParser: NSObject, XMLParserDelegate {
     
     // MARK: - Errors
     
-    enum ParsingError: Error {
-        case unableToParseGPX
-        case unableToCreateXMLParser
+    enum GPXParsingError: Error {
+        case failedToParseGPX
+        case failedToCreateXMLParser
     }
 }
