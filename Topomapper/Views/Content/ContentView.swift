@@ -40,7 +40,9 @@ struct ContentView: View {
                         )
                         .interactiveDismissDisabled()
                         .presentationBackgroundInteraction(.enabled(upThrough: .large))
-                        .presentationContentInteraction(.scrolls)
+                        .presentationContentInteraction(
+                            selectedDetent == .small ? .resizes : .scrolls
+                        )
                 }
         }
     }
