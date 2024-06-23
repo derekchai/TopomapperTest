@@ -9,13 +9,12 @@ import Foundation
 import CoreLocation
 
 class GPXParser: NSObject, XMLParserDelegate {
-    private var points: [GPXPoint] = []
     
-    private var currentElement: String = ""
-    private var currentLatitude: Double?
-    private var currentLongitude: Double?
-    private var currentElevation: Double?
     
+    // MARK: - Exposed Methods
+    
+    /// Parses a GPX file from the given URL, extracting coordinate and 
+    /// elevation data into an array of `GPXPoint`s.
     func parseGPX(fileURL: URL) throws -> [GPXPoint] {
         if let parser = XMLParser(contentsOf: fileURL) {
             parser.delegate = self
@@ -30,7 +29,18 @@ class GPXParser: NSObject, XMLParserDelegate {
         return points
     }
     
-    // MARK: - XMLParserDelegate methods
+    
+    // MARK: - Internal Variables
+    
+    private var points: [GPXPoint] = []
+    
+    private var currentElement: String = ""
+    private var currentLatitude: Double?
+    private var currentLongitude: Double?
+    private var currentElevation: Double?
+    
+    
+    // MARK: - Delegate Methods
     
     // didStartElement
     func parser(
@@ -98,6 +108,7 @@ class GPXParser: NSObject, XMLParserDelegate {
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
         print("Error parsing GPX: \(parseError.localizedDescription)")
     }
+    
     
     // MARK: - Errors
     
