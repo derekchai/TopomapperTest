@@ -27,6 +27,8 @@ struct SheetView: View {
     /// Whether the file picker dialog should be shown.
     @State private var importing = false
     
+    @State private var showingUnableToParseGPXAlert = false
+    
     
     // MARK: - Body
     
@@ -73,8 +75,13 @@ struct SheetView: View {
             allowedContentTypes: [.xml],
             onCompletion: parseGPXFile
         )
-        .onAppear {
-            print("The modelContext has \(routes.count) routes")
+        .alert(
+            "Unable to parse GPX file",
+            isPresented: $showingUnableToParseGPXAlert
+        ) {
+            Button("Ok") {
+                showingUnableToParseGPXAlert = false
+            }
         }
     }
     
@@ -103,33 +110,25 @@ struct SheetView: View {
             
             if !gotAccess { return }
             
-            print("Got access!")
-            
             let parser = GPXParser()
             
             do {
                 let points = try parser.parsedGPXFile(at: url)
-                
-                print("Successfully parsed GPX file!")
                 
                 let route = Route(
                     name: "Route\(UUID().uuidString)",
                     points: points
                 )
                 
-                print("\(route.name): \(route.points.count) points")
-                
                 modelContext.insert(route)
-                
-                print("Inserted new route into modelContext!")
             } catch {
-                print("Unable to parse GPX: \(error)")
+                showingUnableToParseGPXAlert = true
             }
             
             url.stopAccessingSecurityScopedResource()
             
         case .failure(let error):
-            print(error)
+            showingUnableToParseGPXAlert = true
         }
     }
     
