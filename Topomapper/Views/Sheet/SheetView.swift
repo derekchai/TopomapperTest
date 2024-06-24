@@ -24,10 +24,7 @@ struct SheetView: View {
     
     @State private var searchText = ""
     
-    /// Whether the file picker dialog should be shown.
-    @State private var importing = false
-    
-    @State private var showingUnableToParseGPXAlert = false
+    @State private var showingAddRouteSheet = false
     
     
     // MARK: - Body
@@ -61,7 +58,10 @@ struct SheetView: View {
                         
                         Spacer()
                         
-                        Button("Import GPX", action: showImportingDialog)
+                        Button(
+                            "New Route",
+                            action: showAddRouteSheet
+                        )
                     }
                     .textCase(nil)
                 }
@@ -70,18 +70,8 @@ struct SheetView: View {
             
         } // VStack
         .ignoresSafeArea()
-        .fileImporter(
-            isPresented: $importing,
-            allowedContentTypes: [.xml],
-            onCompletion: parseGPXFile
-        )
-        .alert(
-            "Unable to parse GPX file",
-            isPresented: $showingUnableToParseGPXAlert
-        ) {
-            Button("Ok") {
-                showingUnableToParseGPXAlert = false
-            }
+        .sheet(isPresented: $showingAddRouteSheet) {
+            AddRouteSheet()
         }
     }
     
@@ -92,8 +82,8 @@ struct SheetView: View {
         selectedDetent = .large
     }
     
-    private func showImportingDialog() {
-        importing = true
+    private func showAddRouteSheet() {
+        showingAddRouteSheet = true
     }
     
     private func removeRoutes(at indexSet: IndexSet) {
@@ -102,35 +92,6 @@ struct SheetView: View {
         }
     }
     
-    /// Parses the GPX file at the given URL.
-    private func parseGPXFile(_ result: Result<URL, any Error>) {
-        switch result {
-        case .success(let url):
-            let gotAccess = url.startAccessingSecurityScopedResource()
-            
-            if !gotAccess { return }
-            
-            let parser = GPXParser()
-            
-            do {
-                let points = try parser.parsedGPXFile(at: url)
-                
-                let route = Route(
-                    name: "Route\(UUID().uuidString)",
-                    points: points
-                )
-                
-                modelContext.insert(route)
-            } catch {
-                showingUnableToParseGPXAlert = true
-            }
-            
-            url.stopAccessingSecurityScopedResource()
-            
-        case .failure(let error):
-            showingUnableToParseGPXAlert = true
-        }
-    }
     
     //    private func copyFileToResourcesFolder(_ result: Result<URL, any Error>) {
     //        do {
