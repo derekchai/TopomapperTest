@@ -9,8 +9,9 @@ import Foundation
 
 /// A coordinate in 3-dimensional space, with a latitude, longitude, and
 /// elevation (above sea level).
-struct LocationCoordinate3D {
+struct LocationCoordinate3D: Codable {
     let latitude: Double
     let longitude: Double
+    
     let elevation: Double?
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct SheetView: View {
     
@@ -16,6 +17,10 @@ struct SheetView: View {
     
     
     // MARK: - Internal Variables
+    
+    @Environment(\.modelContext) private var modelContext
+    
+    @Query var routes: [Route]
     
     @State private var searchText = ""
     
@@ -45,9 +50,16 @@ struct SheetView: View {
                     Button("Import GPX", action: showImportingDialog)
                 }
                 
-                ForEach(0...30, id: \.self) { number in
-                    Text("Item \(number)")
+                ForEach(routes) { route in
+                    HStack {
+                        Text(route.name)
+                        
+                        Spacer()
+                        
+                        Text("\(route.points.count) points")
+                    }
                 }
+                .onDelete(perform: removeRoutes)
                 
                 Spacer()
             }
@@ -58,6 +70,9 @@ struct SheetView: View {
             allowedContentTypes: [.xml],
             onCompletion: parseGPXFile
         )
+        .onAppear {
+            print("The modelContext has \(routes.count) routes")
+        }
     }
     
     
@@ -71,6 +86,12 @@ struct SheetView: View {
         importing = true
     }
     
+    private func removeRoutes(at indexSet: IndexSet) {
+        for index in indexSet {
+            modelContext.delete(routes[index])
+        }
+    }
+    
     /// Parses the GPX file at the given URL.
     private func parseGPXFile(_ result: Result<URL, any Error>) {
         switch result {
@@ -79,10 +100,25 @@ struct SheetView: View {
             
             if !gotAccess { return }
             
+            print("Got access!")
+            
             let parser = GPXParser()
             
             do {
                 let points = try parser.parsedGPXFile(at: url)
+                
+                print("Successfully parsed GPX file!")
+                
+                let route = Route(
+                    name: "Route\(UUID().uuidString)",
+                    points: points
+                )
+                
+                print("\(route.name): \(route.points.count) points")
+                
+                modelContext.insert(route)
+                
+                print("Inserted new route into modelContext!")
             } catch {
                 print("Unable to parse GPX: \(error)")
             }
@@ -94,39 +130,39 @@ struct SheetView: View {
         }
     }
     
-//    private func copyFileToResourcesFolder(_ result: Result<URL, any Error>) {
-//        do {
-//            let url = try result.get()
-//            
-//            if url.startAccessingSecurityScopedResource() {
-//                let fileManager = FileManager()
-//                
-//                let paths = FileManager.default.urls(
-//                    for: .documentDirectory,
-//                    in: .userDomainMask
-//                )
-//                
-//                let documentsDirectory: URL = paths[0]
-//                
-//                let destinationURL = documentsDirectory.appendingPathComponent(
-//                    "\(UUID().uuidString).gpx"
-//                )
-//                
-//                print(destinationURL)
-//                
-//                do {
-//                    try fileManager.copyItem(at: url, to: documentsDirectory)
-//                    print("Destination URL: \(destinationURL)")
-//                } catch {
-//                    print("HERE: \(error.localizedDescription)")
-//                }
-//            }
-//            
-//            url.stopAccessingSecurityScopedResource()
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//    }
+    //    private func copyFileToResourcesFolder(_ result: Result<URL, any Error>) {
+    //        do {
+    //            let url = try result.get()
+    //
+    //            if url.startAccessingSecurityScopedResource() {
+    //                let fileManager = FileManager()
+    //
+    //                let paths = FileManager.default.urls(
+    //                    for: .documentDirectory,
+    //                    in: .userDomainMask
+    //                )
+    //
+    //                let documentsDirectory: URL = paths[0]
+    //
+    //                let destinationURL = documentsDirectory.appendingPathComponent(
+    //                    "\(UUID().uuidString).gpx"
+    //                )
+    //
+    //                print(destinationURL)
+    //
+    //                do {
+    //                    try fileManager.copyItem(at: url, to: documentsDirectory)
+    //                    print("Destination URL: \(destinationURL)")
+    //                } catch {
+    //                    print("HERE: \(error.localizedDescription)")
+    //                }
+    //            }
+    //
+    //            url.stopAccessingSecurityScopedResource()
+    //        } catch {
+    //            print(error.localizedDescription)
+    //        }
+    //    }
 }
 
 
