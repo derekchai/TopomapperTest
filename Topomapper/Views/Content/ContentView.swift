@@ -33,7 +33,6 @@ struct ContentView: View {
                 .sheet(isPresented: .constant(true)) {
                     SheetView(selectedDetent: $selectedDetent)
                         .presentationBackground(.ultraThickMaterial)
-                        .padding()
                         .presentationDetents(
                             presentationDetents,
                             selection: $selectedDetent

@@ -31,39 +31,42 @@ struct SheetView: View {
     // MARK: - Body
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
-                SearchField(
-                    searchText: $searchText,
-                    onCancel: setDetentToLarge,
-                    onFocus: setDetentToLarge
-                )
-                .padding(.bottom)
-                
-                HStack {
-                    Text("My Routes")
-                        .font(.headline)
-                        .foregroundStyle(.secondary)
+        VStack {
+            SearchField(
+                searchText: $searchText,
+                onCancel: setDetentToLarge,
+                onFocus: setDetentToLarge
+            )
+            .padding([.leading, .top, .trailing])
+            
+            List {
+                Section {
+                    ForEach(routes) { route in
+                        HStack {
+                            Text(route.name)
+                            
+                            Spacer()
+                            
+                            Text("\(route.points.count) points")
+                        }
+                    }
+                    .onDelete(perform: removeRoutes)
                     
-                    Spacer()
-                    
-                    Button("Import GPX", action: showImportingDialog)
-                }
-                
-                ForEach(routes) { route in
+                } header: {
                     HStack {
-                        Text(route.name)
+                        Text("My Routes")
+                            .font(.headline)
                         
                         Spacer()
                         
-                        Text("\(route.points.count) points")
+                        Button("Import GPX", action: showImportingDialog)
                     }
+                    .textCase(nil)
                 }
-                .onDelete(perform: removeRoutes)
-                
-                Spacer()
-            }
-        }
+            } // List
+            .scrollContentBackground(.hidden)
+            
+        } // VStack
         .ignoresSafeArea()
         .fileImporter(
             isPresented: $importing,
