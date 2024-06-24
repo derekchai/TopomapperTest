@@ -14,8 +14,8 @@ class GPXParser: NSObject, XMLParserDelegate {
     // MARK: - Exposed Methods
     
     /// Parses a GPX file from the given URL, extracting coordinate and
-    /// elevation data into an array of `GPXPoint`s.
-    func parsedGPXFile(at url: URL) throws(GPXParsingError) -> [GPXPoint] {
+    /// elevation data into an array of `LocationCoordinate3D`s.
+    func parsedGPXFile(at url: URL) throws(GPXParsingError) -> [LocationCoordinate3D] {
         guard let parser = XMLParser(contentsOf: url) else {
             throw GPXParsingError.failedToCreateXMLParser
         }
@@ -34,7 +34,7 @@ class GPXParser: NSObject, XMLParserDelegate {
     
     // MARK: - Internal Variables
     
-    private var points: [GPXPoint] = []
+    private var points: [LocationCoordinate3D] = []
     
     private var currentElement: String = ""
     private var currentLatitude: Double?
@@ -92,7 +92,7 @@ class GPXParser: NSObject, XMLParserDelegate {
         guard elementName == "trkpt" else { return }
         
         if let currentLatitude, let currentLongitude {
-            let point = GPXPoint(
+            let point = LocationCoordinate3D(
                 latitude: currentLatitude,
                 longitude: currentLongitude,
                 elevation: currentElevation
