@@ -15,7 +15,10 @@ struct TopomapperApp: App {
             Route.self
         ])
         
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+        let modelConfiguration = ModelConfiguration(
+            schema: schema,
+            isStoredInMemoryOnly: false
+        )
 
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])

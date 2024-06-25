@@ -41,13 +41,7 @@ struct SheetView: View {
             List {
                 Section {
                     ForEach(routes) { route in
-                        HStack {
-                            Text(route.name)
-                            
-                            Spacer()
-                            
-                            Text("\(route.points.count) points")
-                        }
+                        RouteListItem(route: route)
                     }
                     .onDelete(perform: removeRoutes)
                     
