@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import MapKit
 
 struct ContentView: View {
     
@@ -14,6 +15,8 @@ struct ContentView: View {
     // MARK: - Internal Variables
     
     @Environment(\.modelContext) private var modelContext
+    
+    @Environment(ViewModel.self) private var viewModel
     
     @State private var searchText = ""
     
@@ -30,7 +33,13 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            MapViewController()
+//            MapViewController()
+            Map() {
+                if let selectedRoute = viewModel.selectedRoute {
+                    selectedRoute.polyline
+                        .stroke(.blue, style: routeStrokeStyle)
+                }
+            }
                 .ignoresSafeArea()
                 .sheet(isPresented: .constant(true)) {
                     SheetView(selectedDetent: $selectedDetent)
@@ -60,4 +69,5 @@ extension PresentationDetent {
 #Preview {
     ContentView()
         .modelContainer(for: Route.self, inMemory: true)
+        .environment(ViewModel())
 }

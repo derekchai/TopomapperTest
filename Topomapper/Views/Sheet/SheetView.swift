@@ -20,6 +20,8 @@ struct SheetView: View {
     
     @Environment(\.modelContext) private var modelContext
     
+    @Environment(ViewModel.self) private var viewModel
+    
     @Query var routes: [Route]
     
     @State private var searchText = ""
@@ -41,7 +43,12 @@ struct SheetView: View {
             List {
                 Section {
                     ForEach(routes) { route in
-                        RouteListItem(route: route)
+                        RouteListItem(
+                            route: route,
+                            onItemTapGesture: {
+                                updateSelectedRoute(to: route)
+                            }
+                        )
                     }
                     .onDelete(perform: removeRoutes)
                     
@@ -86,6 +93,11 @@ struct SheetView: View {
         }
     }
     
+    private func updateSelectedRoute(to route: Route?) {
+        viewModel.selectedRoute = nil // Slightly hacky way to center camera on feature
+        viewModel.selectedRoute = route
+    }
+    
     
     //    private func copyFileToResourcesFolder(_ result: Result<URL, any Error>) {
     //        do {
@@ -127,4 +139,5 @@ struct SheetView: View {
 
 #Preview {
     SheetView(selectedDetent: .constant(.medium))
+        .environment(ViewModel())
 }

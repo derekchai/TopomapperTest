@@ -10,7 +10,7 @@ import SwiftData
 
 @main
 struct TopomapperApp: App {
-    var sharedModelContainer: ModelContainer = {
+    private var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Route.self
         ])
@@ -26,10 +26,16 @@ struct TopomapperApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    
+    @State private var viewController = ViewModel()
+    
+    
+    // MARK: - Body
 
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(viewController)
         }
         .modelContainer(sharedModelContainer)
     }
