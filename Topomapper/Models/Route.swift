@@ -7,6 +7,8 @@
 
 import Foundation
 import SwiftData
+import MapKit
+import SwiftUI
 
 @Model
 final class Route {
@@ -70,5 +72,13 @@ final class Route {
         }
         
         return totalElevationLoss
+    }
+    
+    /// Returns a `MapPolyline` from the points of this route. 
+    var polyline: MapPolyline {
+        MapPolyline(
+            coordinates: points.map { $0.coordinate },
+            contourStyle: .geodesic
+        )
     }
 }

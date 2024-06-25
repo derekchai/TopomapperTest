@@ -9,6 +9,10 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    
+    
+    // MARK: - Internal Variables
+    
     @Environment(\.modelContext) private var modelContext
     
     @State private var searchText = ""
