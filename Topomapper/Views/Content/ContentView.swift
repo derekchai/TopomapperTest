@@ -55,5 +55,5 @@ extension PresentationDetent {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: Route.self, inMemory: true)
 }
