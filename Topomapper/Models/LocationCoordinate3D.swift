@@ -6,14 +6,22 @@
 //
 
 import Foundation
+import CoreLocation
 
 /// A coordinate in 3-dimensional space, with a latitude, longitude, and
 /// optional elevation (above sea level).
 struct LocationCoordinate3D: Codable {
+    
+    
+    // MARK: - Exposed Properties
+    
     let latitude: Double
     let longitude: Double
     
     let elevation: Double?
+    
+    
+    // MARK: - Computed Properties and Functions
     
     /// Calculates the great-circle distance between two coordinates on a
     /// *spherical approximation* of the Earth using the haversine formula.
@@ -34,5 +42,9 @@ struct LocationCoordinate3D: Codable {
         let distance = 2 * earthRadius * (sqrt((1 - cos(lat2 - lat1) + cos(lat1) * cos(lat2) * (1 - cos(lon2 - lon1))) / 2))
         
         return distance
+    }
+    
+    var coordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 }
