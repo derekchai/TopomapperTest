@@ -17,6 +17,7 @@
 		A88F2F8A2C2A284400A8F239 /* RouteListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F892C2A284400A8F239 /* RouteListItem.swift */; };
 		A88F2F8C2C2A2ACB00A8F239 /* Double+Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F8B2C2A2ACB00A8F239 /* Double+Measurement.swift */; };
 		A88F2F8E2C2A3E9800A8F239 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F8D2C2A3E9800A8F239 /* TrailingIconLabelStyle.swift */; };
+		A88F2F912C2A40AF00A8F239 /* MeasurementFormatStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F902C2A40AF00A8F239 /* MeasurementFormatStyles.swift */; };
 		A894C8552C242F1F00423C92 /* TopomapperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8542C242F1F00423C92 /* TopomapperApp.swift */; };
 		A894C8572C242F1F00423C92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8562C242F1F00423C92 /* ContentView.swift */; };
 		A894C85B2C242F2100423C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A894C85A2C242F2100423C92 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		A88F2F892C2A284400A8F239 /* RouteListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListItem.swift; sourceTree = "<group>"; };
 		A88F2F8B2C2A2ACB00A8F239 /* Double+Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Measurement.swift"; sourceTree = "<group>"; };
 		A88F2F8D2C2A3E9800A8F239 /* TrailingIconLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailingIconLabelStyle.swift; sourceTree = "<group>"; };
+		A88F2F902C2A40AF00A8F239 /* MeasurementFormatStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementFormatStyles.swift; sourceTree = "<group>"; };
 		A894C8512C242F1F00423C92 /* Topomapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Topomapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A894C8542C242F1F00423C92 /* TopomapperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopomapperApp.swift; sourceTree = "<group>"; };
 		A894C8562C242F1F00423C92 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,7 +106,6 @@
 				A88F2F842C29797D00A8F239 /* AddRouteSheet.swift */,
 				A88F2F6C2C2522AB00A8F239 /* SearchField.swift */,
 				A88F2F892C2A284400A8F239 /* RouteListItem.swift */,
-				A88F2F8D2C2A3E9800A8F239 /* TrailingIconLabelStyle.swift */,
 			);
 			path = Sheet;
 			sourceTree = "<group>";
@@ -140,6 +141,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		A88F2F8F2C2A408300A8F239 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				A88F2F8D2C2A3E9800A8F239 /* TrailingIconLabelStyle.swift */,
+				A88F2F902C2A40AF00A8F239 /* MeasurementFormatStyles.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
 		A894C8482C242F1F00423C92 = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +176,7 @@
 				A894C8542C242F1F00423C92 /* TopomapperApp.swift */,
 				A88F2F7F2C28E75200A8F239 /* Views */,
 				A88F2F7C2C27EAD300A8F239 /* Models */,
+				A88F2F8F2C2A408300A8F239 /* Styles */,
 				A894C85A2C242F2100423C92 /* Assets.xcassets */,
 				A88F2F7A2C27EAB100A8F239 /* Resources */,
 				A894C85C2C242F2100423C92 /* Preview Content */,
@@ -325,6 +336,7 @@
 			files = (
 				A88F2F7E2C27EBCD00A8F239 /* Downloader.swift in Sources */,
 				A894C8572C242F1F00423C92 /* ContentView.swift in Sources */,
+				A88F2F912C2A40AF00A8F239 /* MeasurementFormatStyles.swift in Sources */,
 				A88F2F812C28FEEF00A8F239 /* Route.swift in Sources */,
 				A894C8872C250C5C00423C92 /* Key.swift in Sources */,
 				A88F2F8A2C2A284400A8F239 /* RouteListItem.swift in Sources */,

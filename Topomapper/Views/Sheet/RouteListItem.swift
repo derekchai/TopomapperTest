@@ -15,21 +15,6 @@ struct RouteListItem: View {
     var route: Route
     
     
-    // MARK: - Internal Variables
-    
-    private let routeDistanceFormatStyle = Measurement<UnitLength>.FormatStyle(
-        width: .abbreviated,
-        usage: .road,
-        numberFormatStyle: .number.precision(.fractionLength(1...1))
-    )
-    
-    private let elevationChangeFormatStyle = Measurement<UnitLength>.FormatStyle(
-        width: .abbreviated,
-        usage: .asProvided,
-        numberFormatStyle: .number.precision(.fractionLength(0...0))
-    )
-    
-    
     // MARK: - Body
     
     var body: some View {
