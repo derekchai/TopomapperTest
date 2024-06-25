@@ -11,8 +11,6 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     
-    @Query private var items: [Item]
-    
     @State private var searchText = ""
     
     @State private var selectedDetent: PresentationDetent = .small

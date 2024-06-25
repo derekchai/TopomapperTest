@@ -19,7 +19,6 @@
 		A88F2F8E2C2A3E9800A8F239 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F8D2C2A3E9800A8F239 /* TrailingIconLabelStyle.swift */; };
 		A894C8552C242F1F00423C92 /* TopomapperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8542C242F1F00423C92 /* TopomapperApp.swift */; };
 		A894C8572C242F1F00423C92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8562C242F1F00423C92 /* ContentView.swift */; };
-		A894C8592C242F1F00423C92 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8582C242F1F00423C92 /* Item.swift */; };
 		A894C85B2C242F2100423C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A894C85A2C242F2100423C92 /* Assets.xcassets */; };
 		A894C85E2C242F2100423C92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A894C85D2C242F2100423C92 /* Preview Assets.xcassets */; };
 		A894C8682C242F2100423C92 /* TopomapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8672C242F2100423C92 /* TopomapperTests.swift */; };
@@ -59,7 +58,6 @@
 		A894C8512C242F1F00423C92 /* Topomapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Topomapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A894C8542C242F1F00423C92 /* TopomapperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopomapperApp.swift; sourceTree = "<group>"; };
 		A894C8562C242F1F00423C92 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A894C8582C242F1F00423C92 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		A894C85A2C242F2100423C92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A894C85D2C242F2100423C92 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A894C8632C242F2100423C92 /* TopomapperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopomapperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,7 +121,6 @@
 		A88F2F7C2C27EAD300A8F239 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A894C8582C242F1F00423C92 /* Item.swift */,
 				A894C8862C250C5C00423C92 /* Key.swift */,
 				A88F2F6E2C2564F300A8F239 /* GPXParser.swift */,
 				A88F2F772C256E8400A8F239 /* LocationCoordinate3D.swift */,
@@ -330,7 +327,6 @@
 				A894C8572C242F1F00423C92 /* ContentView.swift in Sources */,
 				A88F2F812C28FEEF00A8F239 /* Route.swift in Sources */,
 				A894C8872C250C5C00423C92 /* Key.swift in Sources */,
-				A894C8592C242F1F00423C92 /* Item.swift in Sources */,
 				A88F2F8A2C2A284400A8F239 /* RouteListItem.swift in Sources */,
 				A88F2F782C256E8400A8F239 /* LocationCoordinate3D.swift in Sources */,
 				A894C8552C242F1F00423C92 /* TopomapperApp.swift in Sources */,
