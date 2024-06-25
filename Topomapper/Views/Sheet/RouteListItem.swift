@@ -14,39 +14,48 @@ struct RouteListItem: View {
     
     var route: Route
     
+    var onItemTapGesture: () -> Void = {}
+    
     
     // MARK: - Body
     
     var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(route.name)
-                    .font(.headline)
-                
-                Text(
-                    "\(route.distance.metres.formatted(routeDistanceFormatStyle))"
-                )
-                .font(.subheadline)
-            }
-            
-            Spacer()
-            
-            if let elevationGain = route.elevationGain, let elevationLoss = route.elevationLoss {
-                VStack {
-                    Label(
-                        "\(elevationGain.metres.formatted(elevationChangeFormatStyle))",
-                        systemImage: "arrow.up.right"
-                    )
+        Button {
+            onItemTapGesture()
+        } label: {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(route.name)
+                        .font(.headline)
                     
-                    Label(
-                        "\(elevationLoss.metres.formatted(elevationChangeFormatStyle))",
-                        systemImage: "arrow.down.right"
+                    Text(
+                        "\(route.distance.metres.formatted(routeDistanceFormatStyle))"
                     )
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
                 }
-                .font(.subheadline)
-                .labelStyle(.trailingIcon)
+                
+                Spacer()
+                
+                if let elevationGain = route.elevationGain, let elevationLoss = route.elevationLoss {
+                    VStack {
+                        Label(
+                            "\(elevationGain.metres.formatted(elevationChangeFormatStyle))",
+                            systemImage: "arrow.up.right"
+                        )
+                        
+                        Label(
+                            "\(elevationLoss.metres.formatted(elevationChangeFormatStyle))",
+                            systemImage: "arrow.down.right"
+                        )
+                    }
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .labelStyle(.trailingIcon)
+                }
             }
-        }
+        } // Button label
+        .foregroundStyle(.primary)
     }
 }
 
