@@ -16,7 +16,7 @@ struct LocationCoordinate3D: Codable {
     let elevation: Double?
     
     /// Calculates the great-circle distance between two coordinates on a
-    /// *spherical approximation* of the Earth.
+    /// *spherical approximation* of the Earth using the haversine formula.
     ///
     /// This is less accurate than other methods such as the Vincenty formula,
     /// which represents the Earth as an oblate spheroid and is thus more
