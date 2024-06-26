@@ -15,6 +15,8 @@ struct SheetView: View {
     
     @Binding var selectedDetent: PresentationDetent
     
+    @Binding var selectedMapType: MapType
+    
     
     // MARK: - Internal Variables
     
@@ -36,18 +38,35 @@ struct SheetView: View {
         .large
     ]
     
+    
     // MARK: - Body
     
     var body: some View {
         NavigationStack {
             VStack {
-                SearchField(
-                    searchText: $searchText,
-                    onCancel: setDetentToLarge,
-                    onFocus: setDetentToLarge
-                )
+                HStack(alignment: .center) {
+                    SearchField(
+                        searchText: $searchText,
+                        onCancel: setDetentToLarge,
+                        onFocus: setDetentToLarge
+                    )
+                    
+                    Menu {
+                        Menu {
+                            Picker("Map Type", selection: $selectedMapType) {
+                                ForEach(MapType.allCases) { type in
+                                    Text(type.rawValue)
+                                }
+                            }
+                        } label: {
+                            Label("Map Type", systemImage: "map")
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
+                    }
+                }
                 .padding([.leading, .top, .trailing])
-                
+
                 List {
                     Section {
                         ForEach(routes) { route in
@@ -162,6 +181,11 @@ struct SheetView: View {
 // MARK: - Preview
 
 #Preview {
-    SheetView(selectedDetent: .constant(.medium))
+    @Previewable @State var selectedMapType: MapType = .standard
+    
+    SheetView(
+        selectedDetent: .constant(.medium),
+        selectedMapType: $selectedMapType
+    )
         .environment(ViewModel())
 }

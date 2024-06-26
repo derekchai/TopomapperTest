@@ -24,6 +24,8 @@ struct ContentView: View {
     
     @State private var mapCameraPostion: MapCameraPosition = .automatic
     
+    @State private var selectedMapType: MapType = .standard
+    
     private let presentationDetents: Set<PresentationDetent> = [
         .small,
         .medium,
@@ -35,28 +37,35 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            //            MapViewController()
-            Map(position: $mapCameraPostion) {
-                if let selectedRoute = viewModel.selectedRoute {
-                    selectedRoute.polyline
-                        .stroke(.blue, style: routePathStrokeStyle)
+            if selectedMapType == .standard {
+                Map(position: $mapCameraPostion) {
+                    if let selectedRoute = viewModel.selectedRoute {
+                        selectedRoute.polyline
+                            .stroke(.blue, style: routePathStrokeStyle)
+                    }
                 }
+                .mapStyle(.standard(elevation: .realistic))
+            } else {
+                MapViewController()
+                    .ignoresSafeArea()
             }
-            .mapStyle(.standard(elevation: .realistic))
-            .sheet(isPresented: .constant(true)) {
-                SheetView(selectedDetent: $selectedDetent)
-                    .presentationBackground(.ultraThickMaterial)
-                    .presentationDetents(
-                        presentationDetents,
-                        selection: $selectedDetent
-                    )
-                    .interactiveDismissDisabled()
-                    .presentationBackgroundInteraction(.enabled(upThrough: .large))
-                    .presentationContentInteraction(.automatic)
-            }
-            .onChange(of: viewModel.selectedRoute) {
-                mapCameraPostion = .automatic
-            }
+        }
+        .sheet(isPresented: .constant(true)) {
+            SheetView(
+                selectedDetent: $selectedDetent,
+                selectedMapType: $selectedMapType
+            )
+            .presentationBackground(.ultraThickMaterial)
+            .presentationDetents(
+                presentationDetents,
+                selection: $selectedDetent
+            )
+            .interactiveDismissDisabled()
+            .presentationBackgroundInteraction(.enabled(upThrough: .large))
+            .presentationContentInteraction(.automatic)
+        }
+        .onChange(of: viewModel.selectedRoute) {
+            mapCameraPostion = .automatic
         }
     }
 }

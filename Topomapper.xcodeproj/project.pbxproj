@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8394CB02C2BD25A008FFF0B /* MapType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8394CAF2C2BD25A008FFF0B /* MapType.swift */; };
 		A88F2F692C251D0A00A8F239 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F682C251D0A00A8F239 /* SheetView.swift */; };
 		A88F2F6D2C2522AB00A8F239 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F6C2C2522AB00A8F239 /* SearchField.swift */; };
 		A88F2F6F2C2564F300A8F239 /* GPXParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F6E2C2564F300A8F239 /* GPXParser.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A8394CAF2C2BD25A008FFF0B /* MapType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapType.swift; sourceTree = "<group>"; };
 		A88F2F682C251D0A00A8F239 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		A88F2F6C2C2522AB00A8F239 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		A88F2F6E2C2564F300A8F239 /* GPXParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXParser.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				A88F2F7D2C27EBCD00A8F239 /* Downloader.swift */,
 				A88F2F802C28FEEF00A8F239 /* Route.swift */,
 				A88F2F8B2C2A2ACB00A8F239 /* Double+Measurement.swift */,
+				A8394CAF2C2BD25A008FFF0B /* MapType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				A88F2F8C2C2A2ACB00A8F239 /* Double+Measurement.swift in Sources */,
 				A88F2F6F2C2564F300A8F239 /* GPXParser.swift in Sources */,
 				A88F2F8E2C2A3E9800A8F239 /* TrailingIconLabelStyle.swift in Sources */,
+				A8394CB02C2BD25A008FFF0B /* MapType.swift in Sources */,
 				A88F2F9E2C2BA69900A8F239 /* ElevationChangeFormatStyle.swift in Sources */,
 				A88F2F932C2B83DE00A8F239 /* ViewModel.swift in Sources */,
 				A894C8812C243AF800423C92 /* MapViewController.swift in Sources */,
@@ -541,6 +545,7 @@
 				DEVELOPMENT_TEAM = FR86D5B46K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Topomapper requires your location to show it on the map";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -570,6 +575,7 @@
 				DEVELOPMENT_TEAM = FR86D5B46K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Topomapper requires your location to show it on the map";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
