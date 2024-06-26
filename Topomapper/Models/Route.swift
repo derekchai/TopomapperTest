@@ -67,7 +67,7 @@ final class Route {
         var end: Double?
         
         for i in 0..<self.points.count - 1 {
-            guard (lowerThreshold...(upperThreshold ?? 999999)) ~= averageGrade(from: i, to: i + 1) else {
+            guard (lowerThreshold...(upperThreshold ?? 999999)) ~= abs(averageGrade(from: i, to: i + 1)) else {
                 if start != nil {
                     end = distanceTravelled(to: i)
                     
