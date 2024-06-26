@@ -22,6 +22,8 @@ struct ContentView: View {
     
     @State private var selectedDetent: PresentationDetent = .small
     
+    @State private var mapCameraPostion: MapCameraPosition = .automatic
+    
     private let presentationDetents: Set<PresentationDetent> = [
         .small,
         .medium,
@@ -33,25 +35,28 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-//            MapViewController()
-            Map() {
+            //            MapViewController()
+            Map(position: $mapCameraPostion) {
                 if let selectedRoute = viewModel.selectedRoute {
                     selectedRoute.polyline
                         .stroke(.blue, style: routeStrokeStyle)
                 }
             }
-                .ignoresSafeArea()
-                .sheet(isPresented: .constant(true)) {
-                    SheetView(selectedDetent: $selectedDetent)
-                        .presentationBackground(.ultraThickMaterial)
-                        .presentationDetents(
-                            presentationDetents,
-                            selection: $selectedDetent
-                        )
-                        .interactiveDismissDisabled()
-                        .presentationBackgroundInteraction(.enabled(upThrough: .large))
-                        .presentationContentInteraction(.automatic)
-                }
+            .mapStyle(.standard(elevation: .realistic))
+            .sheet(isPresented: .constant(true)) {
+                SheetView(selectedDetent: $selectedDetent)
+                    .presentationBackground(.ultraThickMaterial)
+                    .presentationDetents(
+                        presentationDetents,
+                        selection: $selectedDetent
+                    )
+                    .interactiveDismissDisabled()
+                    .presentationBackgroundInteraction(.enabled(upThrough: .large))
+                    .presentationContentInteraction(.automatic)
+            }
+            .onChange(of: viewModel.selectedRoute) {
+                mapCameraPostion = .automatic
+            }
         }
     }
 }
