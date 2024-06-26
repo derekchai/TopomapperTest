@@ -14,14 +14,16 @@ struct RouteListItem: View {
     
     var route: Route
     
-    var onItemTapGesture: () -> Void = {}
+    var onItemTapGesture: (() -> Void)?
     
     
     // MARK: - Body
     
     var body: some View {
         Button {
-            onItemTapGesture()
+            if let onItemTapGesture {
+                onItemTapGesture()
+            }
         } label: {
             HStack {
                 VStack(alignment: .leading) {
