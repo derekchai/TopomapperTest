@@ -28,7 +28,7 @@ final class Route {
     }
     
     
-    // MARK: - Computed Properties
+    // MARK: - Computed Properties and Functions
     
     var length: Double {
         var totalDistance: Double = 0
@@ -38,6 +38,39 @@ final class Route {
         }
         
         return totalDistance
+    }
+    
+    func distanceTravelled(from index₁: Int = 0, to index₂: Int) -> Double {
+        var totalDistance: Double = 0
+        
+        for i in index₁..<index₂ {
+            totalDistance += points[i].haversineDistance(from: points[i + 1])
+        }
+        
+        return totalDistance
+    }
+    
+    /// Returns an array of (elevation, distance) pairs.
+    /// - Parameter simplified: If true, returns a simplified, shorter array which
+    /// does not use every single point.
+    func getElevationOverDistance(simplified: Bool = true) async -> [(elevation: Double, distance: Double)] {
+        guard elevationGain != nil else { return [] }
+        
+        var elevations: [Double] = []
+        
+        var distances: [Double] = []
+        
+        var strideAmount = Int(self.points.count / 300)
+        
+        if strideAmount <= 0 { strideAmount = 1 }
+        
+        for i in stride(from: 0, to: self.points.count, by: simplified ? strideAmount : 1) {
+            distances.append(distanceTravelled(to: i))
+            
+            elevations.append(self.points[i].elevation!)
+        }
+        
+        return Array(zip(elevations, distances))
     }
     
     /// Returns the total vertical elevation gain over the route.

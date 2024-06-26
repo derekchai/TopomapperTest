@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Charts
 
 struct RouteDetailSheetView: View {
     
@@ -19,6 +20,11 @@ struct RouteDetailSheetView: View {
     
     @Environment(\.dismiss) private var dismiss
     
+    @State private var elevationOverDistance: [(elevation: Double, distance: Double)] = []
+    
+    @State private var loadingElevationProfile = true
+    
+    private let elevationProfileChartHeight: CGFloat = 300
     
     // MARK: - Body
     
@@ -40,7 +46,7 @@ struct RouteDetailSheetView: View {
                     .font(.title2)
                     .foregroundStyle(.secondary)
                 }
-
+                
                 // MARK: Statistics
                 HStack {
                     Statistic(
@@ -67,11 +73,59 @@ struct RouteDetailSheetView: View {
                         )
                     }
                 } // HStack
+                .padding(.bottom)
+                
+                Text("Elevation Profile")
+                    .font(.headline)
+                    .foregroundStyle(.secondary)
+                
+                // MARK: Loading Elevation Profile Indicator
+                if loadingElevationProfile {
+                    HStack(alignment: .center) {
+                        Spacer()
+                        
+                        ProgressView {
+                            Text("Loading elevation profile...")
+                        }
+                        
+                        Spacer()
+                    }
+                    .frame(height: elevationProfileChartHeight)
+                    
+                // MARK: Elevation Profile Chart
+                } else {
+                    Chart {
+                        LinePlot(
+                            elevationOverDistance,
+                            x: .value("Distance", \.distance),
+                            y: .value("Elevation", \.elevation)
+                        )
+                        .lineStyle(
+                            StrokeStyle(
+                                lineWidth: 3,
+                                lineCap: .round,
+                                lineJoin: .round
+                            )
+                        )
+                        .opacity(0.8)
+                    }
+                    .frame(height: elevationProfileChartHeight)
+                    .chartXAxisLabel("m")
+                    .chartYAxisLabel("m")
+                    .chartXScale(domain: 0...route.length)
+                }
                 
                 Spacer()
             }
         }
         .navigationTitle(route.name)
+        .onAppear {
+            Task {
+                elevationOverDistance = await route
+                    .getElevationOverDistance(simplified: true)
+                loadingElevationProfile = false
+            }
+        }
     }
 }
 
