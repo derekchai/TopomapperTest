@@ -26,8 +26,6 @@ struct RouteDetailView: View {
     
     @State private var loadingElevationProfile = true
     
-    private let elevationProfileChartHeight: CGFloat = 300
-    
     
     // MARK: - Body
     
@@ -35,119 +33,21 @@ struct RouteDetailView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading) {
+                    header
                     
-                    // MARK: Header
-                    HStack(alignment: .center) {
-                        Text(route.name)
-                            .font(.title)
-                            .fontWeight(.bold)
-                        
-                        Spacer()
-                        
-                        Button("", systemImage: "xmark.circle.fill") {
-                            dismiss()
-                        }
-                        .font(.title2)
-                        .foregroundStyle(.secondary)
-                    }
-                    
-                    // MARK: Statistics
-                    HStack {
-                        Statistic(
-                            label: "Length",
-                            systemImageName: "point.topleft.down.to.point.bottomright.curvepath.fill",
-                            value: route.length.metres.formatted(.routeLength)
-                        )
-                        
-                        Divider()
-                        
-                        Statistic(
-                            label: "Elev. Gain",
-                            systemImageName: "arrow.up.forward",
-                            value: route.elevationGain.metres.formatted(.elevationChange)
-                        )
-                        
-                        Divider()
-                        
-                        Statistic(
-                            label: "Elev. Loss",
-                            systemImageName: "arrow.down.forward",
-                            value: route.elevationLoss.metres.formatted(.elevationChange)
-                        )
-                        
-                    } // HStack
-                    .padding(.bottom)
+                    statistics
                     
                     Text("Elevation Profile")
                         .font(.headline)
                         .foregroundStyle(.secondary)
                     
-                    // MARK: Loading Elevation Profile Indicator
                     if loadingElevationProfile {
-                        HStack(alignment: .center) {
-                            Spacer()
-                            
-                            ProgressView {
-                                Text("Loading elevation profile...")
-                            }
-                            
-                            Spacer()
-                        }
-                        .frame(height: elevationProfileChartHeight)
-                        
-                        // MARK: Elevation Profile Chart
+                        elevationProfileLoading
                     } else {
-                        Chart {
-                            LinePlot(
-                                elevationOverDistance,
-                                x: .value("Distance", \.distance),
-                                y: .value("Elevation", \.elevation)
-                            )
-                            .lineStyle(
-                                StrokeStyle(
-                                    lineWidth: 3,
-                                    lineCap: .round,
-                                    lineJoin: .round
-                                )
-                            )
-                            .opacity(0.8)
-                            
-                            ForEach(
-                                route
-                                    .significantGradeBoundaries(
-                                        lowerThreshold: 0.1,
-                                        upperThreshold: 0.2
-                                    )
-                            ) { boundary in
-                                RectangleMark(
-                                    xStart: .value("", boundary.startDistance),
-                                    xEnd: .value("", boundary.endDistance)
-                                )
-                                .foregroundStyle(.yellow)
-                                .opacity(0.2)
-                            }
-                            
-                            ForEach(
-                                route
-                                    .significantGradeBoundaries(
-                                        lowerThreshold: 0.2
-                                    )
-                            ) { boundary in
-                                RectangleMark(
-                                    xStart: .value("", boundary.startDistance),
-                                    xEnd: .value("", boundary.endDistance)
-                                )
-                                .foregroundStyle(.red)
-                                .opacity(0.2)
-                            }
-                            
-                            
-                            
-                        }
-                        .frame(height: elevationProfileChartHeight)
-                        .chartXAxisLabel("m")
-                        .chartYAxisLabel("m")
-                        .chartXScale(domain: 0...route.length)
+                        ElevationProfileChart(
+                            elevationOverDistance: elevationOverDistance,
+                            route: route    
+                        )
                     }
                     
                     // MARK: Itinerary
@@ -171,6 +71,66 @@ struct RouteDetailView: View {
             }
         } // NavigationStack
     } // body
+    
+    
+    // MARK: - Components
+    
+    private var header: some View {
+        HStack(alignment: .center) {
+            Text(route.name)
+                .font(.title)
+                .fontWeight(.bold)
+            
+            Spacer()
+            
+            Button("", systemImage: "xmark.circle.fill") {
+                dismiss()
+            }
+            .font(.title2)
+            .foregroundStyle(.secondary)
+        }
+    }
+    
+    private var statistics: some View {
+        HStack {
+            Statistic(
+                label: "Length",
+                systemImageName: "point.topleft.down.to.point.bottomright.curvepath.fill",
+                value: route.length.metres.formatted(.routeLength)
+            )
+            
+            Divider()
+            
+            Statistic(
+                label: "Elev. Gain",
+                systemImageName: "arrow.up.forward",
+                value: route.elevationGain.metres.formatted(.elevationChange)
+            )
+            
+            Divider()
+            
+            Statistic(
+                label: "Elev. Loss",
+                systemImageName: "arrow.down.forward",
+                value: route.elevationLoss.metres.formatted(.elevationChange)
+            )
+            
+        } // HStack
+        .padding(.bottom)
+    }
+    
+    private var elevationProfileLoading: some View {
+        HStack(alignment: .center) {
+            Spacer()
+            
+            ProgressView {
+                Text("Loading elevation profile...")
+            }
+            
+            Spacer()
+        }
+        .frame(height: 300)
+    }
     
     
     // MARK: - Actions
