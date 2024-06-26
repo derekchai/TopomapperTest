@@ -54,6 +54,8 @@ struct MapViewController: UIViewControllerRepresentable {
         mapView.showsCompass = true
         mapView.showsScale = true
         
+        mapView.overrideUserInterfaceStyle = .light
+        
         updateRoutePath(mapView: mapView)
         
         let overlay = MKTileOverlay(
