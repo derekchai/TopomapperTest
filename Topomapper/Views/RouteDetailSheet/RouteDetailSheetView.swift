@@ -92,7 +92,7 @@ struct RouteDetailSheetView: View {
                     }
                     .frame(height: elevationProfileChartHeight)
                     
-                    // MARK: Elevation Profile Chart
+                // MARK: Elevation Profile Chart
                 } else {
                     Chart {
                         LinePlot(
@@ -120,7 +120,7 @@ struct RouteDetailSheetView: View {
                                 xStart: .value("", boundary.startDistance),
                                 xEnd: .value("", boundary.endDistance)
                             )
-                            .foregroundStyle(.orange)
+                            .foregroundStyle(.yellow)
                             .opacity(0.2)
                         }
                         
@@ -146,6 +146,11 @@ struct RouteDetailSheetView: View {
                     .chartYAxisLabel("m")
                     .chartXScale(domain: 0...route.length)
                 }
+                
+                // MARK: Itinerary
+                Text("Itinerary")
+                    .font(.headline)
+                    .foregroundStyle(.secondary)
                 
                 Spacer()
             }
