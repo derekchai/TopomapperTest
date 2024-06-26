@@ -84,6 +84,7 @@ struct MapViewController: UIViewControllerRepresentable {
                 count: selectedRoute.points.count
             )
             
+            // Remove existing MKPolyline overlays.
             for overlay in mapView.overlays {
                 if overlay is MKPolyline {
                     mapView.removeOverlay(overlay)
@@ -91,6 +92,17 @@ struct MapViewController: UIViewControllerRepresentable {
             }
             
             mapView.addOverlay(polyline, level: .aboveRoads)
+            
+            let boundingMapRect = polyline.boundingMapRect
+            
+            let edgePadding = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
+            
+            // Zoom in on polyline.
+            mapView.setVisibleMapRect(
+                boundingMapRect,
+                edgePadding: edgePadding,
+                animated: true
+            )
         }
     }
 }
