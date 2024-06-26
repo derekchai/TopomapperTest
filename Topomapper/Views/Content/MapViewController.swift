@@ -97,7 +97,25 @@ struct MapViewController: UIViewControllerRepresentable {
             
             let boundingMapRect = mainPolyline.boundingMapRect
             
-            let edgePadding = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
+            let screenSize = UIScreen.main.bounds
+            
+            var bottomPadding: CGFloat
+            
+            switch viewModel.selectedDetent {
+            case .small:
+                bottomPadding = 0.1 * screenSize.height + 50
+            case .medium:
+                bottomPadding = 0.5 * screenSize.height + 50
+            default:
+                bottomPadding = 50
+            }
+            
+            let edgePadding = UIEdgeInsets(
+                top: 50,
+                left: 50,
+                bottom: bottomPadding,
+                right: 50
+            )
             
             // Zoom in on polyline.
             mapView.setVisibleMapRect(
