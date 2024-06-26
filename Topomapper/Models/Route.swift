@@ -115,3 +115,12 @@ final class Route {
         )
     }
 }
+
+extension CLLocationCoordinate2D {
+    init(from locationCoordinate3D: LocationCoordinate3D) {
+        self.init(
+            latitude: locationCoordinate3D.latitude,
+            longitude: locationCoordinate3D
+                .longitude)
+    }
+}

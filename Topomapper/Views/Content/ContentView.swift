@@ -46,7 +46,7 @@ struct ContentView: View {
                 }
                 .mapStyle(.standard(elevation: .realistic))
             } else {
-                MapViewController()
+                MapViewController(viewModel: viewModel)
                     .ignoresSafeArea()
             }
         }
