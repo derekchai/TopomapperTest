@@ -56,29 +56,32 @@ struct MapViewController: UIViewControllerRepresentable {
         
         mapView.overrideUserInterfaceStyle = .light
         
-        updateRoutePath(mapView: mapView)
+        updateRoutePath(on: mapView)
         
-        let overlay = MKTileOverlay(
-            urlTemplate: MapViewController.topo50MapURLTemplate
-        )
-        overlay.canReplaceMapContent = false
-        mapView.addOverlay(overlay, level: .aboveRoads)
-        
+        addTopo50MapOverlay(on: mapView)
         
         viewController.view.addSubview(mapView)
         return viewController
     }
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        updateRoutePath(mapView: uiViewController.view.subviews.first as! MKMapView)
+        updateRoutePath(on: uiViewController.view.subviews.first as! MKMapView)
     }
     
     
     // MARK: - Internal Functions
     
+    private func addTopo50MapOverlay(on mapView: MKMapView) {
+        let overlay = MKTileOverlay(
+            urlTemplate: MapViewController.topo50MapURLTemplate
+        )
+        overlay.canReplaceMapContent = false
+        mapView.addOverlay(overlay, level: .aboveRoads)
+    }
+    
     /// Removes any existing `MKPolyline` overlays and draws an `MKPolyline`
     /// overlay of the currently selected Route's path.
-    private func updateRoutePath(mapView: MKMapView) {
+    private func updateRoutePath(on mapView: MKMapView) {
         if let selectedRoute = viewModel.selectedRoute {
             let mainPolyline = MKPolyline(
                 coordinates: selectedRoute.points
