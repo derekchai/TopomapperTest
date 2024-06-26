@@ -30,7 +30,7 @@ final class Route {
     
     // MARK: - Computed Properties
     
-    var distance: Double {
+    var length: Double {
         var totalDistance: Double = 0
         
         for i in 0..<points.count - 1 {

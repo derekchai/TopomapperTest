@@ -39,7 +39,7 @@ struct ContentView: View {
             Map(position: $mapCameraPostion) {
                 if let selectedRoute = viewModel.selectedRoute {
                     selectedRoute.polyline
-                        .stroke(.blue, style: routeStrokeStyle)
+                        .stroke(.blue, style: routePathStrokeStyle)
                 }
             }
             .mapStyle(.standard(elevation: .realistic))

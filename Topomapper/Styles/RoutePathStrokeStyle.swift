@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import MapKit
 
-let routeStrokeStyle = StrokeStyle(
+let routePathStrokeStyle = StrokeStyle(
     lineWidth: 5,
     lineCap: .round,
     lineJoin: .round

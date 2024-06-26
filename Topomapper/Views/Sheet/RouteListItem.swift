@@ -31,7 +31,7 @@ struct RouteListItem: View {
                         .font(.headline)
                     
                     Text(
-                        "\(route.distance.metres.formatted(routeDistanceFormatStyle))"
+                        "\(route.length.metres.formatted(.routeLength))"
                     )
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
@@ -42,12 +42,12 @@ struct RouteListItem: View {
                 if let elevationGain = route.elevationGain, let elevationLoss = route.elevationLoss {
                     VStack {
                         Label(
-                            "\(elevationGain.metres.formatted(elevationChangeFormatStyle))",
+                            "\(elevationGain.metres.formatted(.elevationChange))",
                             systemImage: "arrow.up.right"
                         )
                         
                         Label(
-                            "\(elevationLoss.metres.formatted(elevationChangeFormatStyle))",
+                            "\(elevationLoss.metres.formatted(.elevationChange))",
                             systemImage: "arrow.down.right"
                         )
                     }

@@ -28,51 +28,75 @@ struct SheetView: View {
     
     @State private var showingAddRouteSheet = false
     
+    @State private var showingRouteDetailSheet = false
+    
+    private let presentationDetents: Set<PresentationDetent> = [
+        .small,
+        .medium,
+        .large
+    ]
     
     // MARK: - Body
     
     var body: some View {
-        VStack {
-            SearchField(
-                searchText: $searchText,
-                onCancel: setDetentToLarge,
-                onFocus: setDetentToLarge
-            )
-            .padding([.leading, .top, .trailing])
-            
-            List {
-                Section {
-                    ForEach(routes) { route in
-                        RouteListItem(
-                            route: route,
-                            onItemTapGesture: {
-                                updateSelectedRoute(to: route)
-                            }
-                        )
-                    }
-                    .onDelete(perform: removeRoutes)
-                    
-                } header: {
-                    HStack {
-                        Text("My Routes")
-                            .font(.headline)
+        NavigationStack {
+            VStack {
+                SearchField(
+                    searchText: $searchText,
+                    onCancel: setDetentToLarge,
+                    onFocus: setDetentToLarge
+                )
+                .padding([.leading, .top, .trailing])
+                
+                List {
+                    Section {
+                        ForEach(routes) { route in
+                                RouteListItem(
+                                    route: route,
+                                    onItemTapGesture: {
+                                        updateSelectedRoute(to: route)
+                                        showingRouteDetailSheet = true
+                                    }
+                                )
+                        }
+                        .onDelete(perform: removeRoutes)
                         
-                        Spacer()
-                        
-                        Button(
-                            "New Route",
-                            action: showAddRouteSheet
-                        )
+                    } header: {
+                        HStack {
+                            Text("My Routes")
+                                .font(.headline)
+                            
+                            Spacer()
+                            
+                            Button(
+                                "New Route",
+                                action: showAddRouteSheet
+                            )
+                        }
+                        .textCase(nil)
                     }
-                    .textCase(nil)
-                }
-            } // List
-            .scrollContentBackground(.hidden)
-            
-        } // VStack
+                } // List
+                .scrollContentBackground(.hidden)
+                
+            } // VStack
+        }
         .ignoresSafeArea()
         .sheet(isPresented: $showingAddRouteSheet) {
             AddRouteSheet()
+        }
+        .sheet(isPresented: $showingRouteDetailSheet) {
+            if let selectedRoute = viewModel.selectedRoute {
+                RouteDetailSheetView(route: selectedRoute)
+                    .padding()
+                    .presentationBackground(.ultraThickMaterial)
+                    .presentationDetents(
+                        presentationDetents,
+                        selection: $selectedDetent
+                    )
+                    .interactiveDismissDisabled()
+                    .presentationBackgroundInteraction(.enabled(upThrough: .large))
+                    .presentationContentInteraction(.automatic)
+            }
         }
     }
     
