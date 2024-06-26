@@ -39,22 +39,20 @@ struct RouteListItem: View {
                 
                 Spacer()
                 
-                if let elevationGain = route.elevationGain, let elevationLoss = route.elevationLoss {
-                    VStack {
-                        Label(
-                            "\(elevationGain.metres.formatted(.elevationChange))",
-                            systemImage: "arrow.up.right"
-                        )
-                        
-                        Label(
-                            "\(elevationLoss.metres.formatted(.elevationChange))",
-                            systemImage: "arrow.down.right"
-                        )
-                    }
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .labelStyle(.trailingIcon)
+                VStack {
+                    Label(
+                        "\(route.elevationGain.metres.formatted(.elevationChange))",
+                        systemImage: "arrow.up.right"
+                    )
+                    
+                    Label(
+                        "\(route.elevationLoss.metres.formatted(.elevationChange))",
+                        systemImage: "arrow.down.right"
+                    )
                 }
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .labelStyle(.trailingIcon)
             }
         } // Button label
         .foregroundStyle(.primary)

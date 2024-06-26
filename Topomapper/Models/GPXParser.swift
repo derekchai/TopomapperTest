@@ -91,7 +91,7 @@ class GPXParser: NSObject, XMLParserDelegate {
     ) {
         guard elementName == "trkpt" else { return }
         
-        if let currentLatitude, let currentLongitude {
+        if let currentLatitude, let currentLongitude, let currentElevation {
             let point = LocationCoordinate3D(
                 latitude: currentLatitude,
                 longitude: currentLongitude,

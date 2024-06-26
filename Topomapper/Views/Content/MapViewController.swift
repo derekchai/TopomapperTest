@@ -80,7 +80,7 @@ struct MapViewController: UIViewControllerRepresentable {
     /// overlay of the currently selected Route's path.
     private func updateRoutePath(mapView: MKMapView) {
         if let selectedRoute = viewModel.selectedRoute {
-            let polyline = MKPolyline(
+            let mainPolyline = MKPolyline(
                 coordinates: selectedRoute.points
                     .map { CLLocationCoordinate2D.init(from: $0) },
                 count: selectedRoute.points.count
@@ -93,9 +93,9 @@ struct MapViewController: UIViewControllerRepresentable {
                 }
             }
             
-            mapView.addOverlay(polyline, level: .aboveRoads)
+            mapView.addOverlay(mainPolyline, level: .aboveRoads)
             
-            let boundingMapRect = polyline.boundingMapRect
+            let boundingMapRect = mainPolyline.boundingMapRect
             
             let edgePadding = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
             

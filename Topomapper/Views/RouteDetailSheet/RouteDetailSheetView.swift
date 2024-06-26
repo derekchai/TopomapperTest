@@ -26,6 +26,7 @@ struct RouteDetailSheetView: View {
     
     private let elevationProfileChartHeight: CGFloat = 300
     
+    
     // MARK: - Body
     
     var body: some View {
@@ -33,7 +34,7 @@ struct RouteDetailSheetView: View {
             VStack(alignment: .leading) {
                 
                 // MARK: Header
-                HStack(alignment: .top) {
+                HStack(alignment: .center) {
                     Text(route.name)
                         .font(.title)
                         .fontWeight(.bold)
@@ -57,21 +58,20 @@ struct RouteDetailSheetView: View {
                     
                     Divider()
                     
-                    if let elevationGain = route.elevationGain, let elevationLoss = route.elevationLoss {
-                        Statistic(
-                            label: "Elev. Gain",
-                            systemImageName: "arrow.up.forward",
-                            value: elevationGain.metres.formatted(.elevationChange)
-                        )
-                        
-                        Divider()
-                        
-                        Statistic(
-                            label: "Elev. Loss",
-                            systemImageName: "arrow.down.forward",
-                            value: elevationLoss.metres.formatted(.elevationChange)
-                        )
-                    }
+                    Statistic(
+                        label: "Elev. Gain",
+                        systemImageName: "arrow.up.forward",
+                        value: route.elevationGain.metres.formatted(.elevationChange)
+                    )
+                    
+                    Divider()
+                    
+                    Statistic(
+                        label: "Elev. Loss",
+                        systemImageName: "arrow.down.forward",
+                        value: route.elevationLoss.metres.formatted(.elevationChange)
+                    )
+                    
                 } // HStack
                 .padding(.bottom)
                 
@@ -92,7 +92,7 @@ struct RouteDetailSheetView: View {
                     }
                     .frame(height: elevationProfileChartHeight)
                     
-                // MARK: Elevation Profile Chart
+                    // MARK: Elevation Profile Chart
                 } else {
                     Chart {
                         LinePlot(
@@ -108,6 +108,38 @@ struct RouteDetailSheetView: View {
                             )
                         )
                         .opacity(0.8)
+                        
+                        ForEach(
+                            route
+                                .significantGradeBoundaries(
+                                    lowerThreshold: 0.1,
+                                    upperThreshold: 0.2
+                                )
+                        ) { boundary in
+                            RectangleMark(
+                                xStart: .value("", boundary.startDistance),
+                                xEnd: .value("", boundary.endDistance)
+                            )
+                            .foregroundStyle(.orange)
+                            .opacity(0.2)
+                        }
+                        
+                        ForEach(
+                            route
+                                .significantGradeBoundaries(
+                                    lowerThreshold: 0.2
+                                )
+                        ) { boundary in
+                            RectangleMark(
+                                xStart: .value("", boundary.startDistance),
+                                xEnd: .value("", boundary.endDistance)
+                            )
+                            .foregroundStyle(.red)
+                            .opacity(0.2)
+                        }
+                        
+                        
+                        
                     }
                     .frame(height: elevationProfileChartHeight)
                     .chartXAxisLabel("m")
@@ -122,7 +154,7 @@ struct RouteDetailSheetView: View {
         .onAppear {
             Task {
                 elevationOverDistance = await route
-                    .getElevationOverDistance(simplified: true)
+                    .elevationOverDistance(simplified: true)
                 loadingElevationProfile = false
             }
         }

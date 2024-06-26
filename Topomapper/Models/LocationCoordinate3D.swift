@@ -18,7 +18,7 @@ struct LocationCoordinate3D: Codable {
     let latitude: Double
     let longitude: Double
     
-    let elevation: Double?
+    let elevation: Double
     
     
     // MARK: - Computed Properties and Functions
