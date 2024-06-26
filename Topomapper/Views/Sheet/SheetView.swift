@@ -30,8 +30,6 @@ struct SheetView: View {
     
     @State private var showingAddRouteSheet = false
     
-    @State private var showingRouteDetailSheet = false
-    
     private let presentationDetents: Set<PresentationDetent> = [
         .small,
         .medium,
@@ -70,13 +68,11 @@ struct SheetView: View {
                 List {
                     Section {
                         ForEach(routes) { route in
-                                RouteListItem(
-                                    route: route,
-                                    onItemTapGesture: {
-                                        updateSelectedRoute(to: route)
-                                        showingRouteDetailSheet = true
-                                    }
-                                )
+                            NavigationLink {
+                                RouteDetailView(route: route)
+                            } label: {
+                                RouteListItem(route: route)
+                            }
                         }
                         .onDelete(perform: removeRoutes)
                         
@@ -103,20 +99,6 @@ struct SheetView: View {
         .sheet(isPresented: $showingAddRouteSheet) {
             AddRouteSheet()
         }
-        .sheet(isPresented: $showingRouteDetailSheet) {
-            if let selectedRoute = viewModel.selectedRoute {
-                RouteDetailSheetView(route: selectedRoute)
-                    .padding()
-                    .presentationBackground(.ultraThickMaterial)
-                    .presentationDetents(
-                        presentationDetents,
-                        selection: $selectedDetent
-                    )
-                    .interactiveDismissDisabled()
-                    .presentationBackgroundInteraction(.enabled(upThrough: .large))
-                    .presentationContentInteraction(.automatic)
-            }
-        }
     }
     
     
@@ -134,11 +116,6 @@ struct SheetView: View {
         for index in indexSet {
             modelContext.delete(routes[index])
         }
-    }
-    
-    private func updateSelectedRoute(to route: Route?) {
-        viewModel.selectedRoute = nil // Slightly hacky way to center camera on feature
-        viewModel.selectedRoute = route
     }
     
     
