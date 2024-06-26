@@ -11,16 +11,14 @@ import MapKit
 
 struct ContentView: View {
     
+    @Bindable var viewModel: ViewModel
+    
     
     // MARK: - Internal Variables
     
     @Environment(\.modelContext) private var modelContext
     
-    @Environment(ViewModel.self) private var viewModel
-    
     @State private var searchText = ""
-    
-    @State private var selectedDetent: PresentationDetent = .small
     
     @State private var mapCameraPostion: MapCameraPosition = .automatic
     
@@ -52,13 +50,13 @@ struct ContentView: View {
         }
         .sheet(isPresented: .constant(true)) {
             SheetView(
-                selectedDetent: $selectedDetent,
+                selectedDetent: $viewModel.selectedDetent,
                 selectedMapType: $selectedMapType
             )
             .presentationBackground(.ultraThickMaterial)
             .presentationDetents(
                 presentationDetents,
-                selection: $selectedDetent
+                selection: $viewModel.selectedDetent
             )
             .interactiveDismissDisabled()
             .presentationBackgroundInteraction(.enabled(upThrough: .large))
@@ -81,7 +79,7 @@ extension PresentationDetent {
 // MARK: - Preview
 
 #Preview {
-    ContentView()
+    ContentView(viewModel: ViewModel())
         .modelContainer(for: Route.self, inMemory: true)
         .environment(ViewModel())
 }

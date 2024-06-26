@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
 
 @Observable
 class ViewModel {
     var selectedRoute: Route? = nil
+    
+    var selectedDetent: PresentationDetent = .small
 }
