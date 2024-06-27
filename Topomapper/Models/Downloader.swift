@@ -74,7 +74,7 @@ class Downloader {
                 downloadTaskError = DownloadingError.failedToMoveFile
                 return
             }
-        } // URLSession.shared.downloadTask()
+        }  // URLSession.shared.downloadTask()
         
         if let downloadTaskError {
             throw downloadTaskError

@@ -54,7 +54,7 @@ struct RouteListItem: View {
                 .foregroundStyle(.secondary)
                 .labelStyle(.trailingIcon)
             }
-        } // Button label
+        }  // Button label
         .foregroundStyle(.primary)
     }
 }

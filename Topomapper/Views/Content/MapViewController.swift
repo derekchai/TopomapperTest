@@ -39,7 +39,7 @@ struct MapViewController: UIViewControllerRepresentable {
     func makeCoordinator() -> Coordinator {
         Coordinator(parent: self)
     }
-    
+
     
     // MARK: - UIViewController
     
@@ -60,16 +60,35 @@ struct MapViewController: UIViewControllerRepresentable {
         
         addTopo50MapOverlay(on: mapView)
         
+        let tapGestureRecognizer = UITapGestureRecognizer(
+            target: context.coordinator,
+            action: #selector(context.coordinator.handleMapTap)
+        )
+        
+        mapView.addGestureRecognizer(tapGestureRecognizer)
+        
         viewController.view.addSubview(mapView)
+        
         return viewController
     }
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        updateRoutePath(on: uiViewController.view.subviews.first as! MKMapView)
+        let mapView = uiViewController.view.subviews.first as! MKMapView
+        updateRoutePath(on: mapView)
     }
     
     
     // MARK: - Internal Functions
+    
+    /// Adds a `UITapGestureRecognizer` onto `mapView`.
+    private func addMapTapGestureRecognizer(on mapView: MKMapView) {
+        let tapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(MapViewController.Coordinator.handleMapTap)
+        )
+        
+        mapView.addGestureRecognizer(tapGestureRecognizer)
+    }
     
     private func addTopo50MapOverlay(on mapView: MKMapView) {
         let overlay = MKTileOverlay(
@@ -130,25 +149,3 @@ struct MapViewController: UIViewControllerRepresentable {
     }
 }
 
-
-// MARK: - Delegate Methods
-
-extension MapViewController.Coordinator {
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        switch overlay {
-        case let tileOverlay as MKTileOverlay:
-            return MKTileOverlayRenderer(tileOverlay: tileOverlay)
-        case let polyline as MKPolyline:
-            let renderer = MKPolylineRenderer(polyline: polyline)
-            
-            renderer.strokeColor = .systemBlue
-            renderer.lineWidth = 5
-            renderer.lineCap = .round
-            renderer.lineJoin = .round
-            
-            return renderer
-        default:
-            fatalError("Unexpected MKOverlay type")
-        }
-    }
-}

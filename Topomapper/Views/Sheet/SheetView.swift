@@ -90,10 +90,10 @@ struct SheetView: View {
                         }
                         .textCase(nil)
                     }
-                } // List
+                }  // List
                 .scrollContentBackground(.hidden)
                 
-            } // VStack
+            }  // VStack
         }
         .ignoresSafeArea()
         .sheet(isPresented: $showingAddRouteSheet) {

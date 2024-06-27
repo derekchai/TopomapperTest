@@ -57,7 +57,7 @@ struct RouteDetailView: View {
                     
                     Spacer()
                 }
-            } // ScrollView
+            }  // ScrollView
             .padding()
             .toolbarVisibility(.hidden, for: .navigationBar)
             .onAppear {
@@ -69,8 +69,8 @@ struct RouteDetailView: View {
                     loadingElevationProfile = false
                 }
             }
-        } // NavigationStack
-    } // body
+        }  // NavigationStack
+    }  // body
     
     
     // MARK: - Components
@@ -115,7 +115,7 @@ struct RouteDetailView: View {
                 value: route.elevationLoss.metres.formatted(.elevationChange)
             )
             
-        } // HStack
+        }  // HStack
         .padding(.bottom)
     }
     

@@ -57,7 +57,7 @@ struct AddRouteSheet: View {
                         .disabled(routeName.isEmpty || routePoints.isEmpty)
                 }
             }
-        } // NavigationStack
+        }  // NavigationStack
         .fileImporter(
             isPresented: $showingImportDialog,
             allowedContentTypes: [.xml],
@@ -71,7 +71,7 @@ struct AddRouteSheet: View {
                 showingUnableToParseGPXAlert = false
             }
         }
-    } // body
+    }  // body
     
     
     // MARK: - Actions
