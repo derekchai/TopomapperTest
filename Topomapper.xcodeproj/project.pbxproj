@@ -119,6 +119,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A8394CBD2C2D6223008FFF0B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A88F2F8B2C2A2ACB00A8F239 /* Double+Measurement.swift */,
+				A8394CB92C2D5953008FFF0B /* MKMapPoint+DistanceToPolyline.swift */,
+				A8394CBB2C2D5B06008FFF0B /* MKPolyline+ClosestPointToPoint.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A88F2F6A2C25226E00A8F239 /* Sheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,10 +158,7 @@
 				A88F2F772C256E8400A8F239 /* LocationCoordinate3D.swift */,
 				A88F2F7D2C27EBCD00A8F239 /* Downloader.swift */,
 				A88F2F802C28FEEF00A8F239 /* Route.swift */,
-				A88F2F8B2C2A2ACB00A8F239 /* Double+Measurement.swift */,
 				A8394CAF2C2BD25A008FFF0B /* MapType.swift */,
-				A8394CB92C2D5953008FFF0B /* MKMapPoint+DistanceToPolyline.swift */,
-				A8394CBB2C2D5B06008FFF0B /* MKPolyline+ClosestPointToPoint.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -213,6 +220,7 @@
 			children = (
 				A894C8542C242F1F00423C92 /* TopomapperApp.swift */,
 				A88F2F7F2C28E75200A8F239 /* Views */,
+				A8394CBD2C2D6223008FFF0B /* Extensions */,
 				A88F2F7C2C27EAD300A8F239 /* Models */,
 				A88F2F8F2C2A408300A8F239 /* Styles */,
 				A894C85A2C242F2100423C92 /* Assets.xcassets */,
