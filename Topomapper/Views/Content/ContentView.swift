@@ -22,7 +22,7 @@ struct ContentView: View {
     
     @State private var mapCameraPostion: MapCameraPosition = .automatic
     
-    @State private var selectedMapType: MapType = .standard
+    @State private var selectedMapType: MapType = .topo50
     
     private let presentationDetents: Set<PresentationDetent> = [
         .small,

@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import MapKit
 
 @Observable
 class ViewModel {
@@ -15,4 +16,6 @@ class ViewModel {
     
     /// The presentation detent the app's main sheet is currently presenting in.
     var selectedDetent: PresentationDetent = .small
+    
+    var selectedPoint: MKMapPoint? = nil
 }

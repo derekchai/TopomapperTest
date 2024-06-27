@@ -101,6 +101,7 @@ extension MapViewController.Coordinator {
             print(
                 "Closest point tapped: \(String(describing: closestPointToTap)) (\(distanceAway) m away)."
             )
+            viewModel.selectedPoint = closestPointToTap
         }
     }
     

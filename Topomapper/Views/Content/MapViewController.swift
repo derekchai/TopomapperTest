@@ -22,13 +22,16 @@ struct MapViewController: UIViewControllerRepresentable {
     class Coordinator: NSObject, MKMapViewDelegate {
         var parent: MapViewController
         
-        init(parent: MapViewController) {
+        var viewModel: ViewModel
+        
+        init(parent: MapViewController, viewModel: ViewModel) {
             self.parent = parent
+            self.viewModel = viewModel
         }
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(parent: self)
+        Coordinator(parent: self, viewModel: viewModel)
     }
 
     
