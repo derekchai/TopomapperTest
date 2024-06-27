@@ -13,6 +13,8 @@
 		A8394CBA2C2D5953008FFF0B /* MKMapPoint+DistanceToPolyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8394CB92C2D5953008FFF0B /* MKMapPoint+DistanceToPolyline.swift */; };
 		A8394CBC2C2D5B06008FFF0B /* MKPolyline+ClosestPointToPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8394CBB2C2D5B06008FFF0B /* MKPolyline+ClosestPointToPoint.swift */; };
 		A8394CBF2C2D6294008FFF0B /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = A8394CBE2C2D6294008FFF0B /* .gitattributes */; };
+		A8394CC12C2D62EB008FFF0B /* MapViewController+AddOverlays.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8394CC02C2D62EB008FFF0B /* MapViewController+AddOverlays.swift */; };
+		A8394CC32C2D634B008FFF0B /* TileServerURLTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8394CC22C2D634B008FFF0B /* TileServerURLTemplate.swift */; };
 		A88F2F692C251D0A00A8F239 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F682C251D0A00A8F239 /* SheetView.swift */; };
 		A88F2F6D2C2522AB00A8F239 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F6C2C2522AB00A8F239 /* SearchField.swift */; };
 		A88F2F6F2C2564F300A8F239 /* GPXParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F6E2C2564F300A8F239 /* GPXParser.swift */; };
@@ -63,6 +65,8 @@
 		A8394CB92C2D5953008FFF0B /* MKMapPoint+DistanceToPolyline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapPoint+DistanceToPolyline.swift"; sourceTree = "<group>"; };
 		A8394CBB2C2D5B06008FFF0B /* MKPolyline+ClosestPointToPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPolyline+ClosestPointToPoint.swift"; sourceTree = "<group>"; };
 		A8394CBE2C2D6294008FFF0B /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
+		A8394CC02C2D62EB008FFF0B /* MapViewController+AddOverlays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+AddOverlays.swift"; sourceTree = "<group>"; };
+		A8394CC22C2D634B008FFF0B /* TileServerURLTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileServerURLTemplate.swift; sourceTree = "<group>"; };
 		A88F2F682C251D0A00A8F239 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		A88F2F6C2C2522AB00A8F239 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		A88F2F6E2C2564F300A8F239 /* GPXParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXParser.swift; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 			children = (
 				A894C8562C242F1F00423C92 /* ContentView.swift */,
 				A894C8802C243AF800423C92 /* MapViewController.swift */,
+				A8394CC02C2D62EB008FFF0B /* MapViewController+AddOverlays.swift */,
 				A8394CB72C2CC34D008FFF0B /* MapViewControllerCoordinator+DelegateMethods.swift */,
 			);
 			path = Content;
@@ -161,6 +166,7 @@
 				A88F2F7D2C27EBCD00A8F239 /* Downloader.swift */,
 				A88F2F802C28FEEF00A8F239 /* Route.swift */,
 				A8394CAF2C2BD25A008FFF0B /* MapType.swift */,
+				A8394CC22C2D634B008FFF0B /* TileServerURLTemplate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -395,6 +401,7 @@
 				A88F2F782C256E8400A8F239 /* LocationCoordinate3D.swift in Sources */,
 				A8394CB82C2CC34D008FFF0B /* MapViewControllerCoordinator+DelegateMethods.swift in Sources */,
 				A894C8552C242F1F00423C92 /* TopomapperApp.swift in Sources */,
+				A8394CC32C2D634B008FFF0B /* TileServerURLTemplate.swift in Sources */,
 				A88F2F852C29797D00A8F239 /* AddRouteSheet.swift in Sources */,
 				A88F2F982C2B999C00A8F239 /* RouteDetailView.swift in Sources */,
 				A88F2F6D2C2522AB00A8F239 /* SearchField.swift in Sources */,
@@ -406,6 +413,7 @@
 				A8394CB02C2BD25A008FFF0B /* MapType.swift in Sources */,
 				A8394CBA2C2D5953008FFF0B /* MKMapPoint+DistanceToPolyline.swift in Sources */,
 				A88F2F9E2C2BA69900A8F239 /* ElevationChangeFormatStyle.swift in Sources */,
+				A8394CC12C2D62EB008FFF0B /* MapViewController+AddOverlays.swift in Sources */,
 				A88F2F932C2B83DE00A8F239 /* ViewModel.swift in Sources */,
 				A894C8812C243AF800423C92 /* MapViewController.swift in Sources */,
 				A88F2F952C2B88DC00A8F239 /* RoutePathStrokeStyle.swift in Sources */,
