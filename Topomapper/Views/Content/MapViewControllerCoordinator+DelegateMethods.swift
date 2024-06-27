@@ -10,9 +10,11 @@ import UIKit
 import MapKit
 import SwiftUI
 
-// MARK: - Delegate Methods
-
 extension MapViewController.Coordinator {
+    
+    
+    // MARK: - rendererFor overlay: MKOverlay
+    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         switch overlay {
         case let tileOverlay as MKTileOverlay:
@@ -31,7 +33,39 @@ extension MapViewController.Coordinator {
         }
     }
     
-    @objc func handleMapTap(sender: UITapGestureRecognizer) {
+    
+    // MARK: - viewFor annotation: any MKAnnotation
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: any MKAnnotation) -> MKAnnotationView? {
+        guard annotation is StartEndAnnotation else { return nil }
+        
+        let identifier = "marker"
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
+        
+        if annotationView == nil {
+            annotationView = MKMarkerAnnotationView(
+                annotation: annotation,
+                reuseIdentifier: identifier
+            )
+            
+            annotationView?.animatesWhenAdded = true
+            annotationView?.canShowCallout = true
+            annotationView?.rightCalloutAccessoryView = UIButton(
+                type: .detailDisclosure
+            )
+            annotationView?.markerTintColor = annotation.title == "Start" ? .green : .red
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        return annotationView
+    }
+    
+    
+    // MARK: - handleMapTap
+    
+    @objc func handleMapTap(from sender: UITapGestureRecognizer) {
         guard sender.state == .recognized else { return }
         
         guard let mapView = sender.view as? MKMapView else { return }

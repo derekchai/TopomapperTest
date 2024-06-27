@@ -47,9 +47,11 @@ struct MapViewController: UIViewControllerRepresentable {
         
         mapView.overrideUserInterfaceStyle = .light
         
-        updateRoutePath(on: mapView)
+        addTopo50MapOverlay(to: mapView)
         
-        addTopo50MapOverlay(on: mapView)
+        updateRoutePath(in: mapView)
+        
+        updateAnnotations(in: mapView)
         
         let tapGestureRecognizer = UITapGestureRecognizer(
             target: context.coordinator,
@@ -65,14 +67,17 @@ struct MapViewController: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
         let mapView = uiViewController.view.subviews.first as! MKMapView
-        updateRoutePath(on: mapView)
+        
+        updateRoutePath(in: mapView)
+        
+        updateAnnotations(in: mapView)
     }
     
     
     // MARK: - Internal Functions
     
     /// Adds a `UITapGestureRecognizer` onto `mapView`.
-    private func addMapTapGestureRecognizer(on mapView: MKMapView) {
+    private func addMapTapGestureRecognizer(to mapView: MKMapView) {
         let tapGestureRecognizer = UITapGestureRecognizer(
             target: self,
             action: #selector(MapViewController.Coordinator.handleMapTap)
