@@ -9,7 +9,7 @@ import Foundation
 import MapKit
 
 extension MapViewController {
-    private func addTopo50MapOverlay(on mapView: MKMapView) {
+    func addTopo50MapOverlay(on mapView: MKMapView) {
         let overlay = MKTileOverlay(
             urlTemplate: TileServerURLTemplate.topo50
         )
@@ -19,7 +19,7 @@ extension MapViewController {
     
     /// Removes any existing `MKPolyline` overlays and draws an `MKPolyline`
     /// overlay of the currently selected Route's path.
-    private func updateRoutePath(on mapView: MKMapView) {
+    func updateRoutePath(on mapView: MKMapView) {
         if let selectedRoute = viewModel.selectedRoute {
             let mainPolyline = MKPolyline(
                 coordinates: selectedRoute.points
