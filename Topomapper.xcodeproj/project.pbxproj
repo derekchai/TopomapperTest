@@ -160,13 +160,12 @@
 		A88F2F6B2C25229A00A8F239 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				A8394CC62C2D707D008FFF0B /* StartEndAnnotation.swift */,
-				A8B612862C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift */,
 				A8DAF2FC2C2E802000B6C001 /* MapViewControllerRepresentable.swift */,
-				A8DAF2FA2C2E7E2C00B6C001 /* MapView.swift */,
 				A8DAF2F62C2E7BB000B6C001 /* MapViewController.swift */,
 				A8DAF2F82C2E7D6300B6C001 /* MapViewController+AppStateDelegateMethods.swift */,
 				A8DAF2FE2C2E831000B6C001 /* MapViewController+MKMapViewDelegateMethods.swift */,
+				A8DAF2FA2C2E7E2C00B6C001 /* MapView.swift */,
+				A8B612882C2EA98E005CBFF1 /* Annotations */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -268,6 +267,15 @@
 				A894C8672C242F2100423C92 /* TopomapperTests.swift */,
 			);
 			path = TopomapperTests;
+			sourceTree = "<group>";
+		};
+		A8B612882C2EA98E005CBFF1 /* Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				A8394CC62C2D707D008FFF0B /* StartEndAnnotation.swift */,
+				A8B612862C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift */,
+			);
+			path = Annotations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
