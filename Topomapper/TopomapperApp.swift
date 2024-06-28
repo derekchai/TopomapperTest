@@ -27,15 +27,15 @@ struct TopomapperApp: App {
         }
     }()
     
-    @State private var viewModel = ViewModel()
+    @State private var appState = AppState()
     
     
     // MARK: - Body
 
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: viewModel)
-                .environment(viewModel)
+            ContentView(appState: appState)
+                .environment(appState)
         }
         .modelContainer(sharedModelContainer)
     }

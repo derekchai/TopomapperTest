@@ -14,7 +14,7 @@ struct MapViewController: UIViewControllerRepresentable {
     
     // MARK: - Exposed Properties
     
-    var viewModel: ViewModel
+    var appState: AppState
     
     
     // MARK: - Coordinator
@@ -22,16 +22,16 @@ struct MapViewController: UIViewControllerRepresentable {
     class Coordinator: NSObject, MKMapViewDelegate {
         var parent: MapViewController
         
-        var viewModel: ViewModel
+        var appState: AppState
         
-        init(parent: MapViewController, viewModel: ViewModel) {
+        init(parent: MapViewController, appState: AppState) {
             self.parent = parent
-            self.viewModel = viewModel
+            self.appState = appState
         }
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(parent: self, viewModel: viewModel)
+        Coordinator(parent: self, appState: appState)
     }
 
     

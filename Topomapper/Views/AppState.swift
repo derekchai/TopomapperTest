@@ -10,7 +10,7 @@ import SwiftUI
 import MapKit
 
 @Observable
-class ViewModel {
+class AppState {
     /// The Route currently selected by the user.
     var selectedRoute: Route? = nil
     

@@ -11,14 +11,14 @@ import MapKit
 extension MapViewController {
     
     /// Updates the provied `MKMapView`'s `StartEndAnnotation`s to the latest
-    /// information in `ViewModel`.
+    /// information in `AppState`.
     func updateStartEndAnnotations(in mapView: MKMapView) {
         removeExistingAnnotations(
             ofType: StartEndAnnotation.self,
             from: mapView
         )
         
-        if let selectedRoute = viewModel.selectedRoute {
+        if let selectedRoute = appState.selectedRoute {
             if let firstPoint = selectedRoute.points.first {
                 let startAnnotation = StartEndAnnotation(
                     coordinate: firstPoint.coordinate,
@@ -42,7 +42,9 @@ extension MapViewController {
     }
     
     func updateSelectedPointAnnotation(in mapView: MKMapView) {
-        guard let selectedPoint: MKMapPoint = viewModel.selectedPoint else { return }
+        guard let selectedPoint: MKMapPoint = appState.selectedPoint else {
+            return
+        }
         
         removeExistingAnnotations(
             ofType: SelectedPointAnnotation.self,

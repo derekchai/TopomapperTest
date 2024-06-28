@@ -20,7 +20,7 @@ extension MapViewController {
     /// Removes any existing `MKPolyline` overlays and draws an `MKPolyline`
     /// overlay of the currently selected Route's path.
     func updateRoutePath(in mapView: MKMapView) {
-        if let selectedRoute = viewModel.selectedRoute {
+        if let selectedRoute = appState.selectedRoute {
             let mainPolyline = MKPolyline(
                 coordinates: selectedRoute.points
                     .map { CLLocationCoordinate2D.init(from: $0) },
@@ -42,7 +42,7 @@ extension MapViewController {
             
             var bottomPadding: CGFloat
             
-            switch viewModel.selectedDetent {
+            switch appState.selectedDetent {
             case .small:
                 bottomPadding = 0.1 * screenSize.height + 50
             case .medium:

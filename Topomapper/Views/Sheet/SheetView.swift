@@ -22,7 +22,7 @@ struct SheetView: View {
     
     @Environment(\.modelContext) private var modelContext
     
-    @Environment(ViewModel.self) private var viewModel
+    @Environment(AppState.self) private var appState
     
     @Query var routes: [Route]
     
@@ -164,5 +164,5 @@ struct SheetView: View {
         selectedDetent: .constant(.medium),
         selectedMapType: $selectedMapType
     )
-        .environment(ViewModel())
+        .environment(AppState())
 }

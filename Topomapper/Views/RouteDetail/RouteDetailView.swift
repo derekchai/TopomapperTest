@@ -20,7 +20,7 @@ struct RouteDetailView: View {
     
     @Environment(\.dismiss) private var dismiss
     
-    @Environment(ViewModel.self) private var viewModel
+    @Environment(AppState.self) private var appState
     
     @State private var elevationOverDistance: [(elevation: Double, distance: Double)] = []
     
@@ -136,8 +136,8 @@ struct RouteDetailView: View {
     // MARK: - Actions
     
     private func updateSelectedRoute(to route: Route?) {
-        viewModel.selectedRoute = nil // Slightly hacky way to center camera on feature
-        viewModel.selectedRoute = route
+        appState.selectedRoute = nil // Slightly hacky way to center camera on feature
+        appState.selectedRoute = route
     }
 }
 

@@ -11,7 +11,7 @@ import MapKit
 
 struct ContentView: View {
     
-    @Bindable var viewModel: ViewModel
+    @Bindable var appState: AppState
     
     
     // MARK: - Internal Variables
@@ -37,32 +37,32 @@ struct ContentView: View {
         NavigationStack {
             if selectedMapType == .standard {
                 Map(position: $mapCameraPostion) {
-                    if let selectedRoute = viewModel.selectedRoute {
+                    if let selectedRoute = appState.selectedRoute {
                         selectedRoute.polyline
                             .stroke(.blue, style: routePathStrokeStyle)
                     }
                 }
                 .mapStyle(.standard(elevation: .realistic))
             } else {
-                MapViewController(viewModel: viewModel)
+                MapViewController(appState: appState)
                     .ignoresSafeArea()
             }
         }
         .sheet(isPresented: .constant(true)) {
             SheetView(
-                selectedDetent: $viewModel.selectedDetent,
+                selectedDetent: $appState.selectedDetent,
                 selectedMapType: $selectedMapType
             )
             .presentationBackground(.ultraThickMaterial)
             .presentationDetents(
                 presentationDetents,
-                selection: $viewModel.selectedDetent
+                selection: $appState.selectedDetent
             )
             .interactiveDismissDisabled()
             .presentationBackgroundInteraction(.enabled(upThrough: .large))
             .presentationContentInteraction(.automatic)
         }
-        .onChange(of: viewModel.selectedRoute) {
+        .onChange(of: appState.selectedRoute) {
             mapCameraPostion = .automatic
         }
     }
@@ -79,7 +79,7 @@ extension PresentationDetent {
 // MARK: - Preview
 
 #Preview {
-    ContentView(viewModel: ViewModel())
+    ContentView(appState: AppState())
         .modelContainer(for: Route.self, inMemory: true)
-        .environment(ViewModel())
+        .environment(AppState())
 }

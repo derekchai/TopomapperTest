@@ -28,7 +28,7 @@
 		A88F2F8C2C2A2ACB00A8F239 /* Double+Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F8B2C2A2ACB00A8F239 /* Double+Measurement.swift */; };
 		A88F2F8E2C2A3E9800A8F239 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F8D2C2A3E9800A8F239 /* TrailingIconLabelStyle.swift */; };
 		A88F2F912C2A40AF00A8F239 /* RouteDistanceFormatStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F902C2A40AF00A8F239 /* RouteDistanceFormatStyle.swift */; };
-		A88F2F932C2B83DE00A8F239 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F922C2B83DE00A8F239 /* ViewModel.swift */; };
+		A88F2F932C2B83DE00A8F239 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F922C2B83DE00A8F239 /* AppState.swift */; };
 		A88F2F952C2B88DC00A8F239 /* RoutePathStrokeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F942C2B88DC00A8F239 /* RoutePathStrokeStyle.swift */; };
 		A88F2F982C2B999C00A8F239 /* RouteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F972C2B999C00A8F239 /* RouteDetailView.swift */; };
 		A88F2F9C2C2B9F1300A8F239 /* Statistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F9B2C2B9F1300A8F239 /* Statistic.swift */; };
@@ -82,7 +82,7 @@
 		A88F2F8B2C2A2ACB00A8F239 /* Double+Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Measurement.swift"; sourceTree = "<group>"; };
 		A88F2F8D2C2A3E9800A8F239 /* TrailingIconLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailingIconLabelStyle.swift; sourceTree = "<group>"; };
 		A88F2F902C2A40AF00A8F239 /* RouteDistanceFormatStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDistanceFormatStyle.swift; sourceTree = "<group>"; };
-		A88F2F922C2B83DE00A8F239 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		A88F2F922C2B83DE00A8F239 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		A88F2F942C2B88DC00A8F239 /* RoutePathStrokeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePathStrokeStyle.swift; sourceTree = "<group>"; };
 		A88F2F972C2B999C00A8F239 /* RouteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailView.swift; sourceTree = "<group>"; };
 		A88F2F9B2C2B9F1300A8F239 /* Statistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistic.swift; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 		A88F2F7F2C28E75200A8F239 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A88F2F922C2B83DE00A8F239 /* ViewModel.swift */,
+				A88F2F922C2B83DE00A8F239 /* AppState.swift */,
 				A88F2F6B2C25229A00A8F239 /* Content */,
 				A88F2F6A2C25226E00A8F239 /* Sheet */,
 				A88F2F962C2B990100A8F239 /* RouteDetail */,
@@ -422,7 +422,7 @@
 				A8394CBA2C2D5953008FFF0B /* MKMapPoint+DistanceToPolyline.swift in Sources */,
 				A88F2F9E2C2BA69900A8F239 /* ElevationChangeFormatStyle.swift in Sources */,
 				A8394CC12C2D62EB008FFF0B /* MapViewController+Overlays.swift in Sources */,
-				A88F2F932C2B83DE00A8F239 /* ViewModel.swift in Sources */,
+				A88F2F932C2B83DE00A8F239 /* AppState.swift in Sources */,
 				A894C8812C243AF800423C92 /* MapViewController.swift in Sources */,
 				A88F2F952C2B88DC00A8F239 /* RoutePathStrokeStyle.swift in Sources */,
 			);
