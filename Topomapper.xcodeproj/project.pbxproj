@@ -9,13 +9,10 @@
 /* Begin PBXBuildFile section */
 		A8394CB02C2BD25A008FFF0B /* MapType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8394CAF2C2BD25A008FFF0B /* MapType.swift */; };
 		A8394CB62C2C12C9008FFF0B /* ElevationProfileChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8394CB52C2C12C9008FFF0B /* ElevationProfileChart.swift */; };
-		A8394CB82C2CC34D008FFF0B /* MapViewControllerCoordinator+DelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8394CB72C2CC34D008FFF0B /* MapViewControllerCoordinator+DelegateMethods.swift */; };
 		A8394CBA2C2D5953008FFF0B /* MKMapPoint+DistanceToPolyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8394CB92C2D5953008FFF0B /* MKMapPoint+DistanceToPolyline.swift */; };
 		A8394CBC2C2D5B06008FFF0B /* MKPolyline+ClosestPointToPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8394CBB2C2D5B06008FFF0B /* MKPolyline+ClosestPointToPoint.swift */; };
 		A8394CBF2C2D6294008FFF0B /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = A8394CBE2C2D6294008FFF0B /* .gitattributes */; };
-		A8394CC12C2D62EB008FFF0B /* MapViewController+Overlays.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8394CC02C2D62EB008FFF0B /* MapViewController+Overlays.swift */; };
 		A8394CC32C2D634B008FFF0B /* TileServerURLTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8394CC22C2D634B008FFF0B /* TileServerURLTemplate.swift */; };
-		A8394CC52C2D66D3008FFF0B /* MapViewController+Annotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8394CC42C2D66D3008FFF0B /* MapViewController+Annotations.swift */; };
 		A8394CC72C2D707D008FFF0B /* StartEndAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8394CC62C2D707D008FFF0B /* StartEndAnnotation.swift */; };
 		A88F2F692C251D0A00A8F239 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F682C251D0A00A8F239 /* SheetView.swift */; };
 		A88F2F6D2C2522AB00A8F239 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F6C2C2522AB00A8F239 /* SearchField.swift */; };
@@ -38,7 +35,6 @@
 		A894C85B2C242F2100423C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A894C85A2C242F2100423C92 /* Assets.xcassets */; };
 		A894C85E2C242F2100423C92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A894C85D2C242F2100423C92 /* Preview Assets.xcassets */; };
 		A894C8682C242F2100423C92 /* TopomapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8672C242F2100423C92 /* TopomapperTests.swift */; };
-		A894C8812C243AF800423C92 /* MapViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8802C243AF800423C92 /* MapViewControllerRepresentable.swift */; };
 		A894C8852C250C4000423C92 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A894C8842C250C3C00423C92 /* .gitignore */; };
 		A894C8872C250C5C00423C92 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8862C250C5C00423C92 /* Key.swift */; };
 		A8B612852C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B612842C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift */; };
@@ -46,7 +42,7 @@
 		A8DAF2F72C2E7BB000B6C001 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DAF2F62C2E7BB000B6C001 /* MapViewController.swift */; };
 		A8DAF2F92C2E7D6300B6C001 /* MapViewController+AppStateDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DAF2F82C2E7D6300B6C001 /* MapViewController+AppStateDelegateMethods.swift */; };
 		A8DAF2FB2C2E7E2C00B6C001 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DAF2FA2C2E7E2C00B6C001 /* MapView.swift */; };
-		A8DAF2FD2C2E802000B6C001 /* MapVCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DAF2FC2C2E802000B6C001 /* MapVCR.swift */; };
+		A8DAF2FD2C2E802000B6C001 /* MapViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DAF2FC2C2E802000B6C001 /* MapViewControllerRepresentable.swift */; };
 		A8DAF2FF2C2E831000B6C001 /* MapViewController+MKMapViewDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DAF2FE2C2E831000B6C001 /* MapViewController+MKMapViewDelegateMethods.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,13 +66,10 @@
 /* Begin PBXFileReference section */
 		A8394CAF2C2BD25A008FFF0B /* MapType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapType.swift; sourceTree = "<group>"; };
 		A8394CB52C2C12C9008FFF0B /* ElevationProfileChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevationProfileChart.swift; sourceTree = "<group>"; };
-		A8394CB72C2CC34D008FFF0B /* MapViewControllerCoordinator+DelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewControllerCoordinator+DelegateMethods.swift"; sourceTree = "<group>"; };
 		A8394CB92C2D5953008FFF0B /* MKMapPoint+DistanceToPolyline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapPoint+DistanceToPolyline.swift"; sourceTree = "<group>"; };
 		A8394CBB2C2D5B06008FFF0B /* MKPolyline+ClosestPointToPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPolyline+ClosestPointToPoint.swift"; sourceTree = "<group>"; };
 		A8394CBE2C2D6294008FFF0B /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
-		A8394CC02C2D62EB008FFF0B /* MapViewController+Overlays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Overlays.swift"; sourceTree = "<group>"; };
 		A8394CC22C2D634B008FFF0B /* TileServerURLTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileServerURLTemplate.swift; sourceTree = "<group>"; };
-		A8394CC42C2D66D3008FFF0B /* MapViewController+Annotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Annotations.swift"; sourceTree = "<group>"; };
 		A8394CC62C2D707D008FFF0B /* StartEndAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartEndAnnotation.swift; sourceTree = "<group>"; };
 		A88F2F682C251D0A00A8F239 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		A88F2F6C2C2522AB00A8F239 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
@@ -102,7 +95,6 @@
 		A894C8632C242F2100423C92 /* TopomapperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopomapperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A894C8672C242F2100423C92 /* TopomapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopomapperTests.swift; sourceTree = "<group>"; };
 		A894C86D2C242F2100423C92 /* TopomapperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopomapperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A894C8802C243AF800423C92 /* MapViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		A894C8842C250C3C00423C92 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		A894C8862C250C5C00423C92 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		A8B612842C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift"; sourceTree = "<group>"; };
@@ -110,7 +102,7 @@
 		A8DAF2F62C2E7BB000B6C001 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A8DAF2F82C2E7D6300B6C001 /* MapViewController+AppStateDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+AppStateDelegateMethods.swift"; sourceTree = "<group>"; };
 		A8DAF2FA2C2E7E2C00B6C001 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		A8DAF2FC2C2E802000B6C001 /* MapVCR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVCR.swift; sourceTree = "<group>"; };
+		A8DAF2FC2C2E802000B6C001 /* MapViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		A8DAF2FE2C2E831000B6C001 /* MapViewController+MKMapViewDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+MKMapViewDelegateMethods.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,13 +161,9 @@
 			isa = PBXGroup;
 			children = (
 				A894C8562C242F1F00423C92 /* ContentView.swift */,
-				A894C8802C243AF800423C92 /* MapViewControllerRepresentable.swift */,
-				A8394CC02C2D62EB008FFF0B /* MapViewController+Overlays.swift */,
-				A8394CC42C2D66D3008FFF0B /* MapViewController+Annotations.swift */,
-				A8394CB72C2CC34D008FFF0B /* MapViewControllerCoordinator+DelegateMethods.swift */,
 				A8394CC62C2D707D008FFF0B /* StartEndAnnotation.swift */,
 				A8B612862C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift */,
-				A8DAF2FC2C2E802000B6C001 /* MapVCR.swift */,
+				A8DAF2FC2C2E802000B6C001 /* MapViewControllerRepresentable.swift */,
 				A8DAF2FA2C2E7E2C00B6C001 /* MapView.swift */,
 				A8DAF2F62C2E7BB000B6C001 /* MapViewController.swift */,
 				A8DAF2F82C2E7D6300B6C001 /* MapViewController+AppStateDelegateMethods.swift */,
@@ -420,7 +408,7 @@
 				A88F2F7E2C27EBCD00A8F239 /* Downloader.swift in Sources */,
 				A8DAF2FB2C2E7E2C00B6C001 /* MapView.swift in Sources */,
 				A894C8572C242F1F00423C92 /* ContentView.swift in Sources */,
-				A8DAF2FD2C2E802000B6C001 /* MapVCR.swift in Sources */,
+				A8DAF2FD2C2E802000B6C001 /* MapViewControllerRepresentable.swift in Sources */,
 				A88F2F912C2A40AF00A8F239 /* RouteDistanceFormatStyle.swift in Sources */,
 				A88F2F812C28FEEF00A8F239 /* Route.swift in Sources */,
 				A8394CB62C2C12C9008FFF0B /* ElevationProfileChart.swift in Sources */,
@@ -430,10 +418,8 @@
 				A8DAF2F92C2E7D6300B6C001 /* MapViewController+AppStateDelegateMethods.swift in Sources */,
 				A8DAF2FF2C2E831000B6C001 /* MapViewController+MKMapViewDelegateMethods.swift in Sources */,
 				A88F2F8A2C2A284400A8F239 /* RouteListItem.swift in Sources */,
-				A8394CC52C2D66D3008FFF0B /* MapViewController+Annotations.swift in Sources */,
 				A8B612872C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift in Sources */,
 				A88F2F782C256E8400A8F239 /* LocationCoordinate3D.swift in Sources */,
-				A8394CB82C2CC34D008FFF0B /* MapViewControllerCoordinator+DelegateMethods.swift in Sources */,
 				A894C8552C242F1F00423C92 /* TopomapperApp.swift in Sources */,
 				A8DAF2F72C2E7BB000B6C001 /* MapViewController.swift in Sources */,
 				A8394CC32C2D634B008FFF0B /* TileServerURLTemplate.swift in Sources */,
@@ -448,10 +434,8 @@
 				A8394CB02C2BD25A008FFF0B /* MapType.swift in Sources */,
 				A8394CBA2C2D5953008FFF0B /* MKMapPoint+DistanceToPolyline.swift in Sources */,
 				A88F2F9E2C2BA69900A8F239 /* ElevationChangeFormatStyle.swift in Sources */,
-				A8394CC12C2D62EB008FFF0B /* MapViewController+Overlays.swift in Sources */,
 				A88F2F932C2B83DE00A8F239 /* AppState.swift in Sources */,
 				A8B612852C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift in Sources */,
-				A894C8812C243AF800423C92 /* MapViewControllerRepresentable.swift in Sources */,
 				A88F2F952C2B88DC00A8F239 /* RoutePathStrokeStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
