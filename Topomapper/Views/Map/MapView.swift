@@ -48,6 +48,9 @@ class MapView: UIView {
         
         mapView.overrideUserInterfaceStyle = .light
         
+        mapView.cameraZoomRange = MKMapView
+            .CameraZoomRange(minCenterCoordinateDistance: 3000)
+        
         let mapTapGestureRecognizer = UITapGestureRecognizer(
             target: self,
             action: #selector(handleMapTap)
