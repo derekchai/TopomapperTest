@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct MapVCR: UIViewControllerRepresentable {
+struct MapViewControllerRepresentable: UIViewControllerRepresentable {
     let appState: AppState
     
     func makeUIViewController(context: Context) -> MapViewController {

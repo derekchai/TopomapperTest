@@ -44,8 +44,7 @@ struct ContentView: View {
                 }
                 .mapStyle(.standard(elevation: .realistic))
             } else {
-//                MapViewControllerRepresentable(appState: appState)
-                MapVCR(appState: appState)
+                MapViewControllerRepresentable(appState: appState)
                     .ignoresSafeArea()
             }
         }
