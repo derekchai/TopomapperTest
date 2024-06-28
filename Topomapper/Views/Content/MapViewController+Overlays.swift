@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-extension MapViewController {
+extension MapViewControllerRepresentable {
     func addTopo50MapOverlay(to mapView: MKMapView) {
         let overlay = MKTileOverlay(
             urlTemplate: TileServerURLTemplate.topo50

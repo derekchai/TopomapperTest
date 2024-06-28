@@ -1,15 +1,14 @@
 //
-//  MainMap.swift
+//  MapViewController.swift
 //  Topomapper
 //
-//  Created by Derek Chai on 20/06/2024.
+//  Created by Derek Chai on 28/06/2024.
 //
 
-import Foundation
-import SwiftUI
+import UIKit
 import MapKit
 
-struct MapViewController: UIViewControllerRepresentable {
+class MapViewController: UIViewController {
     
     
     // MARK: - Exposed Properties
@@ -17,78 +16,103 @@ struct MapViewController: UIViewControllerRepresentable {
     var appState: AppState
     
     
-    // MARK: - Coordinator
+    // MARK: - Initializers
     
-    class Coordinator: NSObject, MKMapViewDelegate {
-        var parent: MapViewController
-        
-        var appState: AppState
-        
-        init(parent: MapViewController, appState: AppState) {
-            self.parent = parent
-            self.appState = appState
-        }
+    init(appState: AppState) {
+        self.appState = appState
+        super.init(nibName: nil, bundle: nil)
     }
     
-    func makeCoordinator() -> Coordinator {
-        Coordinator(parent: self, appState: appState)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    // MARK: - Override Functions
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        appState.delegate = self
+    }
+    
+    override func loadView() {
+        view = MapView(
+            delegate: self,
+            appState: appState
+        )
+        
+        addTopo50Overlay()
+    }
+    
+    
+    // MARK: - Helper Functions
+    
+    /// Adds the LINZ Topo50 tile overlay to the map.
+    func addTopo50Overlay() {
+        guard let mapView = view as? MapView else { return }
+        
+        mapView.addTopo50Overlay()
+    }
+    
+    /// Updates the route polyline shown on the map to be that of the selected
+    /// route.
+    func updateRoutePath() {
+        guard let mapView = view as? MapView else { return }
+        
+        guard let selectedRoute = appState.selectedRoute else { return }
+        
+        mapView.removeAllExistingPolylines()
+        
+        mapView.addPolyline(selectedRoute.mkPolyline)
+        
+        mapView.zoomInOnPolyline(selectedRoute.mkPolyline)
+    }
+    
+    /// Updates the start and end annotations shown on the map to be that of
+    /// the selected route.
+    func updateStartEndAnnotations() {
+        guard let mapView = view as? MapView else { return }
+        
+        guard let selectedRoute = appState.selectedRoute else { return }
+        
+        guard let firstPoint = selectedRoute.points.first, let lastPoint = selectedRoute.points.last else { return }
+        
+        let startAnnotation = StartEndAnnotation(
+            coordinate: firstPoint.coordinate,
+            title: "Start",
+            subtitle: nil
+        )
+        
+        let endAnnotation = StartEndAnnotation(
+            coordinate: lastPoint.coordinate,
+            title: "End",
+            subtitle: nil
+        )
+        
+        mapView.removeAllExistingAnnotations(ofType: StartEndAnnotation.self)
+        
+        mapView.addAnnotation(startAnnotation)
+        mapView.addAnnotation(endAnnotation)
+    }
+    
+    /// Updates the `SelectedMapPointAnnotation` shown on the map to be that
+    /// of the selected map point.
+    func updateSelectedMapPointAnnotation() {
+        guard let mapView = view as? MapView else { return }
 
-    
-    // MARK: - UIViewController
-    
-    func makeUIViewController(context: Context) -> UIViewController {
-        let viewController = UIViewController()
-        let mapView = MKMapView()
+        guard let selectedMapPoint = appState.selectedMapPoint else { return }
         
-        mapView.delegate = context.coordinator
-        mapView.frame = viewController.view.frame
-        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        mapView.showsCompass = true
-        mapView.showsScale = true
-        
-        mapView.overrideUserInterfaceStyle = .light
-        
-        addTopo50MapOverlay(to: mapView)
-        
-        updateRoutePath(in: mapView)
-        
-        updateStartEndAnnotations(in: mapView)
-        updateSelectedPointAnnotation(in: mapView)
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(
-            target: context.coordinator,
-            action: #selector(context.coordinator.handleMapTap)
+        let selectedMapPointAnnotation = SelectedMapPointAnnotation(
+            coordinate: selectedMapPoint.coordinate,
+            title: nil,
+            subtitle: nil
         )
         
-        mapView.addGestureRecognizer(tapGestureRecognizer)
-        
-        viewController.view.addSubview(mapView)
-        
-        return viewController
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        let mapView = uiViewController.view.subviews.first as! MKMapView
-        
-        updateRoutePath(in: mapView)
-        
-        updateStartEndAnnotations(in: mapView)
-        updateSelectedPointAnnotation(in: mapView)
-    }
-    
-    
-    // MARK: - Internal Functions
-    
-    /// Adds a `UITapGestureRecognizer` onto `mapView`.
-    private func addMapTapGestureRecognizer(to mapView: MKMapView) {
-        let tapGestureRecognizer = UITapGestureRecognizer(
-            target: self,
-            action: #selector(MapViewController.Coordinator.handleMapTap)
+        mapView.removeAllExistingAnnotations(
+            ofType: SelectedMapPointAnnotation.self
         )
         
-        mapView.addGestureRecognizer(tapGestureRecognizer)
+        mapView.addAnnotation(selectedMapPointAnnotation)
     }
 }
-

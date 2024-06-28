@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-extension MapViewController {
+extension MapViewControllerRepresentable {
     
     /// Updates the provied `MKMapView`'s `StartEndAnnotation`s to the latest
     /// information in `AppState`.
@@ -42,16 +42,16 @@ extension MapViewController {
     }
     
     func updateSelectedPointAnnotation(in mapView: MKMapView) {
-        guard let selectedPoint: MKMapPoint = appState.selectedPoint else {
+        guard let selectedPoint: MKMapPoint = appState.selectedMapPoint else {
             return
         }
         
         removeExistingAnnotations(
-            ofType: SelectedPointAnnotation.self,
+            ofType: SelectedMapPointAnnotation.self,
             from: mapView
         )
         
-        let selectedPointAnnotation = SelectedPointAnnotation(
+        let selectedPointAnnotation = SelectedMapPointAnnotation(
             coordinate: selectedPoint.coordinate,
             title: nil,
             subtitle: nil

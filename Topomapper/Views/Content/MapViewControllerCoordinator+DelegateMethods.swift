@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import SwiftUI
 
-extension MapViewController.Coordinator {
+extension MapViewControllerRepresentable.Coordinator {
     
     
     // MARK: - rendererFor overlay: MKOverlay
@@ -40,7 +40,7 @@ extension MapViewController.Coordinator {
         _ mapView: MKMapView,
         viewFor annotation: any MKAnnotation
     ) -> MKAnnotationView? {
-        guard annotation is StartEndAnnotation || annotation is SelectedPointAnnotation else {
+        guard annotation is StartEndAnnotation || annotation is SelectedMapPointAnnotation else {
             return nil
         }
         
@@ -72,7 +72,7 @@ extension MapViewController.Coordinator {
     
     // MARK: - handleMapTap
     
-    @objc func handleMapTap(from sender: UITapGestureRecognizer) {
+    @objc func ahandleMapTap(from sender: UITapGestureRecognizer) {
         guard sender.state == .recognized else { return }
         
         guard let mapView = sender.view as? MKMapView else { return }
@@ -108,7 +108,7 @@ extension MapViewController.Coordinator {
             print(
                 "Closest point tapped: \(String(describing: closestPointToTap)) (\(distanceAway) m away)."
             )
-            appState.selectedPoint = closestPointToTap
+            appState.selectedMapPoint = closestPointToTap
         }
     }
     

@@ -156,6 +156,15 @@ final class Route {
         )
     }
     
+    var mkPolyline: MKPolyline {
+        MKPolyline(
+            coordinates: points.map {
+                CLLocationCoordinate2D(from: $0)
+            },
+            count: points.count
+        )
+    }
+    
     struct Boundary: Identifiable {
         var id: UUID
 
