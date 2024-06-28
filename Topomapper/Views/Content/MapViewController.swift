@@ -54,7 +54,8 @@ struct MapViewController: UIViewControllerRepresentable {
         
         updateRoutePath(in: mapView)
         
-        updateAnnotations(in: mapView)
+        updateStartEndAnnotations(in: mapView)
+        updateSelectedPointAnnotation(in: mapView)
         
         let tapGestureRecognizer = UITapGestureRecognizer(
             target: context.coordinator,
@@ -73,7 +74,8 @@ struct MapViewController: UIViewControllerRepresentable {
         
         updateRoutePath(in: mapView)
         
-        updateAnnotations(in: mapView)
+        updateStartEndAnnotations(in: mapView)
+        updateSelectedPointAnnotation(in: mapView)
     }
     
     

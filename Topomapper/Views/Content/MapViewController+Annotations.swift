@@ -9,14 +9,14 @@ import Foundation
 import MapKit
 
 extension MapViewController {
-    func updateAnnotations(in mapView: MKMapView) {
-        
-        // Remove existing StartEndAnnotations.
-        for annotation in mapView.annotations {
-            guard annotation is StartEndAnnotation else { continue }
-            
-            mapView.removeAnnotation(annotation)
-        }
+    
+    /// Updates the provied `MKMapView`'s `StartEndAnnotation`s to the latest
+    /// information in `ViewModel`.
+    func updateStartEndAnnotations(in mapView: MKMapView) {
+        removeExistingAnnotations(
+            ofType: StartEndAnnotation.self,
+            from: mapView
+        )
         
         if let selectedRoute = viewModel.selectedRoute {
             if let firstPoint = selectedRoute.points.first {
@@ -39,15 +39,38 @@ extension MapViewController {
                 mapView.addAnnotation(endAnnotation)
             }
         }
+    }
+    
+    func updateSelectedPointAnnotation(in mapView: MKMapView) {
+        guard let selectedPoint: MKMapPoint = viewModel.selectedPoint else { return }
         
-        if let selectedPoint = viewModel.selectedPoint {
-            let selectedPointAnnotation = StartEndAnnotation(
-                coordinate: selectedPoint.coordinate,
-                title: nil,
-                subtitle: nil
-            )
+        removeExistingAnnotations(
+            ofType: SelectedPointAnnotation.self,
+            from: mapView
+        )
+        
+        let selectedPointAnnotation = SelectedPointAnnotation(
+            coordinate: selectedPoint.coordinate,
+            title: nil,
+            subtitle: nil
+        )
+        
+        mapView.addAnnotation(selectedPointAnnotation)
+    }
+    
+    /// Removes all existing annotations of the given type from the given
+    /// `MKMapView`.
+    /// - Parameters:
+    ///   - ofType: A type which conforms to `MKAnnotation`.
+    ///   - mapView: The `MKMapView` to remove the annotations from.
+    private func removeExistingAnnotations<T: MKAnnotation>(
+        ofType: T.Type,
+        from mapView: MKMapView
+    ) {
+        for annotation in mapView.annotations {
+            guard annotation is T else { continue }
             
-            mapView.addAnnotation(selectedPointAnnotation)
+            mapView.removeAnnotation(annotation)
         }
     }
 }

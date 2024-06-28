@@ -36,12 +36,19 @@ extension MapViewController.Coordinator {
     
     // MARK: - viewFor annotation: any MKAnnotation
     
-    func mapView(_ mapView: MKMapView, viewFor annotation: any MKAnnotation) -> MKAnnotationView? {
-        guard annotation is StartEndAnnotation else { return nil }
+    func mapView(
+        _ mapView: MKMapView,
+        viewFor annotation: any MKAnnotation
+    ) -> MKAnnotationView? {
+        guard annotation is StartEndAnnotation || annotation is SelectedPointAnnotation else {
+            return nil
+        }
         
         let identifier = "marker"
         
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
+        var annotationView = mapView.dequeueReusableAnnotationView(
+            withIdentifier: identifier
+        ) as? MKMarkerAnnotationView
         
         if annotationView == nil {
             annotationView = MKMarkerAnnotationView(
