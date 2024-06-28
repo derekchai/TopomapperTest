@@ -54,12 +54,14 @@ extension MapViewController: MKMapViewDelegate {
                 reuseIdentifier: identifier
             )
             
-            annotationView?.animatesWhenAdded = true
-            annotationView?.canShowCallout = true
-            annotationView?.rightCalloutAccessoryView = UIButton(
+            guard let annotationView else { return nil }
+            
+            annotationView.animatesWhenAdded = true
+            annotationView.canShowCallout = true
+            annotationView.rightCalloutAccessoryView = UIButton(
                 type: .detailDisclosure
             )
-            annotationView?.markerTintColor = annotation.title == "Start" ? .green : .red
+            annotationView.markerTintColor = annotation.title == "Start" ? .green : .red
         } else {
             annotationView?.annotation = annotation
         }
