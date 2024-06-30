@@ -43,23 +43,8 @@ struct ElevationProfileChart: View {
             
             ForEach(
                 route
-                    .significantGradeBoundaries(
-                        lowerThreshold: 0.1,
-                        upperThreshold: 0.2
-                    )
-            ) { boundary in
-                RectangleMark(
-                    xStart: .value("", boundary.startDistance),
-                    xEnd: .value("", boundary.endDistance)
-                )
-                .foregroundStyle(.yellow)
-                .opacity(0.2)
-            }
-            
-            ForEach(
-                route
-                    .significantGradeBoundaries(
-                        lowerThreshold: 0.2
+                    .gradeBoundaries(
+                        lowerThreshold: 0.1
                     )
             ) { boundary in
                 RectangleMark(
@@ -69,9 +54,6 @@ struct ElevationProfileChart: View {
                 .foregroundStyle(.red)
                 .opacity(0.2)
             }
-            
-            
-            
         }
         .frame(height: elevationProfileChartHeight)
         .chartXAxisLabel("m")

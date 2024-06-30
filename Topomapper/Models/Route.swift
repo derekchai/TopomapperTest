@@ -60,18 +60,18 @@ final class Route {
         return Δelevation / Δdistance
     }
     
-    func significantGradeBoundaries(lowerThreshold: Double = 0.2, upperThreshold: Double? = nil) -> [Boundary] {
-        var boundaries: [Boundary] = []
+    func gradeBoundaries(lowerThreshold: Double = 0.2, upperThreshold: Double? = nil) -> [GradeBoundary] {
+        var boundaries: [GradeBoundary] = []
         
         var start: Double?
         var end: Double?
         
         for i in 0..<self.points.count - 1 {
-            guard (lowerThreshold...(upperThreshold ?? 999999)) ~= abs(averageGrade(from: i, to: i + 1)) else {
+            guard (lowerThreshold...(upperThreshold ?? 999999)) ~= averageGrade(from: i, to: i + 1) else {
                 if start != nil {
                     end = distanceTravelled(to: i)
                     
-                    let boundary = Boundary(startDistance: start!, endDistance: end!)
+                    let boundary = GradeBoundary(startDistance: start!, endDistance: end!)
                     
                     boundaries.append(boundary)
                     
@@ -165,7 +165,7 @@ final class Route {
         )
     }
     
-    struct Boundary: Identifiable {
+    struct GradeBoundary: Identifiable {
         var id: UUID
 
         let startDistance: Double
