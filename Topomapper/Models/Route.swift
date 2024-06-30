@@ -103,7 +103,7 @@ final class Route {
         
         var distances: [Double] = []
         
-        var strideAmount = Int(self.points.count / 300)
+        var strideAmount = Int(self.points.count / 50)
         
         if strideAmount <= 0 { strideAmount = 1 }
         
