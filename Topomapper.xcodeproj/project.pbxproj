@@ -39,6 +39,8 @@
 		A894C8872C250C5C00423C92 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C8862C250C5C00423C92 /* Key.swift */; };
 		A8B612852C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B612842C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift */; };
 		A8B612872C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B612862C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift */; };
+		A8B6128E2C320E43005CBFF1 /* Route+Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B6128D2C320E43005CBFF1 /* Route+Statistics.swift */; };
+		A8B612902C320E68005CBFF1 /* CLLocationCoordinate2D+FromLocationCoordinate3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B6128F2C320E68005CBFF1 /* CLLocationCoordinate2D+FromLocationCoordinate3D.swift */; };
 		A8DAF2F72C2E7BB000B6C001 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DAF2F62C2E7BB000B6C001 /* MapViewController.swift */; };
 		A8DAF2F92C2E7D6300B6C001 /* MapViewController+AppStateDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DAF2F82C2E7D6300B6C001 /* MapViewController+AppStateDelegateMethods.swift */; };
 		A8DAF2FB2C2E7E2C00B6C001 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DAF2FA2C2E7E2C00B6C001 /* MapView.swift */; };
@@ -99,6 +101,8 @@
 		A894C8862C250C5C00423C92 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		A8B612842C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift"; sourceTree = "<group>"; };
 		A8B612862C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMapPointAnnotation.swift; sourceTree = "<group>"; };
+		A8B6128D2C320E43005CBFF1 /* Route+Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Route+Statistics.swift"; sourceTree = "<group>"; };
+		A8B6128F2C320E68005CBFF1 /* CLLocationCoordinate2D+FromLocationCoordinate3D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+FromLocationCoordinate3D.swift"; sourceTree = "<group>"; };
 		A8DAF2F62C2E7BB000B6C001 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A8DAF2F82C2E7D6300B6C001 /* MapViewController+AppStateDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+AppStateDelegateMethods.swift"; sourceTree = "<group>"; };
 		A8DAF2FA2C2E7E2C00B6C001 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 				A8394CB92C2D5953008FFF0B /* MKMapPoint+DistanceToPolyline.swift */,
 				A8394CBB2C2D5B06008FFF0B /* MKPolyline+ClosestPointToPoint.swift */,
 				A8B612842C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift */,
+				A8B6128D2C320E43005CBFF1 /* Route+Statistics.swift */,
+				A8B6128F2C320E68005CBFF1 /* CLLocationCoordinate2D+FromLocationCoordinate3D.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -430,7 +436,9 @@
 				A88F2F782C256E8400A8F239 /* LocationCoordinate3D.swift in Sources */,
 				A894C8552C242F1F00423C92 /* TopomapperApp.swift in Sources */,
 				A8DAF2F72C2E7BB000B6C001 /* MapViewController.swift in Sources */,
+				A8B612902C320E68005CBFF1 /* CLLocationCoordinate2D+FromLocationCoordinate3D.swift in Sources */,
 				A8394CC32C2D634B008FFF0B /* TileServerURLTemplate.swift in Sources */,
+				A8B6128E2C320E43005CBFF1 /* Route+Statistics.swift in Sources */,
 				A88F2F852C29797D00A8F239 /* AddRouteSheet.swift in Sources */,
 				A88F2F982C2B999C00A8F239 /* RouteDetailView.swift in Sources */,
 				A88F2F6D2C2522AB00A8F239 /* SearchField.swift in Sources */,
