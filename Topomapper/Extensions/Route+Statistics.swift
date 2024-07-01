@@ -80,7 +80,13 @@ extension Route {
     /// duration to execute depending on how many points make up the Route.
     /// - Parameter simplified: If true, returns a simplified, shorter array which
     /// does not use every single point.
-    func elevationOverDistance(simplified: Bool = true) -> [(elevation: Double, distance: Double)] {
+    func elevationOverDistance(
+        distanceUnit: UnitLength = .meters,
+        simplified: Bool = true
+    ) -> [(
+        elevation: Double,
+        distance: Double
+    )] {
         var elevations: [Double] = []
         
         var distances: [Double] = []
@@ -90,7 +96,10 @@ extension Route {
         if strideAmount <= 0 { strideAmount = 1 }
         
         for i in stride(from: 0, to: self.points.count, by: simplified ? strideAmount : 1) {
-            distances.append(distanceTravelled(to: i))
+            distances
+                .append(
+                    distanceTravelled(to: i).metres.converted(to: distanceUnit).value
+                )
             
             elevations.append(self.points[i].elevation)
         }

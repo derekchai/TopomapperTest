@@ -26,7 +26,9 @@ struct ElevationProfileChart: View {
     private var elevationDistanceArray: [(elevation: Double, distance: Double)]
     
     private var gradeBoundaries: [Route.GradeBoundary]
-
+    
+    /// Matches the `rawSelectedDistance` to the nearest actual distance in the
+    /// Route.
     private var selectedDistance: Double? {
         guard !elevationDistanceArray.isEmpty else { return nil }
         
@@ -36,7 +38,7 @@ struct ElevationProfileChart: View {
         
         for i in 0..<distances.count {
             guard distances[i] < rawSelectedDistance else {
-                    return distances[i]
+                return distances[i]
             }
         }
         
@@ -54,51 +56,67 @@ struct ElevationProfileChart: View {
     init(route: Route) {
         self.route = route
         
-        elevationDistanceArray = route.elevationOverDistance()
+        elevationDistanceArray = route.elevationOverDistance(distanceUnit: .kilometers)
         gradeBoundaries = route.gradeBoundaries(lowerThreshold: 0.1)
     }
-
+    
     
     // MARK: - Body
+    
     var body: some View {
         Chart {
-            // Elevation profile.
-            LinePlot(
-                elevationDistanceArray,
-                x: .value("Distance", \.distance),
-                y: .value("Elevation", \.elevation)
-            )
-            .lineStyle(
-                StrokeStyle(
-                    lineWidth: 3,
-                    lineCap: .round,
-                    lineJoin: .round
-                )
-            )
-            .opacity(0.8)
+            elevationProfile
             
-            // Significant grade boundaries.
-            ForEach(gradeBoundaries) { boundary in
-                RectangleMark(
-                    xStart: .value("", boundary.startDistance),
-                    xEnd: .value("", boundary.endDistance)
-                )
-                .foregroundStyle(.red)
-                .opacity(0.2)
-            }
+            gradeBoundariesOverlay
             
-            if let selectedDistance {
-                RuleMark(x: .value("Selected", selectedDistance))
-                    .foregroundStyle(.gray.opacity(0.3))
-                    .offset(yStart: -10)
-                    .zIndex(-1)
+            if selectedDistance != nil {
+                selectionRuleMark
             }
         }
         .frame(height: elevationProfileChartHeight)
-        .chartXAxisLabel("\(elevationDistanceArray.count) points (simplified)")
+        .chartXAxisLabel("km")
         .chartYAxisLabel("m")
-        .chartXScale(domain: 0...route.length)
+        .chartXScale(
+            domain: 0...route.length.metres.converted(to: .kilometers).value
+        )
         .chartXSelection(value: $rawSelectedDistance)
+    }
+    
+    
+    // MARK: - Components
+    
+    private var elevationProfile: some ChartContent {
+        LinePlot(
+            elevationDistanceArray,
+            x: .value("Distance", \.distance),
+            y: .value("Elevation", \.elevation)
+        )
+        .lineStyle(
+            StrokeStyle(
+                lineWidth: 3,
+                lineCap: .round,
+                lineJoin: .round
+            )
+        )
+        .opacity(0.8)
+    }
+    
+    private var gradeBoundariesOverlay: some ChartContent {
+        ForEach(gradeBoundaries) { boundary in
+            RectangleMark(
+                xStart: .value("", boundary.startDistance),
+                xEnd: .value("", boundary.endDistance)
+            )
+            .foregroundStyle(.red)
+            .opacity(0.2)
+        }
+    }
+    
+    private var selectionRuleMark: some ChartContent {
+        RuleMark(x: .value("Selected", selectedDistance!))
+            .foregroundStyle(.gray.opacity(0.3))
+            .offset(yStart: -10)
+            .zIndex(-1)
     }
 }
 
