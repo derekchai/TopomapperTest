@@ -49,9 +49,5 @@ final class Route {
         self.distances = distancesTemporary
         
         self.elevations = elevationsTemporary
-        
-        print(
-            "Points count: \(points.count); distances count: \(distances.count); elevations count: \(elevations.count)"
-        )
     }
 }
