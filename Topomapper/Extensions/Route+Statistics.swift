@@ -80,7 +80,7 @@ extension Route {
     /// duration to execute depending on how many points make up the Route.
     /// - Parameter simplified: If true, returns a simplified, shorter array which
     /// does not use every single point.
-    func elevationOverDistance(simplified: Bool = true) async -> [(elevation: Double, distance: Double)] {
+    func elevationOverDistance(simplified: Bool = true) -> [(elevation: Double, distance: Double)] {
         var elevations: [Double] = []
         
         var distances: [Double] = []

@@ -45,8 +45,7 @@ struct RouteDetailView: View {
                         elevationProfileLoading
                     } else {
                         ElevationProfileChart(
-                            elevationOverDistance: elevationOverDistance,
-                            route: route    
+                            route: route
                         )
                     }
                     
@@ -64,7 +63,7 @@ struct RouteDetailView: View {
                 updateSelectedRoute(to: route)
                 
                 Task {
-                    elevationOverDistance = await route
+                    elevationOverDistance = route
                         .elevationOverDistance(simplified: true)
                     loadingElevationProfile = false
                 }
