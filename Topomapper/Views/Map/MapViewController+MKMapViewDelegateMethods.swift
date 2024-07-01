@@ -20,8 +20,10 @@ extension MapViewController: MKMapViewDelegate {
         case let polyline as MKPolyline:
             let renderer = MKPolylineRenderer(polyline: polyline)
             
-            renderer.strokeColor = .systemBlue
-            renderer.lineWidth = 5
+            let isMainPolyline = polyline.title == "main"
+            
+            renderer.strokeColor = isMainPolyline ? .systemBlue : .polylineOutline
+            renderer.lineWidth = isMainPolyline ? 5 : 8
             renderer.lineCap = .round
             renderer.lineJoin = .round
             

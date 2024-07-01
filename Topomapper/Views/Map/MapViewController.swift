@@ -64,9 +64,15 @@ class MapViewController: UIViewController {
         
         mapView.removeAllExistingPolylines()
         
-        mapView.addPolyline(selectedRoute.mkPolyline)
+        let mainPolyline = selectedRoute.mkPolyline
+        mainPolyline.title = "main"
         
-        mapView.zoomInOnPolyline(selectedRoute.mkPolyline)
+        let outlinePolyline = selectedRoute.mkPolyline
+        
+        mapView.addPolyline(outlinePolyline)
+        mapView.addPolyline(mainPolyline)
+        
+        mapView.zoomInOnPolyline(mainPolyline)
     }
     
     /// Updates the start and end annotations shown on the map to be that of
