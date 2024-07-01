@@ -83,7 +83,7 @@ extension Route {
     func elevationOverDistance(
         distanceUnit: UnitLength = .meters,
         simplified: Bool = true
-    ) -> [(
+    ) async -> [(
         elevation: Double,
         distance: Double
     )] {
