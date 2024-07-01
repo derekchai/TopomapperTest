@@ -76,8 +76,19 @@ struct ElevationProfileChart: View {
                 
                 if selectedDistance != nil {
                     selectionRuleMark
+                        .annotation(
+                            position: .top,
+                            spacing: 0,
+                            overflowResolution: .init(
+                                x: .fit(to: .chart),
+                                y: .disabled
+                            )
+                        ) {
+                            selectedDistancePopover
+                        }
                 }
             }
+            .padding(.top, 30)
             .frame(height: elevationProfileChartHeight)
             .chartXAxisLabel(xAxisUnit.symbol)
             .chartYAxisLabel(yAxisUnit.symbol)
@@ -159,6 +170,32 @@ struct ElevationProfileChart: View {
             Spacer()
         }
         .frame(height: 300)
+    }
+    
+    private var selectedDistancePopover: some View {
+        let indexOfSelectedDistance = elevationDistanceArray!
+            .firstIndex { $0.distance == selectedDistance! }!
+        
+        return HStack {
+            Statistic(
+                label: "From start",
+                systemImageName: "arrow.forward.to.line",
+                value: selectedDistance!
+                    .inUnit(xAxisUnit)
+                    .formatted(.routeLength)
+            )
+            
+            Divider()
+            
+            Statistic(
+                label: "Altitude",
+                systemImageName: "arrowtriangle.up",
+                value: elevationDistanceArray![indexOfSelectedDistance]
+                    .elevation
+                    .inUnit(yAxisUnit)
+                    .formatted(.elevationChange)
+            )
+        }
     }
 }
 
