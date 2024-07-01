@@ -38,32 +38,31 @@ extension MapViewController: MKMapViewDelegate {
         _ mapView: MKMapView,
         viewFor annotation: any MKAnnotation
     ) -> MKAnnotationView? {
-        guard annotation is StartEndAnnotation || annotation is SelectedMapPointAnnotation else {
-            return nil
-        }
-        
         let identifier = "marker"
         
         var annotationView = mapView.dequeueReusableAnnotationView(
             withIdentifier: identifier
         ) as? MKMarkerAnnotationView
         
-        if annotationView == nil {
-            annotationView = MKMarkerAnnotationView(
-                annotation: annotation,
-                reuseIdentifier: identifier
-            )
-            
-            guard let annotationView else { return nil }
-            
-            annotationView.animatesWhenAdded = true
-            annotationView.canShowCallout = true
-            annotationView.rightCalloutAccessoryView = UIButton(
-                type: .detailDisclosure
-            )
-            annotationView.markerTintColor = annotation.title == "Start" ? .green : .red
-        } else {
-            annotationView?.annotation = annotation
+        annotationView = MKMarkerAnnotationView(
+            annotation: annotation,
+            reuseIdentifier: identifier
+        )
+        
+        guard let annotationView else { return nil }
+        
+        annotationView.animatesWhenAdded = true
+        annotationView.canShowCallout = false
+        annotationView.titleVisibility = .hidden
+        
+        switch annotation {
+        case is StartEndAnnotation:
+            annotationView.markerTintColor = .systemBlue
+            annotationView.glyphText = annotation.title == "Start" ? "A" : "B"
+        case is SelectedMapPointAnnotation:
+            annotationView.markerTintColor = .systemBlue
+        default:
+            return nil
         }
         
         return annotationView
