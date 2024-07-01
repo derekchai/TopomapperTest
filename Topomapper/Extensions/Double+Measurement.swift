@@ -8,7 +8,7 @@
 import Foundation
 
 extension Double {
-    var metres: Measurement<UnitLength> {
+    var meters: Measurement<UnitLength> {
         Measurement(value: self, unit: .meters)
     }
 }

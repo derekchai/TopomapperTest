@@ -81,7 +81,7 @@ struct ElevationProfileChart: View {
             .chartXAxisLabel("km")
             .chartYAxisLabel("m")
             .chartXScale(
-                domain: 0...route.length.metres.converted(to: xAxisUnit).value
+                domain: 0...route.length.meters.converted(to: xAxisUnit).value
             )
             .chartXSelection(value: $rawSelectedDistance)
             
@@ -122,13 +122,13 @@ struct ElevationProfileChart: View {
                 xStart:
                         .value(
                             "",
-                            boundary.startDistance.metres
+                            boundary.startDistance.meters
                                 .converted(to: xAxisUnit).value
                         ),
                 xEnd:
                         .value(
                             "",
-                            boundary.endDistance.metres
+                            boundary.endDistance.meters
                                 .converted(to: xAxisUnit).value
                         )
             )

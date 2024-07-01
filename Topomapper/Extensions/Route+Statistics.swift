@@ -98,7 +98,7 @@ extension Route {
         for i in stride(from: 0, to: self.points.count, by: simplified ? strideAmount : 1) {
             distances
                 .append(
-                    distanceTravelled(to: i).metres.converted(to: distanceUnit).value
+                    distanceTravelled(to: i).meters.converted(to: distanceUnit).value
                 )
             
             elevations.append(self.points[i].elevation)

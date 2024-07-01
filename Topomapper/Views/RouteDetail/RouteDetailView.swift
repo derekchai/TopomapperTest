@@ -89,7 +89,7 @@ struct RouteDetailView: View {
             Statistic(
                 label: "Length",
                 systemImageName: "point.topleft.down.to.point.bottomright.curvepath.fill",
-                value: route.length.metres.formatted(.routeLength)
+                value: route.length.meters.formatted(.routeLength)
             )
             
             Divider()
@@ -97,7 +97,7 @@ struct RouteDetailView: View {
             Statistic(
                 label: "Elev. Gain",
                 systemImageName: "arrow.up.forward",
-                value: route.elevationGain.metres.formatted(.elevationChange)
+                value: route.elevationGain.meters.formatted(.elevationChange)
             )
             
             Divider()
@@ -105,7 +105,7 @@ struct RouteDetailView: View {
             Statistic(
                 label: "Elev. Loss",
                 systemImageName: "arrow.down.forward",
-                value: route.elevationLoss.metres.formatted(.elevationChange)
+                value: route.elevationLoss.meters.formatted(.elevationChange)
             )
             
         }  // HStack
