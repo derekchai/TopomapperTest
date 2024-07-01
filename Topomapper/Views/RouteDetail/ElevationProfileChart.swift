@@ -53,6 +53,7 @@ struct ElevationProfileChart: View {
     private let elevationProfileChartHeight: CGFloat = 300
     
     private let xAxisUnit: UnitLength = .kilometers
+    private let yAxisUnit: UnitLength = .meters
     
     // MARK: - Initializer
     
@@ -78,20 +79,23 @@ struct ElevationProfileChart: View {
                 }
             }
             .frame(height: elevationProfileChartHeight)
-            .chartXAxisLabel("km")
-            .chartYAxisLabel("m")
+            .chartXAxisLabel(xAxisUnit.symbol)
+            .chartYAxisLabel(yAxisUnit.symbol)
             .chartXScale(
                 domain: 0...route.length.meters.converted(to: xAxisUnit).value
             )
             .chartXSelection(value: $rawSelectedDistance)
             
-        // elevationDistanceArray is loading.
+            // elevationDistanceArray is loading.
         } else {
             elevationProfileLoading
                 .onAppear {
                     Task {
                         elevationDistanceArray = await route
-                            .elevationOverDistance(distanceUnit: xAxisUnit)
+                            .elevationOverDistance(
+                                elevationUnit: yAxisUnit,
+                                distanceUnit: xAxisUnit
+                            )
                     }
                 }
         }

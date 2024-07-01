@@ -81,6 +81,7 @@ extension Route {
     /// - Parameter simplified: If true, returns a simplified, shorter array which
     /// does not use every single point.
     func elevationOverDistance(
+        elevationUnit: UnitLength = .meters,
         distanceUnit: UnitLength = .meters,
         simplified: Bool = true
     ) async -> [(
@@ -95,13 +96,22 @@ extension Route {
         
         if strideAmount <= 0 { strideAmount = 1 }
         
-        for i in stride(from: 0, to: self.points.count, by: simplified ? strideAmount : 1) {
+        for i in stride(
+            from: 0,
+            to: self.points.count,
+            by: simplified ? strideAmount : 1
+        ) {
             distances
                 .append(
-                    distanceTravelled(to: i).meters.converted(to: distanceUnit).value
+                    distanceTravelled(to: i).meters
+                        .converted(to: distanceUnit).value
                 )
             
-            elevations.append(self.points[i].elevation)
+            elevations
+                .append(
+                    self.points[i].elevation.meters
+                        .converted(to: elevationUnit).value
+                )
         }
         
         return Array(zip(elevations, distances))
