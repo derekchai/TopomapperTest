@@ -52,6 +52,7 @@ struct ElevationProfileChart: View {
     
     private let elevationProfileChartHeight: CGFloat = 300
     
+    private let xAxisUnit: UnitLength = .kilometers
     
     // MARK: - Initializer
     
@@ -80,7 +81,7 @@ struct ElevationProfileChart: View {
             .chartXAxisLabel("km")
             .chartYAxisLabel("m")
             .chartXScale(
-                domain: 0...route.length.metres.converted(to: .kilometers).value
+                domain: 0...route.length.metres.converted(to: xAxisUnit).value
             )
             .chartXSelection(value: $rawSelectedDistance)
             
@@ -89,7 +90,8 @@ struct ElevationProfileChart: View {
             elevationProfileLoading
                 .onAppear {
                     Task {
-                        elevationDistanceArray = await route.elevationOverDistance(distanceUnit: .kilometers)
+                        elevationDistanceArray = await route
+                            .elevationOverDistance(distanceUnit: xAxisUnit)
                     }
                 }
         }
@@ -117,8 +119,18 @@ struct ElevationProfileChart: View {
     private var gradeBoundariesOverlay: some ChartContent {
         ForEach(gradeBoundaries) { boundary in
             RectangleMark(
-                xStart: .value("", boundary.startDistance),
-                xEnd: .value("", boundary.endDistance)
+                xStart:
+                        .value(
+                            "",
+                            boundary.startDistance.metres
+                                .converted(to: xAxisUnit).value
+                        ),
+                xEnd:
+                        .value(
+                            "",
+                            boundary.endDistance.metres
+                                .converted(to: xAxisUnit).value
+                        )
             )
             .foregroundStyle(.red)
             .opacity(0.2)
