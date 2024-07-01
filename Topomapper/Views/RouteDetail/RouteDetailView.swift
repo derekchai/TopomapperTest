@@ -22,8 +22,6 @@ struct RouteDetailView: View {
     
     @Environment(AppState.self) private var appState
     
-//    @State private var elevationOverDistance: [(elevation: Double, distance: Double)] = []
-    
     @State private var loadingElevationProfile = true
     
     
@@ -62,13 +60,6 @@ struct RouteDetailView: View {
             .onAppear {
                 updateSelectedRoute(to: route)
                 
-//                Task {
-//                    elevationOverDistance = route
-//                        .elevationOverDistance(
-//                            simplified: true
-//                        )
-//                    loadingElevationProfile = false
-//                }
                 loadingElevationProfile = false
             }
         }  // NavigationStack
