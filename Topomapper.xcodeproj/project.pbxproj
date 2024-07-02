@@ -41,7 +41,7 @@
 		A8B612852C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B612842C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift */; };
 		A8B612872C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B612862C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift */; };
 		A8B6128E2C320E43005CBFF1 /* Route+Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B6128D2C320E43005CBFF1 /* Route+Statistics.swift */; };
-		A8B612902C320E68005CBFF1 /* CLLocationCoordinate2D+FromLocationCoordinate3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B6128F2C320E68005CBFF1 /* CLLocationCoordinate2D+FromLocationCoordinate3D.swift */; };
+		A8B612902C320E68005CBFF1 /* CLLocationCoordinate2D+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B6128F2C320E68005CBFF1 /* CLLocationCoordinate2D+Initializers.swift */; };
 		A8B612972C324D2E005CBFF1 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B612962C324D2E005CBFF1 /* Key.swift */; };
 		A8DAF2F72C2E7BB000B6C001 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DAF2F62C2E7BB000B6C001 /* MapViewController.swift */; };
 		A8DAF2F92C2E7D6300B6C001 /* MapViewController+AppStateDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DAF2F82C2E7D6300B6C001 /* MapViewController+AppStateDelegateMethods.swift */; };
@@ -105,7 +105,7 @@
 		A8B612842C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift"; sourceTree = "<group>"; };
 		A8B612862C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMapPointAnnotation.swift; sourceTree = "<group>"; };
 		A8B6128D2C320E43005CBFF1 /* Route+Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Route+Statistics.swift"; sourceTree = "<group>"; };
-		A8B6128F2C320E68005CBFF1 /* CLLocationCoordinate2D+FromLocationCoordinate3D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+FromLocationCoordinate3D.swift"; sourceTree = "<group>"; };
+		A8B6128F2C320E68005CBFF1 /* CLLocationCoordinate2D+Initializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Initializers.swift"; sourceTree = "<group>"; };
 		A8B612962C324D2E005CBFF1 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		A8DAF2F62C2E7BB000B6C001 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A8DAF2F82C2E7D6300B6C001 /* MapViewController+AppStateDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+AppStateDelegateMethods.swift"; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 				A8B612842C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift */,
 				A8B6128D2C320E43005CBFF1 /* Route+Statistics.swift */,
 				A8A7FA012C33E3E200C666A9 /* MKPolyline+Initializers.swift */,
-				A8B6128F2C320E68005CBFF1 /* CLLocationCoordinate2D+FromLocationCoordinate3D.swift */,
+				A8B6128F2C320E68005CBFF1 /* CLLocationCoordinate2D+Initializers.swift */,
 				A8A7F9FF2C33BA8600C666A9 /* UIEdgeInsets+Visible.swift */,
 			);
 			path = Extensions;
@@ -442,7 +442,7 @@
 				A894C8552C242F1F00423C92 /* TopomapperApp.swift in Sources */,
 				A8A7FA002C33BA8600C666A9 /* UIEdgeInsets+Visible.swift in Sources */,
 				A8DAF2F72C2E7BB000B6C001 /* MapViewController.swift in Sources */,
-				A8B612902C320E68005CBFF1 /* CLLocationCoordinate2D+FromLocationCoordinate3D.swift in Sources */,
+				A8B612902C320E68005CBFF1 /* CLLocationCoordinate2D+Initializers.swift in Sources */,
 				A8A7FA022C33E3E200C666A9 /* MKPolyline+Initializers.swift in Sources */,
 				A8394CC32C2D634B008FFF0B /* TileServerURLTemplate.swift in Sources */,
 				A8B6128E2C320E43005CBFF1 /* Route+Statistics.swift in Sources */,
