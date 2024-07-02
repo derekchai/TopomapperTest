@@ -29,22 +29,18 @@ struct ElevationProfileChart: View {
     
     /// Matches the `rawSelectedDistance` to the nearest actual distance in the
     /// Route.
-    private var selectedDistance: Double? {
-        guard let elevationDistanceArray else { return nil }
-        
-        guard !elevationDistanceArray.isEmpty else { return nil }
-        
+    private var selectedRoutePoint: RoutePoint? {
         guard let rawSelectedDistance else { return nil }
         
-        let distances = elevationDistanceArray.map { $0.distance }
-        
-        for i in 0..<distances.count {
-            guard distances[i] < rawSelectedDistance else {
-                return distances[i]
+        for i in 0..<route.points.count {
+            guard route
+                .points[i].distanceFromStart < rawSelectedDistance
+                .inUnit(xAxisUnit).converted(to: .meters).value else {
+                return route.points[i]
             }
         }
         
-        return distances.last!
+        return route.points.last
     }
     
     
@@ -74,7 +70,7 @@ struct ElevationProfileChart: View {
                 
                 gradeBoundariesOverlay
                 
-                if selectedDistance != nil {
+                if selectedRoutePoint != nil {
                     selectionRuleMark
                         .annotation(
                             position: .top,
@@ -153,7 +149,15 @@ struct ElevationProfileChart: View {
     }
     
     private var selectionRuleMark: some ChartContent {
-        RuleMark(x: .value("Selected", selectedDistance!))
+        RuleMark(
+            x:
+                    .value(
+                        "Selected",
+                        selectedRoutePoint!.distanceFromStart
+                            .inUnit(UnitLength.meters)
+                            .converted(to: xAxisUnit).value
+                    )
+        )
             .foregroundStyle(.gray.opacity(0.3))
             .offset(yStart: -10)
             .zIndex(-1)
@@ -173,15 +177,13 @@ struct ElevationProfileChart: View {
     }
     
     private var selectedDistancePopover: some View {
-        let indexOfSelectedDistance = elevationDistanceArray!
-            .firstIndex { $0.distance == selectedDistance! }!
-        
         return HStack {
             Statistic(
                 label: "From start",
                 systemImageName: "arrow.forward.to.line",
-                value: selectedDistance!
-                    .inUnit(xAxisUnit)
+                value: selectedRoutePoint!.distanceFromStart
+                    .inUnit(UnitLength.meters)
+                    .converted(to: xAxisUnit)
                     .formatted(.routeLength)
             )
             
@@ -190,10 +192,17 @@ struct ElevationProfileChart: View {
             Statistic(
                 label: "Altitude",
                 systemImageName: "arrowtriangle.up",
-                value: elevationDistanceArray![indexOfSelectedDistance]
-                    .elevation
+                value: selectedRoutePoint!.elevation
                     .inUnit(yAxisUnit)
                     .formatted(.elevationChange)
+            )
+            
+            Divider()
+            
+            Statistic(
+                label: "Grade",
+                systemImageName: "angle",
+                value: "\(Int(selectedRoutePoint!.grade * 100))%"
             )
         }
     }
