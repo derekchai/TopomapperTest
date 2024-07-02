@@ -23,13 +23,7 @@ extension Route {
     }
     
     func distanceTravelled(from index₁: Int = 0, to index₂: Int) -> Double {
-        var totalDistance: Double = 0
-        
-        for i in index₁..<index₂ {
-            totalDistance += points[i].haversineDistance(from: points[i + 1])
-        }
-        
-        return totalDistance
+        return points[index₂].distanceFromStart - points[index₁].distanceFromStart
     }
     
     /// The average grade from the point at `index₁` to the point at `index₂`
