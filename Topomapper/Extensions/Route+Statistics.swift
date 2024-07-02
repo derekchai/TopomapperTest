@@ -152,7 +152,7 @@ extension Route {
     /// Returns a `MapPolyline` from the points of this route.
     var polyline: MapPolyline {
         MapPolyline(
-            coordinates: points.map { $0.coordinate },
+            coordinates: points.map { CLLocationCoordinate2D(from: $0) },
             contourStyle: .geodesic
         )
     }

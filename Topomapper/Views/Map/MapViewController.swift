@@ -107,13 +107,13 @@ class MapViewController: UIViewController {
         guard let firstPoint = selectedRoute.points.first, let lastPoint = selectedRoute.points.last else { return }
         
         let startAnnotation = StartEndAnnotation(
-            coordinate: firstPoint.coordinate,
+            coordinate: CLLocationCoordinate2D(from: firstPoint),
             title: "Start",
             subtitle: nil
         )
         
         let endAnnotation = StartEndAnnotation(
-            coordinate: lastPoint.coordinate,
+            coordinate: CLLocationCoordinate2D(from: lastPoint),
             title: "End",
             subtitle: nil
         )
