@@ -74,7 +74,7 @@ extension Route {
     /// duration to execute depending on how many points make up the Route.
     /// - Parameter simplified: If true, returns a simplified, shorter array which
     /// does not use every single point.
-    func elevationOverDistance(
+    func elevationOverDistanceArray(
         elevationUnit: UnitLength = .meters,
         distanceUnit: UnitLength = .meters,
         simplified: Bool = true
@@ -97,14 +97,18 @@ extension Route {
         ) {
             distances
                 .append(
-                    distanceTravelled(to: i).meters
-                        .converted(to: distanceUnit).value
+                    points[i].distanceFromStart
+                        .inUnit(UnitLength.meters)
+                        .converted(to: distanceUnit)
+                        .value
                 )
             
             elevations
                 .append(
-                    self.points[i].elevation.meters
-                        .converted(to: elevationUnit).value
+                    points[i].elevation
+                        .inUnit(UnitLength.meters)
+                        .converted(to: elevationUnit)
+                        .value
                 )
         }
         
