@@ -157,15 +157,6 @@ extension Route {
         )
     }
     
-    var mkPolyline: MKPolyline {
-        MKPolyline(
-            coordinates: points.map {
-                CLLocationCoordinate2D(from: $0)
-            },
-            count: points.count
-        )
-    }
-    
     struct GradeBoundary: Identifiable {
         var id: UUID
         

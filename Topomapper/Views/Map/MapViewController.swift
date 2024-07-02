@@ -64,10 +64,10 @@ class MapViewController: UIViewController {
         
         mapView.removeAllExistingPolylines()
         
-        let mainPolyline = selectedRoute.mkPolyline
+        let mainPolyline = MKPolyline(from: selectedRoute)
         mainPolyline.title = "main"
         
-        let outlinePolyline = selectedRoute.mkPolyline
+        let outlinePolyline = MKPolyline(from: selectedRoute)
         
         mapView.addPolyline(outlinePolyline)
         mapView.addPolyline(mainPolyline)
