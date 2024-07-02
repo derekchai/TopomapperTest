@@ -103,7 +103,7 @@ struct ElevationProfileChart: View {
                 .onAppear {
                     Task {
                         elevationDistanceArray = await route
-                            .elevationOverDistance(
+                            .elevationOverDistanceArray(
                                 elevationUnit: yAxisUnit,
                                 distanceUnit: xAxisUnit
                             )
