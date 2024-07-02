@@ -17,10 +17,7 @@ class MapView: UIView {
     
     let appState: AppState
     
-    
-    // MARK: - Internal Constants
-    
-    let mapView = MKMapView()
+    let mkMapView = MKMapView()
 
 
     
@@ -36,19 +33,19 @@ class MapView: UIView {
         
         super.init(frame: .zero)
         
-        mapView.delegate = delegate
+        mkMapView.delegate = delegate
         
-        addSubview(mapView)
+        addSubview(mkMapView)
         
-        mapView.frame = frame
-        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        mkMapView.frame = frame
+        mkMapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        mapView.showsCompass = true
-        mapView.showsScale = true
+        mkMapView.showsCompass = true
+        mkMapView.showsScale = true
         
-        mapView.overrideUserInterfaceStyle = .light
+        mkMapView.overrideUserInterfaceStyle = .light
         
-        mapView.cameraZoomRange = MKMapView
+        mkMapView.cameraZoomRange = MKMapView
             .CameraZoomRange(minCenterCoordinateDistance: 3000)
         
         let mapTapGestureRecognizer = UITapGestureRecognizer(
@@ -56,7 +53,7 @@ class MapView: UIView {
             action: #selector(handleMapTap)
         )
         
-        mapView.addGestureRecognizer(mapTapGestureRecognizer)
+        mkMapView.addGestureRecognizer(mapTapGestureRecognizer)
     }
 
     required init?(coder: NSCoder) {
@@ -72,13 +69,13 @@ class MapView: UIView {
             urlTemplate: TileServerURLTemplate.topo50
         )
         overlay.canReplaceMapContent = false
-        mapView.addOverlay(overlay, level: .aboveRoads)
+        mkMapView.addOverlay(overlay, level: .aboveRoads)
     }
     
     /// Adds a `MKPolyline` to the view.
     /// - Parameter polyline: The `MKPolyline` to  be added.
     func addPolyline(_ polyline: MKPolyline) {
-        mapView.addOverlay(polyline)
+        mkMapView.addOverlay(polyline)
     }
     
     /// Zooms in on the given `MKPolyline`.
@@ -99,11 +96,11 @@ class MapView: UIView {
         let boundingMapRect = polyline.boundingMapRect
         
         guard let edgeInsets else {
-            mapView.setVisibleMapRect(boundingMapRect, animated: animated)
+            mkMapView.setVisibleMapRect(boundingMapRect, animated: animated)
             return
         }
         
-        mapView
+        mkMapView
             .setVisibleMapRect(
                 boundingMapRect,
                 edgePadding: edgeInsets,
@@ -113,8 +110,8 @@ class MapView: UIView {
     
     /// Removes all existing `MKPolyline` overlays from the view.
     func removeAllExistingPolylines() {
-        for overlay in mapView.overlays where overlay is MKPolyline {
-            mapView.removeOverlay(overlay)
+        for overlay in mkMapView.overlays where overlay is MKPolyline {
+            mkMapView.removeOverlay(overlay)
         }
     }
     
@@ -122,14 +119,14 @@ class MapView: UIView {
     /// the `MKAnnotation` protocol) from the view.
     /// - Parameter type: The type of `MKAnnotation` to be removed.
     func removeAllExistingAnnotations<T: MKAnnotation>(ofType type: T.Type? = nil) {
-        for annotation in mapView.annotations where annotation is T {
-            mapView.removeAnnotation(annotation)
+        for annotation in mkMapView.annotations where annotation is T {
+            mkMapView.removeAnnotation(annotation)
         }
     }
     
     /// Adds the given `MKAnnotation` to the view.
     func addAnnotation(_ annotation: MKAnnotation) {
-        mapView.addAnnotation(annotation)
+        mkMapView.addAnnotation(annotation)
     }
     
     

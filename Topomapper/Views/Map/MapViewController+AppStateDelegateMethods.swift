@@ -22,7 +22,7 @@ extension MapViewController: AppStateDelegate {
     func selectedDetentDidChange(to newDetent: PresentationDetent?) {
         guard let mapView = view as? MapView else { return }
         
-        let mainPolyline = mapView.mapView.overlays.first {
+        let mainPolyline = mapView.mkMapView.overlays.first {
             $0 is MKPolyline
         } as? MKPolyline
         
