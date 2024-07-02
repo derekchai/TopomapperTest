@@ -40,7 +40,7 @@
 		A8A7FA022C33E3E200C666A9 /* MKPolyline+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FA012C33E3E200C666A9 /* MKPolyline+Initializers.swift */; };
 		A8B612852C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B612842C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift */; };
 		A8B612872C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B612862C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift */; };
-		A8B6128E2C320E43005CBFF1 /* Route+Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B6128D2C320E43005CBFF1 /* Route+Statistics.swift */; };
+		A8B6128E2C320E43005CBFF1 /* Route+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B6128D2C320E43005CBFF1 /* Route+Properties.swift */; };
 		A8B612902C320E68005CBFF1 /* CLLocationCoordinate2D+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B6128F2C320E68005CBFF1 /* CLLocationCoordinate2D+Initializers.swift */; };
 		A8B612972C324D2E005CBFF1 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B612962C324D2E005CBFF1 /* Key.swift */; };
 		A8DAF2F72C2E7BB000B6C001 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DAF2F62C2E7BB000B6C001 /* MapViewController.swift */; };
@@ -104,7 +104,7 @@
 		A8A7FA012C33E3E200C666A9 /* MKPolyline+Initializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPolyline+Initializers.swift"; sourceTree = "<group>"; };
 		A8B612842C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift"; sourceTree = "<group>"; };
 		A8B612862C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMapPointAnnotation.swift; sourceTree = "<group>"; };
-		A8B6128D2C320E43005CBFF1 /* Route+Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Route+Statistics.swift"; sourceTree = "<group>"; };
+		A8B6128D2C320E43005CBFF1 /* Route+Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Route+Properties.swift"; sourceTree = "<group>"; };
 		A8B6128F2C320E68005CBFF1 /* CLLocationCoordinate2D+Initializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Initializers.swift"; sourceTree = "<group>"; };
 		A8B612962C324D2E005CBFF1 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		A8DAF2F62C2E7BB000B6C001 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -146,13 +146,13 @@
 		A8394CBD2C2D6223008FFF0B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A8B6128F2C320E68005CBFF1 /* CLLocationCoordinate2D+Initializers.swift */,
 				A88F2F8B2C2A2ACB00A8F239 /* Double+Measurement.swift */,
 				A8394CB92C2D5953008FFF0B /* MKMapPoint+DistanceToPolyline.swift */,
-				A8394CBB2C2D5B06008FFF0B /* MKPolyline+ClosestPointToPoint.swift */,
 				A8B612842C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift */,
-				A8B6128D2C320E43005CBFF1 /* Route+Statistics.swift */,
+				A8394CBB2C2D5B06008FFF0B /* MKPolyline+ClosestPointToPoint.swift */,
 				A8A7FA012C33E3E200C666A9 /* MKPolyline+Initializers.swift */,
-				A8B6128F2C320E68005CBFF1 /* CLLocationCoordinate2D+Initializers.swift */,
+				A8B6128D2C320E43005CBFF1 /* Route+Properties.swift */,
 				A8A7F9FF2C33BA8600C666A9 /* UIEdgeInsets+Visible.swift */,
 			);
 			path = Extensions;
@@ -445,7 +445,7 @@
 				A8B612902C320E68005CBFF1 /* CLLocationCoordinate2D+Initializers.swift in Sources */,
 				A8A7FA022C33E3E200C666A9 /* MKPolyline+Initializers.swift in Sources */,
 				A8394CC32C2D634B008FFF0B /* TileServerURLTemplate.swift in Sources */,
-				A8B6128E2C320E43005CBFF1 /* Route+Statistics.swift in Sources */,
+				A8B6128E2C320E43005CBFF1 /* Route+Properties.swift in Sources */,
 				A88F2F852C29797D00A8F239 /* AddRouteSheet.swift in Sources */,
 				A88F2F982C2B999C00A8F239 /* RouteDetailView.swift in Sources */,
 				A88F2F6D2C2522AB00A8F239 /* SearchField.swift in Sources */,

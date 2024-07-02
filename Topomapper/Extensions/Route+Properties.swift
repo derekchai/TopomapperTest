@@ -1,5 +1,5 @@
 //
-//  Route+Statistics.swift
+//  Route+Properties.swift
 //  Topomapper
 //
 //  Created by Derek Chai on 01/07/2024.
