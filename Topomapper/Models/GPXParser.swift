@@ -120,7 +120,13 @@ class GPXParser: NSObject, XMLParserDelegate {
             
             distanceFromStart += distanceFromPreviousCoordinate
             
-            let grade = (currentElevation - previousElevation) / distanceFromPreviousCoordinate
+            let grade: Double
+            
+            if distanceFromPreviousCoordinate > 0 {
+                grade = (currentElevation - previousElevation) / distanceFromPreviousCoordinate
+            } else {
+                grade = 0
+            }
             
             let point = RoutePoint(
                 latitude: currentLatitude,
@@ -143,8 +149,6 @@ class GPXParser: NSObject, XMLParserDelegate {
             )
             
             points.append(point)
-            
-            return
         }
         
         self.previousLatitude = currentLatitude
