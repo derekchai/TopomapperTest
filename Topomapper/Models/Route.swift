@@ -17,7 +17,7 @@ final class Route {
     // MARK: - Properties
     
     let name: String
-    let points: [LocationCoordinate3D]
+    let points: [RoutePoint]
     
     let distances: [Double]
     let elevations: [Double]
@@ -25,7 +25,7 @@ final class Route {
     
     // MARK: - Initializers
     
-    init(name: String, points: [LocationCoordinate3D]) {
+    init(name: String, points: [RoutePoint]) {
         self.name = name
         
         self.points = points

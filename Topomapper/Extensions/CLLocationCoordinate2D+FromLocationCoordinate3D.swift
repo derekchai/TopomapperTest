@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 
 extension CLLocationCoordinate2D {
-    init(from locationCoordinate3D: LocationCoordinate3D) {
+    init(from locationCoordinate3D: RoutePoint) {
         self.init(
             latitude: locationCoordinate3D.latitude,
             longitude: locationCoordinate3D

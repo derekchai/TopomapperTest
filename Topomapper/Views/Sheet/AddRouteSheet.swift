@@ -17,7 +17,7 @@ struct AddRouteSheet: View {
     @Environment(\.dismiss) private var dismiss
     
     @State private var routeName: String = ""
-    @State private var routePoints: [LocationCoordinate3D] = []
+    @State private var routePoints: [RoutePoint] = []
     
     /// The filename (including extension) of the user-selected GPX file.
     @State private var gpxFilename: String?

@@ -10,7 +10,7 @@ import CoreLocation
 
 /// A coordinate in 3-dimensional space, with a latitude, longitude, and
 /// optional elevation (above sea level).
-struct LocationCoordinate3D: Codable {
+struct RoutePoint: Codable {
     
     
     // MARK: - Exposed Properties
@@ -30,7 +30,7 @@ struct LocationCoordinate3D: Codable {
     /// which represents the Earth as an oblate spheroid and is thus more
     /// accurate. The haversine formula gives an uncertainty of up to 0.5%.
     /// - Returns: Distance in metres between the two coordinates.
-    func haversineDistance(from point: LocationCoordinate3D) -> Double {
+    func haversineDistance(from point: RoutePoint) -> Double {
         let earthRadius: Double = 6_371_000 // metres
         
         let lat1: Double = self.latitude * (.pi / 180)
