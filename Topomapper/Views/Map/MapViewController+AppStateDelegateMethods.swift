@@ -7,6 +7,7 @@
 
 import Foundation
 import MapKit
+import SwiftUI
 
 extension MapViewController: AppStateDelegate {
     func selectedMapPointDidChange(to newMapPoint: MKMapPoint?) {
@@ -16,5 +17,17 @@ extension MapViewController: AppStateDelegate {
     func selectedRouteDidChange(to newRoute: Route?) {
         updateRoutePath()
         updateStartEndAnnotations()
+    }
+    
+    func selectedDetentDidChange(to newDetent: PresentationDetent?) {
+        guard let mapView = view as? MapView else { return }
+        
+        let mainPolyline = mapView.mapView.overlays.first {
+            $0 is MKPolyline
+        } as? MKPolyline
+        
+        guard let mainPolyline else { return }
+        
+        zoomInOnPolyline(mainPolyline)
     }
 }

@@ -21,7 +21,11 @@ class AppState {
     }
     
     /// The presentation detent the app's main sheet is currently presenting in.
-    var selectedDetent: PresentationDetent = .small
+    var selectedDetent: PresentationDetent = .small {
+        didSet {
+            delegate?.selectedDetentDidChange(to: selectedDetent)
+        }
+    }
     
     var selectedMapPoint: MKMapPoint? = nil {
         didSet {
@@ -34,4 +38,6 @@ protocol AppStateDelegate {
     func selectedMapPointDidChange(to newMapPoint: MKMapPoint?)
     
     func selectedRouteDidChange(to newRoute: Route?)
+    
+    func selectedDetentDidChange(to newDetent: PresentationDetent?)
 }

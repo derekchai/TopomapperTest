@@ -13,7 +13,7 @@ extension UIEdgeInsets {
     static func notBlockedBySheet(
         screenHeight: CGFloat,
         detent: PresentationDetent,
-        otherInsets: CGFloat = 20
+        otherInsets: CGFloat = 30
     ) -> UIEdgeInsets {
         var insets = UIEdgeInsets(
             top: otherInsets,
@@ -25,10 +25,6 @@ extension UIEdgeInsets {
         switch detent {
         case .small:
             insets.bottom = 0.1 * screenHeight + otherInsets
-        case .medium:
-            insets.bottom = 0.5 * screenHeight + otherInsets
-        case .large:
-            insets.bottom = 1.0 * screenHeight
         default:
             insets.bottom = 0.5 * screenHeight + otherInsets
         }

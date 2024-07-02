@@ -72,13 +72,23 @@ class MapViewController: UIViewController {
         mapView.addPolyline(outlinePolyline)
         mapView.addPolyline(mainPolyline)
         
+        guard view.window?.windowScene?.screen.bounds != nil else {
+            return
+        }
+        
+        zoomInOnPolyline(mainPolyline)
+    }
+    
+    func zoomInOnPolyline(_ polyline: MKPolyline) {
+        guard let mapView = view as? MapView else { return }
+
         guard let screenBounds = view.window?.windowScene?.screen.bounds else {
             return
         }
         
         mapView
             .zoomInOnPolyline(
-                mainPolyline,
+                polyline,
                 edgeInsets:
                         .notBlockedBySheet(
                             screenHeight: screenBounds.height,

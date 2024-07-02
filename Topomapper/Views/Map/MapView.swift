@@ -20,7 +20,7 @@ class MapView: UIView {
     
     // MARK: - Internal Constants
     
-    private let mapView = MKMapView()
+    let mapView = MKMapView()
 
 
     
