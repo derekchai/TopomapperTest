@@ -37,9 +37,17 @@ class GPXParser: NSObject, XMLParserDelegate {
     private var points: [RoutePoint] = []
     
     private var currentElement: String = ""
+    
+    private var previousLatitude: Double?
+    private var previousLongitude: Double?
+    private var previousElevation: Double?
+    
     private var currentLatitude: Double?
     private var currentLongitude: Double?
     private var currentElevation: Double?
+    
+    private var distanceFromStart: Double = 0
+    private var distanceFromPreviousCoordinate: Double = 0
     
     
     // MARK: - Delegate Methods
@@ -91,19 +99,61 @@ class GPXParser: NSObject, XMLParserDelegate {
     ) {
         guard elementName == "trkpt" else { return }
         
-        if let currentLatitude, let currentLongitude, let currentElevation {
+        guard let currentLatitude, let currentLongitude, let currentElevation else {
+            return
+        }
+        
+        // If this is not the first trkpt...
+        if let previousLatitude, let previousLongitude, let previousElevation {
+            let previousCoordinate = CLLocation(
+                latitude: previousLatitude,
+                longitude: previousLongitude
+            )
+            
+            let currentCoordinate = CLLocation(
+                latitude: currentLatitude,
+                longitude: currentLongitude
+            )
+            
+            distanceFromPreviousCoordinate = previousCoordinate
+                .distance(from: currentCoordinate)
+            
+            distanceFromStart += distanceFromPreviousCoordinate
+            
+            let grade = (currentElevation - previousElevation) / distanceFromPreviousCoordinate
+            
             let point = RoutePoint(
                 latitude: currentLatitude,
                 longitude: currentLongitude,
-                elevation: currentElevation
+                elevation: currentElevation,
+                distanceFromStart: distanceFromStart,
+                grade: grade
             )
             
             points.append(point)
+            
+        // If this is the first trkpt...
+        } else {
+            let point = RoutePoint(
+                latitude: currentLatitude,
+                longitude: currentLongitude,
+                elevation: currentElevation,
+                distanceFromStart: 0,
+                grade: 0
+            )
+            
+            points.append(point)
+            
+            return
         }
         
-        currentLatitude = nil
-        currentLongitude = nil
-        currentElevation = nil
+        self.previousLatitude = currentLatitude
+        self.previousLongitude = currentLongitude
+        self.previousElevation = currentElevation
+        
+        self.currentLatitude = nil
+        self.currentLongitude = nil
+        self.currentElevation = nil
     }
     
     // parseErrorOccurred

@@ -110,6 +110,8 @@ struct AddRouteSheet: View {
         
         modelContext.insert(route)
         
+        print(String(describing: route))
+        
         dismiss()
     }
 }

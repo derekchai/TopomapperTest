@@ -142,11 +142,20 @@ struct RouteDetailView: View {
         route: Route(
             name: "My Route",
             points: [
-                RoutePoint(latitude: 0, longitude: 0, elevation: 0),
-                RoutePoint(latitude: 0, longitude: 1, elevation: 10),
-                RoutePoint(latitude: 0, longitude: 2, elevation: 20),
-                RoutePoint(latitude: 0, longitude: 3, elevation: 30),
-                RoutePoint(latitude: 0, longitude: 4, elevation: 40),
+                RoutePoint(
+                    latitude: 0,
+                    longitude: 0,
+                    elevation: 0,
+                    distanceFromStart: 0,
+                    grade: 0
+                ),
+                RoutePoint(
+                    latitude: 1,
+                    longitude: 0,
+                    elevation: 10,
+                    distanceFromStart: 20,
+                    grade: 1
+                ),
             ]
         )
     )

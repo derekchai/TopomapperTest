@@ -20,6 +20,14 @@ struct RoutePoint: Codable {
     
     let elevation: Double
     
+    let distanceFromStart: Double
+    
+    let grade: Double
+    
+    var label: String? = nil
+    
+    var day: Int? = nil
+    
     
     // MARK: - Computed Properties and Functions
     
