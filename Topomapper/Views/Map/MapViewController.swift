@@ -72,7 +72,19 @@ class MapViewController: UIViewController {
         mapView.addPolyline(outlinePolyline)
         mapView.addPolyline(mainPolyline)
         
-        mapView.zoomInOnPolyline(mainPolyline)
+        guard let screenBounds = view.window?.windowScene?.screen.bounds else {
+            return
+        }
+        
+        mapView
+            .zoomInOnPolyline(
+                mainPolyline,
+                edgeInsets:
+                        .notBlockedBySheet(
+                            screenHeight: screenBounds.height,
+                            detent: appState.selectedDetent
+                        )
+            )
     }
     
     /// Updates the start and end annotations shown on the map to be that of
@@ -106,7 +118,7 @@ class MapViewController: UIViewController {
     /// of the selected map point.
     func updateSelectedMapPointAnnotation() {
         guard let mapView = view as? MapView else { return }
-
+        
         guard let selectedMapPoint = appState.selectedMapPoint else { return }
         
         let selectedMapPointAnnotation = SelectedMapPointAnnotation(

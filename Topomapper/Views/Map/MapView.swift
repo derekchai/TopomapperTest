@@ -88,12 +88,17 @@ class MapView: UIView {
     ///   - animated: If the zoom should be animated.
     func zoomInOnPolyline(
         _ polyline: MKPolyline,
-        edgePadding: UIEdgeInsets? = nil,
+        edgeInsets: UIEdgeInsets? = UIEdgeInsets(
+            top: 20,
+            left: 20,
+            bottom: 20,
+            right: 20
+        ),
         animated: Bool = true
     ) {
         let boundingMapRect = polyline.boundingMapRect
         
-        guard let edgePadding else {
+        guard let edgeInsets else {
             mapView.setVisibleMapRect(boundingMapRect, animated: animated)
             return
         }
@@ -101,7 +106,7 @@ class MapView: UIView {
         mapView
             .setVisibleMapRect(
                 boundingMapRect,
-                edgePadding: edgePadding,
+                edgePadding: edgeInsets,
                 animated: animated
             )
     }
