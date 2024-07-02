@@ -12,6 +12,7 @@ import SwiftUI
 extension Route {
     // MARK: - Computed Properties and Functions
     
+    /// The length of the Route, in metres.
     var length: Double {
         var totalDistance: Double = 0
         
@@ -36,6 +37,13 @@ extension Route {
         return Δelevation / Δdistance
     }
     
+    /// Returns an array of `GradeBoundary` elements where each boundary is the
+    /// start/end of a grade defined by the lower and upper thresholds.
+    /// - Parameters:
+    ///   - lowerThreshold: The lower threshold of the grade range to be in
+    ///   this boundary.
+    ///   - upperThreshold: The upper threshold of the grade range to be in
+    ///   this boundary.
     func gradeBoundaries(lowerThreshold: Double = 0.2, upperThreshold: Double? = nil) -> [GradeBoundary] {
         var boundaries: [GradeBoundary] = []
         
