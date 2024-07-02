@@ -19,7 +19,6 @@ class MapView: UIView {
     
     let mkMapView = MKMapView()
 
-
     
     // MARK: - Initializers
     
@@ -167,5 +166,4 @@ class MapView: UIView {
             appState.selectedMapPoint = closestPointToTap
         }
     }
-    
 }
