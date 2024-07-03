@@ -10,7 +10,7 @@ import SwiftUI
 @testable import Topomapper
 
 struct TopomapperTests {
-
+    
     @Test func testGPXParser() async throws {
         if let fileURL = Bundle.main.url(forResource: "example", withExtension: "gpx") {
             let parser = GPXParser()
@@ -40,5 +40,21 @@ struct TopomapperTests {
         } catch {
             print(error)
         }
+    }
+    
+    @Test func testGradeMeasurement() throws {
+        let gradeRatio: Double = 1 // 45 degrees
+        print(
+            gradeRatio
+                .inUnit(UnitAngle.gradeRatio)
+                .converted(to: UnitAngle.gradePercentage)
+        )
+        
+        let gradeDegrees: Double = 45 // 100%
+        print(
+            gradeDegrees
+                .inUnit(UnitAngle.degrees)
+                .converted(to: UnitAngle.gradePercentage)
+        )
     }
 }
