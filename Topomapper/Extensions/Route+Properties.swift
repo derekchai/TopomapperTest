@@ -165,12 +165,12 @@ extension Route {
     
     /// Returns the lowest elevation point in the Route.
     var lowestPoint: RoutePoint? {
-        points.max(by: { $0.elevation < $1.elevation })
+        points.max(by: { $0.elevation > $1.elevation })
     }
     
     /// Returns the highest elevation point in the Route.
     var highestPoint: RoutePoint? {
-        points.max(by: { $0.elevation > $1.elevation })
+        points.max(by: { $0.elevation < $1.elevation })
     }
     
     struct GradeBoundary: Identifiable {
