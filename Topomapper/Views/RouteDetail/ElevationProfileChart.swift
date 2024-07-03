@@ -202,7 +202,11 @@ struct ElevationProfileChart: View {
             Statistic(
                 label: "Grade",
                 systemImageName: "angle",
-                value: "\(Int(selectedRoutePoint!.grade * 100))%"
+                value: selectedRoutePoint!.grade
+                    .inUnit(UnitAngle.gradeRatio)
+                    .converted(to: UnitAngle.gradePercentage)
+                    .formatted(.gradePercentage)
+                    
             )
         }
     }

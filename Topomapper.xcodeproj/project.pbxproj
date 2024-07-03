@@ -38,6 +38,9 @@
 		A894C8852C250C4000423C92 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A894C8842C250C3C00423C92 /* .gitignore */; };
 		A8A7FA002C33BA8600C666A9 /* UIEdgeInsets+Visible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7F9FF2C33BA8600C666A9 /* UIEdgeInsets+Visible.swift */; };
 		A8A7FA022C33E3E200C666A9 /* MKPolyline+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FA012C33E3E200C666A9 /* MKPolyline+Initializers.swift */; };
+		A8A7FA062C349E1600C666A9 /* UnitAngle+Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FA052C349E1600C666A9 /* UnitAngle+Grade.swift */; };
+		A8A7FA082C34F39700C666A9 /* GradePercentageFormatStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FA072C34F39700C666A9 /* GradePercentageFormatStyle.swift */; };
+		A8A7FA0A2C34F54300C666A9 /* UnitConverterGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FA092C34F54300C666A9 /* UnitConverterGrade.swift */; };
 		A8B612852C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B612842C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift */; };
 		A8B612872C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B612862C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift */; };
 		A8B6128E2C320E43005CBFF1 /* Route+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B6128D2C320E43005CBFF1 /* Route+Properties.swift */; };
@@ -102,6 +105,9 @@
 		A894C8842C250C3C00423C92 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		A8A7F9FF2C33BA8600C666A9 /* UIEdgeInsets+Visible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Visible.swift"; sourceTree = "<group>"; };
 		A8A7FA012C33E3E200C666A9 /* MKPolyline+Initializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPolyline+Initializers.swift"; sourceTree = "<group>"; };
+		A8A7FA052C349E1600C666A9 /* UnitAngle+Grade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnitAngle+Grade.swift"; sourceTree = "<group>"; };
+		A8A7FA072C34F39700C666A9 /* GradePercentageFormatStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradePercentageFormatStyle.swift; sourceTree = "<group>"; };
+		A8A7FA092C34F54300C666A9 /* UnitConverterGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverterGrade.swift; sourceTree = "<group>"; };
 		A8B612842C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift"; sourceTree = "<group>"; };
 		A8B612862C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMapPointAnnotation.swift; sourceTree = "<group>"; };
 		A8B6128D2C320E43005CBFF1 /* Route+Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Route+Properties.swift"; sourceTree = "<group>"; };
@@ -154,6 +160,7 @@
 				A8A7FA012C33E3E200C666A9 /* MKPolyline+Initializers.swift */,
 				A8B6128D2C320E43005CBFF1 /* Route+Properties.swift */,
 				A8A7F9FF2C33BA8600C666A9 /* UIEdgeInsets+Visible.swift */,
+				A8A7FA052C349E1600C666A9 /* UnitAngle+Grade.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -193,6 +200,7 @@
 				A8394CAF2C2BD25A008FFF0B /* MapType.swift */,
 				A8394CC22C2D634B008FFF0B /* TileServerURLTemplate.swift */,
 				A8B612962C324D2E005CBFF1 /* Key.swift */,
+				A8A7FA092C34F54300C666A9 /* UnitConverterGrade.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -214,6 +222,7 @@
 				A88F2F8D2C2A3E9800A8F239 /* TrailingIconLabelStyle.swift */,
 				A88F2F902C2A40AF00A8F239 /* RouteDistanceFormatStyle.swift */,
 				A88F2F9D2C2BA69900A8F239 /* ElevationChangeFormatStyle.swift */,
+				A8A7FA072C34F39700C666A9 /* GradePercentageFormatStyle.swift */,
 				A88F2F942C2B88DC00A8F239 /* RoutePathStrokeStyle.swift */,
 			);
 			path = Styles;
@@ -441,7 +450,9 @@
 				A88F2F782C256E8400A8F239 /* RoutePoint.swift in Sources */,
 				A894C8552C242F1F00423C92 /* TopomapperApp.swift in Sources */,
 				A8A7FA002C33BA8600C666A9 /* UIEdgeInsets+Visible.swift in Sources */,
+				A8A7FA082C34F39700C666A9 /* GradePercentageFormatStyle.swift in Sources */,
 				A8DAF2F72C2E7BB000B6C001 /* MapViewController.swift in Sources */,
+				A8A7FA062C349E1600C666A9 /* UnitAngle+Grade.swift in Sources */,
 				A8B612902C320E68005CBFF1 /* CLLocationCoordinate2D+Initializers.swift in Sources */,
 				A8A7FA022C33E3E200C666A9 /* MKPolyline+Initializers.swift in Sources */,
 				A8394CC32C2D634B008FFF0B /* TileServerURLTemplate.swift in Sources */,
@@ -456,6 +467,7 @@
 				A88F2F6F2C2564F300A8F239 /* GPXParser.swift in Sources */,
 				A88F2F8E2C2A3E9800A8F239 /* TrailingIconLabelStyle.swift in Sources */,
 				A8394CB02C2BD25A008FFF0B /* MapType.swift in Sources */,
+				A8A7FA0A2C34F54300C666A9 /* UnitConverterGrade.swift in Sources */,
 				A8394CBA2C2D5953008FFF0B /* MKMapPoint+DistanceToPolyline.swift in Sources */,
 				A88F2F9E2C2BA69900A8F239 /* ElevationChangeFormatStyle.swift in Sources */,
 				A88F2F932C2B83DE00A8F239 /* AppState.swift in Sources */,
