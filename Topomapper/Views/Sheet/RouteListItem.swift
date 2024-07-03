@@ -31,7 +31,7 @@ struct RouteListItem: View {
                         .font(.headline)
                     
                     Text(
-                        "\(route.length.meters.formatted(.routeLength))"
+                        "\(route.length.inUnit(UnitLength.meters).formatted(.routeLength))"
                     )
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
@@ -41,12 +41,12 @@ struct RouteListItem: View {
                 
                 VStack {
                     Label(
-                        "\(route.elevationGain.meters.formatted(.elevationChange))",
+                        "\(route.elevationGain.inUnit(UnitLength.meters).formatted(.elevationChange))",
                         systemImage: "arrow.up.right"
                     )
                     
                     Label(
-                        "\(route.elevationLoss.meters.formatted(.elevationChange))",
+                        "\(route.elevationLoss.inUnit(UnitLength.meters).formatted(.elevationChange))",
                         systemImage: "arrow.down.right"
                     )
                 }
