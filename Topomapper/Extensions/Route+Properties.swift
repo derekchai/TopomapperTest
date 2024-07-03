@@ -94,7 +94,7 @@ extension Route {
         
         var distances: [Double] = []
         
-        var strideAmount = Int(self.points.count / 150)
+        var strideAmount = Int(self.points.count / 250)
         
         if strideAmount <= 0 { strideAmount = 1 }
         
