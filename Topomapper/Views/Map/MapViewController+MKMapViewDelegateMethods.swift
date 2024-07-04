@@ -72,12 +72,12 @@ extension MapViewController: MKMapViewDelegate {
                 rootView: annotationButton
             )
             
-            hostingController.view.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+            hostingController.view.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
             hostingController.view.backgroundColor = .clear
             
             annotationView.canShowCallout = true
             annotationView.markerTintColor = .systemRed
-            annotationView.detailCalloutAccessoryView = hostingController.view
+            annotationView.rightCalloutAccessoryView = hostingController.view
         default:
             return nil
         }

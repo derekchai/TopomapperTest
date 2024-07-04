@@ -9,8 +9,14 @@ import SwiftUI
 
 struct AnnotationButton: View {
     var body: some View {
-        Button("Hello World!") {
-            print("Hello!")
+        Menu("", systemImage: "ellipsis.circle") {
+            Button("Add point of interest", systemImage: "star") {
+                
+            }
+            
+            Button("Add stop", systemImage: "tent") {
+                
+            }
         }
     }
 }
