@@ -24,7 +24,6 @@ final class Route {
     
     init(name: String, points: [RoutePoint]) {
         self.name = name
-        
         self.points = points
     }
 }
