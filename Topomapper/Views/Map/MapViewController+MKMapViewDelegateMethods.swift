@@ -40,6 +40,8 @@ extension MapViewController: MKMapViewDelegate {
         _ mapView: MKMapView,
         viewFor annotation: any MKAnnotation
     ) -> MKAnnotationView? {
+        guard !(annotation is MKUserLocation) else { return nil }
+        
         let identifier = "marker"
         
         var annotationView = mapView.dequeueReusableAnnotationView(
