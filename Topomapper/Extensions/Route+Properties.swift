@@ -98,7 +98,7 @@ extension Route {
             to: self.points.count,
             by: simplified ? strideAmount : 1
         ) {
-            var point = self.points[i]
+            let point = self.points[i]
             
             data
                 .append(
