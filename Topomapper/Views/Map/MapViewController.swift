@@ -140,9 +140,11 @@ class MapViewController: UIViewController {
         
         guard let selectedMapPoint = appState.selectedMapPoint else { return }
         
+        let coordinate = selectedMapPoint.coordinate
+        
         let selectedMapPointAnnotation = SelectedMapPointAnnotation(
-            coordinate: selectedMapPoint.coordinate,
-            title: nil,
+            coordinate: coordinate,
+            title: coordinate.formattedString(),
             subtitle: nil
         )
         

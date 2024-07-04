@@ -53,16 +53,19 @@ extension MapViewController: MKMapViewDelegate {
         
         guard let annotationView else { return nil }
         
+        annotationView.isEnabled = true
         annotationView.animatesWhenAdded = true
-        annotationView.canShowCallout = false
         annotationView.titleVisibility = .hidden
         
         switch annotation {
         case is StartEndAnnotation:
+            annotationView.canShowCallout = false
             annotationView.markerTintColor = .systemBlue
             annotationView.glyphText = annotation.title == "Start" ? "A" : "B"
         case is SelectedMapPointAnnotation:
-            annotationView.markerTintColor = .systemBlue
+            annotationView.canShowCallout = true
+            annotationView.markerTintColor = .systemRed
+            annotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         default:
             return nil
         }
