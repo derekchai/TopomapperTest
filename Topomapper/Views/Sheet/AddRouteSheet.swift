@@ -106,7 +106,11 @@ struct AddRouteSheet: View {
     }
     
     private func saveRoute() {
-        let route = Route(name: routeName, points: routePoints)
+        let route = Route(
+            name: routeName,
+            points: routePoints,
+            pointsOfInterest: []
+        )
         
         modelContext.insert(route)
         

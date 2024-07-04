@@ -18,12 +18,14 @@ final class Route {
     
     let name: String
     let points: [RoutePoint]
+    let pointsOfInterest: [RoutePoint]
     
     
     // MARK: - Initializers
     
-    init(name: String, points: [RoutePoint]) {
+    init(name: String, points: [RoutePoint], pointsOfInterest: [RoutePoint]) {
         self.name = name
         self.points = points
+        self.pointsOfInterest = pointsOfInterest
     }
 }

@@ -156,7 +156,7 @@ struct RouteDetailView: View {
                     distanceFromStart: 20,
                     grade: 1
                 ),
-            ]
+            ], pointsOfInterest: []
         )
     )
 }
