@@ -16,6 +16,11 @@ class MapViewController: UIViewController {
     var appState: AppState
     
     
+    // MARK: - Private Properties
+    
+    let locationManager = CLLocationManager()
+    
+    
     // MARK: - Initializers
     
     init(appState: AppState) {
@@ -34,6 +39,10 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         
         appState.delegate = self
+        
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        locationManager.startUpdatingLocation()
     }
     
     override func loadView() {

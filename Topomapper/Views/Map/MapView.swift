@@ -41,6 +41,8 @@ class MapView: UIView {
         
         mkMapView.showsCompass = true
         mkMapView.showsScale = true
+        mkMapView.showsUserLocation = true
+        mkMapView.showsUserTrackingButton = true
         
         mkMapView.overrideUserInterfaceStyle = .light
         
