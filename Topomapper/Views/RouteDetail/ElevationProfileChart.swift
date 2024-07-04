@@ -25,7 +25,7 @@ struct ElevationProfileChart: View {
     
     /// An array of `(elevation, distance)` pairs for each point in the Route
     /// where distance is the distance of that point from the start, in metres.
-    @State private var elevationDistanceArray: [(elevation: Double, distance: Double)]? = nil
+    @State private var chartData: [RoutePoint]? = nil
     
     private var gradeBoundaries: [Route.GradeBoundary]
     
@@ -37,7 +37,7 @@ struct ElevationProfileChart: View {
     
     private let elevationProfileChartHeight: CGFloat = 300
     
-    private let xAxisUnit: UnitLength = .meters
+    private let xAxisUnit: UnitLength = .kilometers
     private let yAxisUnit: UnitLength = .meters
     
     // MARK: - Initializer
@@ -53,11 +53,11 @@ struct ElevationProfileChart: View {
     
     var body: some View {
         // elevationDistanceArray has loaded.
-        if elevationDistanceArray != nil {
+        if chartData != nil {
             Chart {
                 elevationProfile
                 
-//                gradeBoundariesOverlay
+                gradeBoundariesOverlay
                 
                 if selectedRoutePoint != nil {
                     selectionRuleMark
@@ -84,15 +84,15 @@ struct ElevationProfileChart: View {
             .onChange(of: rawSelectedDistance) { oldDistance, newDistance in
                 guard let newDistance else { return }
                 
-                selectedRoutePoint = route.points.nearestPoint(to: newDistance)
+                selectedRoutePoint = chartData!.nearestPoint(to: newDistance)
             }
             
             // elevationDistanceArray is loading.
         } else {
             elevationProfileLoading
                 .task {
-                    elevationDistanceArray = await route
-                        .elevationOverDistanceArray(
+                    chartData = await route
+                        .elevationProfileData(
                             elevationUnit: yAxisUnit,
                             distanceUnit: xAxisUnit
                         )
@@ -105,7 +105,7 @@ struct ElevationProfileChart: View {
     
     private var elevationProfile: some ChartContent {
         LinePlot(
-            route.points,
+            chartData!,
             x: .value("Distance", \.distanceFromStart),
             y: .value("Elevation", \.elevation)
         )
@@ -142,13 +142,7 @@ struct ElevationProfileChart: View {
     
     private var selectionRuleMark: some ChartContent {
         RuleMark(
-            x:
-                    .value(
-                        "Selected",
-                        selectedRoutePoint!.distanceFromStart
-                            .inUnit(UnitLength.meters)
-                            .converted(to: xAxisUnit).value
-                    )
+            x: .value("Selected", selectedRoutePoint!.distanceFromStart)
         )
             .foregroundStyle(.gray.opacity(0.3))
             .offset(yStart: -10)
