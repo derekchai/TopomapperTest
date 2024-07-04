@@ -23,7 +23,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         locationManager.delegate = self
     }
     
-    private func requestAuthorization() {
+    func requestAuthorization() {
         switch locationManager.authorizationStatus {
         case .authorizedWhenInUse:
             log.info("Location authorized when in use.")
@@ -38,7 +38,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    private func startUpdatingLocation() {
+    func startUpdatingLocation() {
         guard !updatingLocation else {
             log.notice("Attempted to start updating location but location is already being updated.")
             return
@@ -56,7 +56,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         updatingLocation = true
     }
     
-    private func stopUpdatingLocation() {
+    func stopUpdatingLocation() {
         guard updatingLocation else {
             log.notice("Attempted to stop updating location but location is not being updated.")
             return
