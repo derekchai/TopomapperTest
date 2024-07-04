@@ -21,6 +21,8 @@ struct ElevationProfileChart: View {
     
     @State private var rawSelectedDistance: Double?
     
+    @State private var selectedRoutePoint: RoutePoint?
+    
     /// An array of `(elevation, distance)` pairs for each point in the Route
     /// where distance is the distance of that point from the start, in metres.
     @State private var elevationDistanceArray: [(elevation: Double, distance: Double)]? = nil
@@ -29,26 +31,13 @@ struct ElevationProfileChart: View {
     
     /// Matches the `rawSelectedDistance` to the nearest actual distance in the
     /// Route.
-    private var selectedRoutePoint: RoutePoint? {
-        guard let rawSelectedDistance else { return nil }
-        
-        for i in 0..<route.points.count {
-            guard route
-                .points[i].distanceFromStart < rawSelectedDistance
-                .inUnit(xAxisUnit).converted(to: .meters).value else {
-                return route.points[i]
-            }
-        }
-        
-        return route.points.last
-    }
     
     
     // MARK: - Internal Constants
     
     private let elevationProfileChartHeight: CGFloat = 300
     
-    private let xAxisUnit: UnitLength = .kilometers
+    private let xAxisUnit: UnitLength = .meters
     private let yAxisUnit: UnitLength = .meters
     
     // MARK: - Initializer
@@ -68,7 +57,7 @@ struct ElevationProfileChart: View {
             Chart {
                 elevationProfile
                 
-                gradeBoundariesOverlay
+//                gradeBoundariesOverlay
                 
                 if selectedRoutePoint != nil {
                     selectionRuleMark
@@ -92,6 +81,11 @@ struct ElevationProfileChart: View {
                 domain: 0...route.length.inUnit(UnitLength.meters).converted(to: xAxisUnit).value
             )
             .chartXSelection(value: $rawSelectedDistance)
+            .onChange(of: rawSelectedDistance) { oldDistance, newDistance in
+                guard let newDistance else { return }
+                
+                selectedRoutePoint = route.points.nearestPoint(to: newDistance)
+            }
             
             // elevationDistanceArray is loading.
         } else {
@@ -111,8 +105,8 @@ struct ElevationProfileChart: View {
     
     private var elevationProfile: some ChartContent {
         LinePlot(
-            elevationDistanceArray!,
-            x: .value("Distance", \.distance),
+            route.points,
+            x: .value("Distance", \.distanceFromStart),
             y: .value("Elevation", \.elevation)
         )
         .lineStyle(
