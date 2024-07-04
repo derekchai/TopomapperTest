@@ -23,7 +23,7 @@ extension MapViewController: MKMapViewDelegate {
             let isMainPolyline = polyline.title == "main"
             
             renderer.strokeColor = isMainPolyline ? .systemBlue : .polylineOutline
-            renderer.lineWidth = isMainPolyline ? 5 : 8
+            renderer.lineWidth = isMainPolyline ? 3 : 6
             renderer.lineCap = .round
             renderer.lineJoin = .round
             
