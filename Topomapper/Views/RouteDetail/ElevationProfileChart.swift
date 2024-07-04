@@ -35,7 +35,7 @@ struct ElevationProfileChart: View {
     
     // MARK: - Internal Constants
     
-    private let elevationProfileChartHeight: CGFloat = 300
+    private let elevationProfileChartHeight: CGFloat = 240
     
     private let xAxisUnit: UnitLength = .kilometers
     private let yAxisUnit: UnitLength = .meters
@@ -63,7 +63,7 @@ struct ElevationProfileChart: View {
                     selectionRuleMark
                         .annotation(
                             position: .top,
-                            spacing: 0,
+                            spacing: 10,
                             overflowResolution: .init(
                                 x: .fit(to: .chart),
                                 y: .disabled
@@ -73,7 +73,7 @@ struct ElevationProfileChart: View {
                         }
                 }
             }
-            .padding(.top, 30)
+            .padding(.top, 40)
             .frame(height: elevationProfileChartHeight)
             .chartXAxisLabel(xAxisUnit.symbol)
             .chartYAxisLabel(yAxisUnit.symbol)
@@ -104,6 +104,8 @@ struct ElevationProfileChart: View {
                             elevationUnit: yAxisUnit,
                             distanceUnit: xAxisUnit
                         )
+                    
+                    selectedRoutePoint = chartData?.first
                 }
         }
     }
@@ -176,13 +178,12 @@ struct ElevationProfileChart: View {
                 label: "From start",
                 systemImageName: "arrow.forward.to.line",
                 value: selectedRoutePoint!.distanceFromStart
-                    .inUnit(UnitLength.meters)
-                    .converted(to: xAxisUnit)
+                    .inUnit(xAxisUnit)
                     .formatted(.routeLength)
             )
             
             Divider()
-            
+
             Statistic(
                 label: "Altitude",
                 systemImageName: "arrowtriangle.up",
@@ -190,7 +191,7 @@ struct ElevationProfileChart: View {
                     .inUnit(yAxisUnit)
                     .formatted(.elevationChange)
             )
-            
+
             Divider()
             
             Statistic(
@@ -200,7 +201,6 @@ struct ElevationProfileChart: View {
                     .inUnit(UnitAngle.gradeRatio)
                     .converted(to: UnitAngle.gradePercentage)
                     .formatted(.gradePercentage)
-                    
             )
         }
     }
