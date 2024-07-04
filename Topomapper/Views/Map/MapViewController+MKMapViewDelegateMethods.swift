@@ -7,6 +7,8 @@
 
 import Foundation
 import MapKit
+import UIKit
+import SwiftUI
 
 extension MapViewController: MKMapViewDelegate {
     
@@ -65,9 +67,17 @@ extension MapViewController: MKMapViewDelegate {
             annotationView.markerTintColor = .systemBlue
             annotationView.glyphText = annotation.title == "Start" ? "A" : "B"
         case is SelectedMapPointAnnotation:
+            let annotationButton = AnnotationButton()
+            let hostingController = UIHostingController(
+                rootView: annotationButton
+            )
+            
+            hostingController.view.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+            hostingController.view.backgroundColor = .clear
+            
             annotationView.canShowCallout = true
             annotationView.markerTintColor = .systemRed
-            annotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            annotationView.detailCalloutAccessoryView = hostingController.view
         default:
             return nil
         }
