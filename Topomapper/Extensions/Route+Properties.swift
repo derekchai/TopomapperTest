@@ -82,17 +82,12 @@ extension Route {
     /// duration to execute depending on how many points make up the Route.
     /// - Parameter simplified: If true, returns a simplified, shorter array which
     /// does not use every single point.
-    func elevationOverDistanceArray(
+    func elevationProfileData(
         elevationUnit: UnitLength = .meters,
         distanceUnit: UnitLength = .meters,
         simplified: Bool = true
-    ) async -> [(
-        elevation: Double,
-        distance: Double
-    )] {
-        var elevations: [Double] = []
-        
-        var distances: [Double] = []
+    ) async -> [RoutePoint] {
+        var data: [RoutePoint] = []
         
         var strideAmount = Int(self.points.count / 250)
         
@@ -103,24 +98,25 @@ extension Route {
             to: self.points.count,
             by: simplified ? strideAmount : 1
         ) {
-            distances
-                .append(
-                    points[i].distanceFromStart
-                        .inUnit(UnitLength.meters)
-                        .converted(to: distanceUnit)
-                        .value
-                )
+            var point = self.points[i]
             
-            elevations
+            data
                 .append(
-                    points[i].elevation
-                        .inUnit(UnitLength.meters)
-                        .converted(to: elevationUnit)
-                        .value
+                    RoutePoint(
+                        latitude: point.latitude,
+                        longitude: point.longitude,
+                        elevation: point.elevation
+                            .inUnit(UnitLength.meters)
+                            .converted(to: elevationUnit).value,
+                        distanceFromStart: point.distanceFromStart
+                            .inUnit(UnitLength.meters)
+                            .converted(to: distanceUnit).value,
+                        grade: point.grade
+                    )
                 )
         }
         
-        return Array(zip(elevations, distances))
+        return data
     }
     
     /// Returns the total vertical elevation gain over the route.
