@@ -119,7 +119,7 @@ struct ElevationProfileChart: View {
         )
         .lineStyle(
             StrokeStyle(
-                lineWidth: 3,
+                lineWidth: 2,
                 lineCap: .round,
                 lineJoin: .round
             )
