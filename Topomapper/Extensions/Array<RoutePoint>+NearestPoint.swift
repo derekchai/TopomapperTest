@@ -8,10 +8,18 @@
 import Foundation
 
 extension Array where Element == RoutePoint {
-    /// Uses a binary search to find the `RoutePoint` in this array whose
+    /// Uses a modified binary search to find the `RoutePoint` in this array whose
     /// `distanceFromStart` property is closest to the `distanceFromStart` given.
     func nearestPoint(to distanceFromStart: Double) -> RoutePoint? {
         guard !self.isEmpty else { return nil }
+        
+        if distanceFromStart < self.first!.distanceFromStart {
+            return self.first!
+        }
+        
+        if distanceFromStart > self.last!.distanceFromStart {
+            return self.last!
+        }
         
         var low: Int = 0
         var high: Int = self.count - 1
@@ -25,7 +33,7 @@ extension Array where Element == RoutePoint {
             } else if midPoint.distanceFromStart < distanceFromStart {
                 low = mid + 1
             } else {
-                high = mid + 1
+                high = mid - 1
             }
         }
         
