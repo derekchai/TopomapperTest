@@ -144,8 +144,8 @@ class MapViewController: UIViewController {
         
         let selectedMapPointAnnotation = SelectedMapPointAnnotation(
             coordinate: coordinate,
-            title: coordinate.formattedString(),
-            subtitle: nil
+            title: "Selected point",
+            subtitle: coordinate.formattedString()
         )
         
         mapView.removeAllExistingAnnotations(
