@@ -96,14 +96,12 @@ struct ElevationProfileChart: View {
             // elevationDistanceArray is loading.
         } else {
             elevationProfileLoading
-                .onAppear {
-                    Task {
-                        elevationDistanceArray = await route
-                            .elevationOverDistanceArray(
-                                elevationUnit: yAxisUnit,
-                                distanceUnit: xAxisUnit
-                            )
-                    }
+                .task {
+                    elevationDistanceArray = await route
+                        .elevationOverDistanceArray(
+                            elevationUnit: yAxisUnit,
+                            distanceUnit: xAxisUnit
+                        )
                 }
         }
     }
