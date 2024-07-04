@@ -87,6 +87,14 @@ struct ElevationProfileChart: View {
                 selectedRoutePoint = chartData!.nearestPoint(to: newDistance)
             }
             
+            if let chartData {
+                Text(
+                    "Simplified to \(chartData.count) points from \(route.points.count)."
+                )
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+            }
+            
             // elevationDistanceArray is loading.
         } else {
             elevationProfileLoading
