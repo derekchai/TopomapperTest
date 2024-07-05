@@ -47,6 +47,7 @@
 		A8A7FA182C37586100C666A9 /* AnnotationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FA172C37586100C666A9 /* AnnotationButton.swift */; };
 		A8A7FA342C37845000C666A9 /* AddPointOfInterestSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FA332C37845000C666A9 /* AddPointOfInterestSheet.swift */; };
 		A8A7FA3B2C37E20600C666A9 /* PointOfInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FA3A2C37E20600C666A9 /* PointOfInterest.swift */; };
+		A8A7FA3F2C37EC4300C666A9 /* PointOfInterestAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FA3E2C37EC4300C666A9 /* PointOfInterestAnnotation.swift */; };
 		A8B612852C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B612842C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift */; };
 		A8B612872C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B612862C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift */; };
 		A8B6128E2C320E43005CBFF1 /* Route+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B6128D2C320E43005CBFF1 /* Route+Properties.swift */; };
@@ -120,6 +121,7 @@
 		A8A7FA172C37586100C666A9 /* AnnotationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationButton.swift; sourceTree = "<group>"; };
 		A8A7FA332C37845000C666A9 /* AddPointOfInterestSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPointOfInterestSheet.swift; sourceTree = "<group>"; };
 		A8A7FA3A2C37E20600C666A9 /* PointOfInterest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOfInterest.swift; sourceTree = "<group>"; };
+		A8A7FA3E2C37EC4300C666A9 /* PointOfInterestAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOfInterestAnnotation.swift; sourceTree = "<group>"; };
 		A8B612842C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift"; sourceTree = "<group>"; };
 		A8B612862C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMapPointAnnotation.swift; sourceTree = "<group>"; };
 		A8B6128D2C320E43005CBFF1 /* Route+Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Route+Properties.swift"; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 			children = (
 				A8394CC62C2D707D008FFF0B /* StartEndAnnotation.swift */,
 				A8B612862C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift */,
+				A8A7FA3E2C37EC4300C666A9 /* PointOfInterestAnnotation.swift */,
 			);
 			path = Annotations;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				A88F2F982C2B999C00A8F239 /* RouteDetailView.swift in Sources */,
 				A8A7FA102C3660F800C666A9 /* LocationManager.swift in Sources */,
 				A88F2F6D2C2522AB00A8F239 /* SearchField.swift in Sources */,
+				A8A7FA3F2C37EC4300C666A9 /* PointOfInterestAnnotation.swift in Sources */,
 				A88F2F692C251D0A00A8F239 /* SheetView.swift in Sources */,
 				A8394CBC2C2D5B06008FFF0B /* MKPolyline+ClosestPointToPoint.swift in Sources */,
 				A88F2F8C2C2A2ACB00A8F239 /* Double+Measurement.swift in Sources */,
