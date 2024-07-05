@@ -29,22 +29,26 @@ struct AddPointOfInterestSheet: View {
     var body: some View {
         NavigationStack {
             Form {
-                Map {
-                    if let selectedMapPoint {
-                        Marker(
-                            pointOfInterestName,
-                            coordinate: selectedMapPoint.coordinate
-                        )
+                Section {
+                    Map {
+                        if let selectedMapPoint {
+                            Marker(
+                                pointOfInterestName,
+                                coordinate: selectedMapPoint.coordinate
+                            )
+                        }
                     }
-                }
                     .frame(height: 350)
                     .listRowInsets(EdgeInsets())
+                }
                 
-                TextField(
-                    "Point of interest name",
-                    text: $pointOfInterestName,
-                    prompt: Text("Point of interest name")
-                )
+                Section {
+                    TextField(
+                        "Point of interest name",
+                        text: $pointOfInterestName,
+                        prompt: Text("Point of interest name")
+                    )
+                }
             }
             .navigationTitle("New Point of Interest")
             .navigationBarTitleDisplayMode(.inline)
