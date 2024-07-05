@@ -46,6 +46,7 @@
 		A8A7FA122C367D4700C666A9 /* CLLocationCoordinate2D+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FA112C367D4700C666A9 /* CLLocationCoordinate2D+Format.swift */; };
 		A8A7FA182C37586100C666A9 /* AnnotationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FA172C37586100C666A9 /* AnnotationButton.swift */; };
 		A8A7FA342C37845000C666A9 /* AddPointOfInterestSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FA332C37845000C666A9 /* AddPointOfInterestSheet.swift */; };
+		A8A7FA3B2C37E20600C666A9 /* PointOfInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FA3A2C37E20600C666A9 /* PointOfInterest.swift */; };
 		A8B612852C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B612842C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift */; };
 		A8B612872C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B612862C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift */; };
 		A8B6128E2C320E43005CBFF1 /* Route+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B6128D2C320E43005CBFF1 /* Route+Properties.swift */; };
@@ -118,6 +119,7 @@
 		A8A7FA112C367D4700C666A9 /* CLLocationCoordinate2D+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Format.swift"; sourceTree = "<group>"; };
 		A8A7FA172C37586100C666A9 /* AnnotationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationButton.swift; sourceTree = "<group>"; };
 		A8A7FA332C37845000C666A9 /* AddPointOfInterestSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPointOfInterestSheet.swift; sourceTree = "<group>"; };
+		A8A7FA3A2C37E20600C666A9 /* PointOfInterest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOfInterest.swift; sourceTree = "<group>"; };
 		A8B612842C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift"; sourceTree = "<group>"; };
 		A8B612862C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMapPointAnnotation.swift; sourceTree = "<group>"; };
 		A8B6128D2C320E43005CBFF1 /* Route+Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Route+Properties.swift"; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				A8394CAF2C2BD25A008FFF0B /* MapType.swift */,
 				A88F2F802C28FEEF00A8F239 /* Route.swift */,
 				A88F2F772C256E8400A8F239 /* RoutePoint.swift */,
+				A8A7FA3A2C37E20600C666A9 /* PointOfInterest.swift */,
 				A8A7FA092C34F54300C666A9 /* UnitConverterGrade.swift */,
 				A8A7FA0F2C3660F800C666A9 /* LocationManager.swift */,
 			);
@@ -464,6 +467,7 @@
 				A88F2F912C2A40AF00A8F239 /* RouteDistanceFormatStyle.swift in Sources */,
 				A88F2F812C28FEEF00A8F239 /* Route.swift in Sources */,
 				A8394CB62C2C12C9008FFF0B /* ElevationProfileChart.swift in Sources */,
+				A8A7FA3B2C37E20600C666A9 /* PointOfInterest.swift in Sources */,
 				A88F2F9C2C2B9F1300A8F239 /* Statistic.swift in Sources */,
 				A8394CC72C2D707D008FFF0B /* StartEndAnnotation.swift in Sources */,
 				A8DAF2F92C2E7D6300B6C001 /* MapViewController+AppStateDelegateMethods.swift in Sources */,
