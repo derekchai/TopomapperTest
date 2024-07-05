@@ -36,6 +36,7 @@ struct AddPointOfInterestSheet: View {
                         if let selectedMapPoint {
                             Marker(
                                 pointOfInterestName,
+                                systemImage: selectedSymbol.rawValue,
                                 coordinate: selectedMapPoint.coordinate
                             )
                         }
@@ -67,7 +68,7 @@ struct AddPointOfInterestSheet: View {
                 }
                 
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Add") {}
+                    Button("Add", action: addPointOfInterest)
                         .disabled(pointOfInterestName.isEmpty)
                 }
             }
@@ -76,16 +77,39 @@ struct AddPointOfInterestSheet: View {
 }
 
 
-// MARK: - Symbols Enum
+// MARK: - Actions
+
+extension AddPointOfInterestSheet {
+    private func addPointOfInterest() {
+        guard let selectedRoute = appState.selectedRoute, 
+        let selectedMapPoint = appState.selectedMapPoint else {
+            return
+        }
+        
+        let pointOfInterest = PointOfInterest(
+            latitude: selectedMapPoint.coordinate.latitude,
+            longitdue: selectedMapPoint.coordinate.longitude,
+            title: pointOfInterestName,
+            glyphSystemName: selectedSymbol.rawValue
+        )
+        
+        selectedRoute.pointsOfInterest.append(pointOfInterest)
+        
+        dismiss()
+    }
+}
+
+
+// MARK: - Symbols Enumeration
 
 extension AddPointOfInterestSheet {
     enum PointOfInterestSymbol: String, CaseIterable, Identifiable {
-        case star = "star"
+        case star = "star.fill"
         case pin = "mappin"
-        case tent = "tent"
-        case warning = "exclamationmark.triangle"
+        case tent = "tent.fill"
+        case warning = "exclamationmark.triangle.fill"
         case food = "fork.knife"
-        case camera = "camera"
+        case camera = "camera.fill"
         
         var id: Self { self }
     }

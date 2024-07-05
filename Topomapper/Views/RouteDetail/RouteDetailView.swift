@@ -49,6 +49,10 @@ struct RouteDetailView: View {
                         )
                     }
                     
+                    ForEach(route.pointsOfInterest) { point in
+                        Text(point.title)
+                    }
+                    
                     // MARK: Itinerary
                     Text("Itinerary")
                         .font(.headline)
