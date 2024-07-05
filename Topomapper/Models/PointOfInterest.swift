@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 
 /// A point of interest on a map.
-struct PointOfInterest: Codable {
+struct PointOfInterest: Codable, Identifiable {
+    var id = UUID()
+
     let latitude: Double
     let longitdue: Double
     
