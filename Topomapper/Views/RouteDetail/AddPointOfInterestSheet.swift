@@ -110,6 +110,11 @@ extension AddPointOfInterestSheet {
         case warning = "exclamationmark.triangle.fill"
         case food = "fork.knife"
         case camera = "camera.fill"
+        case mountain = "mountain.2.fill"
+        case merge = "arrow.triangle.merge"
+        case branch = "arrow.triangle.branch"
+        case signpost = "signpost.right.and.left.fill"
+        case house = "house.fill"
         
         var id: Self { self }
     }
