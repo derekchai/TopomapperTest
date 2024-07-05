@@ -19,6 +19,8 @@ struct AddPointOfInterestSheet: View {
     
     @State private var pointOfInterestName = ""
     
+    @State private var selectedSymbol: PointOfInterestSymbol = .star
+    
     var selectedMapPoint: MKMapPoint? {
         appState.selectedMapPoint
     }
@@ -48,6 +50,13 @@ struct AddPointOfInterestSheet: View {
                         text: $pointOfInterestName,
                         prompt: Text("Point of interest name")
                     )
+                    
+                    Picker("Marker icon", selection: $selectedSymbol) {
+                        ForEach(PointOfInterestSymbol.allCases) { symbol in
+                            Image(systemName: symbol.rawValue)
+                        }
+                    }
+                    .pickerStyle(.wheel)
                 }
             }
             .navigationTitle("New Point of Interest")
@@ -63,6 +72,22 @@ struct AddPointOfInterestSheet: View {
                 }
             }
         }
+    }
+}
+
+
+// MARK: - Symbols Enum
+
+extension AddPointOfInterestSheet {
+    enum PointOfInterestSymbol: String, CaseIterable, Identifiable {
+        case star = "star"
+        case pin = "mappin"
+        case tent = "tent"
+        case warning = "exclamationmark.triangle"
+        case food = "fork.knife"
+        case camera = "camera"
+        
+        var id: Self { self }
     }
 }
 
