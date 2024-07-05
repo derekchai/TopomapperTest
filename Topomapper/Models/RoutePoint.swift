@@ -24,8 +24,6 @@ struct RoutePoint: Codable {
     
     let grade: Double
     
-    var label: String? = nil
-    
     var day: Int? = nil
     
     
