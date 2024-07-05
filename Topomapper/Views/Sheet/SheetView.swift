@@ -49,22 +49,10 @@ struct SheetView: View {
                         onFocus: setDetentToLarge
                     )
                     
-                    Menu {
-                        Menu {
-                            Picker("Map Type", selection: $selectedMapType) {
-                                ForEach(MapType.allCases) { type in
-                                    Text(type.rawValue)
-                                }
-                            }
-                        } label: {
-                            Label("Map Type", systemImage: "map")
-                        }
-                    } label: {
-                        Image(systemName: "ellipsis.circle")
-                    }
+                    mapTypeMenu
                 }
                 .padding([.leading, .top, .trailing])
-
+                
                 List {
                     Section {
                         ForEach(routes) { route in
@@ -77,18 +65,7 @@ struct SheetView: View {
                         .onDelete(perform: removeRoutes)
                         
                     } header: {
-                        HStack {
-                            Text("My Routes")
-                                .font(.headline)
-                            
-                            Spacer()
-                            
-                            Button(
-                                "New Route",
-                                action: showAddRouteSheet
-                            )
-                        }
-                        .textCase(nil)
+                        myRoutesSectionHeader
                     }
                 }  // List
                 .scrollContentBackground(.hidden)
@@ -99,6 +76,31 @@ struct SheetView: View {
         .sheet(isPresented: $showingAddRouteSheet) {
             AddRouteSheet()
         }
+    }
+    
+    
+    // MARK: - Components
+    
+    private var mapTypeMenu: some View {
+        Menu {
+            Menu {
+                Picker("Map Type", selection: $selectedMapType) {
+                    ForEach(MapType.allCases) { type in
+                        Text(type.rawValue)
+                    }
+                }
+            } label: { Label("Map Type", systemImage: "map") }
+        } label: { Image(systemName: "ellipsis.circle") }
+    }
+    
+    private var myRoutesSectionHeader: some View {
+        HStack {
+            Text("My Routes")
+                .font(.headline)
+            Spacer()
+            Button("New Route", action: showAddRouteSheet)
+        }
+        .textCase(nil)
     }
     
     
@@ -164,5 +166,5 @@ struct SheetView: View {
         selectedDetent: .constant(.medium),
         selectedMapType: $selectedMapType
     )
-        .environment(AppState())
+    .environment(AppState())
 }
