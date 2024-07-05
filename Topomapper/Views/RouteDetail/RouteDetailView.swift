@@ -138,8 +138,7 @@ struct RouteDetailView: View {
     // MARK: - Actions
     
     private func updateSelectedRoute(to route: Route?) {
-        appState.selectedRoute = nil // Slightly hacky way to center camera on feature
-        appState.selectedRoute = route
+        appState.setSelectedRoute(to: route)
     }
 }
 

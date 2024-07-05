@@ -16,7 +16,7 @@ class AppState {
     var path = NavigationPath()
     
     /// The Route currently selected by the user.
-    var selectedRoute: Route? = nil {
+    private(set) var selectedRoute: Route? = nil {
         didSet {
             delegate?.selectedRouteDidChange(to: selectedRoute)
         }
@@ -37,6 +37,12 @@ class AppState {
     
     /// Whether the AddPointOfInterestSheet is being presented.
     var isPresentingAddPointOfInterestSheet = false
+}
+
+extension AppState {
+    func setSelectedRoute(to route: Route?) {
+        self.selectedRoute = route
+    }
 }
 
 protocol AppStateDelegate {
