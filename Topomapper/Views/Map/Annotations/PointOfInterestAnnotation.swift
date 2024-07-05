@@ -14,13 +14,17 @@ class PointOfInterestAnnotation: NSObject, MKAnnotation {
     let title: String?
     let subtitle: String?
     
+    let glyphSystemName: String?
+    
     init(
         coordinate: CLLocationCoordinate2D,
         title: String?,
-        subtitle: String?
+        subtitle: String?,
+        glyphSystemName: String?
     ) {
         self.coordinate = coordinate
         self.title = title
         self.subtitle = subtitle
+        self.glyphSystemName = glyphSystemName
     }
 }

@@ -68,7 +68,6 @@ class MapViewController: UIViewController {
     /// route.
     func updateRoutePath() {
         guard let mapView = view as? MapView else { return }
-        
         guard let selectedRoute = appState.selectedRoute else { return }
         
         mapView.removeAllExistingPolylines()
@@ -96,13 +95,11 @@ class MapViewController: UIViewController {
         }
         
         mapView
-            .zoomInOnPolyline(
-                polyline,
-                edgeInsets:
-                        .notBlockedBySheet(
-                            screenHeight: screenBounds.height,
-                            detent: appState.selectedDetent
-                        )
+            .zoomInOnPolyline(polyline,
+                edgeInsets: .notBlockedBySheet(
+                    screenHeight: screenBounds.height,
+                    detent: appState.selectedDetent
+                )
             )
     }
     
@@ -110,9 +107,7 @@ class MapViewController: UIViewController {
     /// the selected route.
     func updateStartEndAnnotations() {
         guard let mapView = view as? MapView else { return }
-        
         guard let selectedRoute = appState.selectedRoute else { return }
-        
         guard let firstPoint = selectedRoute.points.first, let lastPoint = selectedRoute.points.last else { return }
         
         let startAnnotation = StartEndAnnotation(
@@ -137,7 +132,6 @@ class MapViewController: UIViewController {
     /// of the selected map point.
     func updateSelectedMapPointAnnotation() {
         guard let mapView = view as? MapView else { return }
-        
         guard let selectedMapPoint = appState.selectedMapPoint else { return }
         
         let coordinate = selectedMapPoint.coordinate
@@ -153,5 +147,26 @@ class MapViewController: UIViewController {
         )
         
         mapView.addAnnotation(selectedMapPointAnnotation)
+    }
+    
+    func updatePointOfInterestAnnotations() {
+        guard let mapView = view as? MapView else { return }
+        guard let selectedRoute = appState.selectedRoute else { return }
+        
+        mapView.removeAllExistingAnnotations(ofType: PointOfInterestAnnotation.self)
+        
+        for pointOfInterest in selectedRoute.pointsOfInterest {
+            let annotation = PointOfInterestAnnotation(
+                coordinate: CLLocationCoordinate2D(
+                    latitude: pointOfInterest.latitude,
+                    longitude: pointOfInterest.longitdue
+                ),
+                title: pointOfInterest.title,
+                subtitle: nil,
+                glyphSystemName: pointOfInterest.glyphSystemName
+            )
+            
+            mapView.addAnnotation(annotation)
+        }
     }
 }

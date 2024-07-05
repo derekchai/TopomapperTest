@@ -17,6 +17,7 @@ extension MapViewController: AppStateDelegate {
     func selectedRouteDidChange(to newRoute: Route?) {
         updateRoutePath()
         updateStartEndAnnotations()
+        updatePointOfInterestAnnotations()
     }
     
     func selectedDetentDidChange(to newDetent: PresentationDetent?) {
