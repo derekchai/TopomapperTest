@@ -86,6 +86,7 @@ struct RouteDetailView: View {
             Spacer()
             
             Button("", systemImage: "xmark.circle.fill") {
+                appState.setSelectedRoute(to: nil)
                 dismiss()
             }
             .font(.title2)

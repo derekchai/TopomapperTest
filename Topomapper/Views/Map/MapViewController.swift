@@ -68,7 +68,10 @@ class MapViewController: UIViewController {
     /// route.
     func updateRoutePath() {
         guard let mapView = view as? MapView else { return }
-        guard let selectedRoute = appState.selectedRoute else { return }
+        guard let selectedRoute = appState.selectedRoute else {
+            mapView.removeAllExistingPolylines()
+            return
+        }
         
         mapView.removeAllExistingPolylines()
         
@@ -107,7 +110,10 @@ class MapViewController: UIViewController {
     /// the selected route.
     func updateStartEndAnnotations() {
         guard let mapView = view as? MapView else { return }
-        guard let selectedRoute = appState.selectedRoute else { return }
+        guard let selectedRoute = appState.selectedRoute else {
+            mapView.removeAllExistingAnnotations(ofType: StartEndAnnotation.self)
+            return
+        }
         guard let firstPoint = selectedRoute.points.first, let lastPoint = selectedRoute.points.last else { return }
         
         let startAnnotation = StartEndAnnotation(
@@ -151,7 +157,10 @@ class MapViewController: UIViewController {
     
     func updatePointOfInterestAnnotations() {
         guard let mapView = view as? MapView else { return }
-        guard let selectedRoute = appState.selectedRoute else { return }
+        guard let selectedRoute = appState.selectedRoute else {
+            mapView.removeAllExistingAnnotations(ofType: PointOfInterestAnnotation.self)
+            return
+        }
         
         mapView.removeAllExistingAnnotations(ofType: PointOfInterestAnnotation.self)
         
