@@ -163,7 +163,7 @@ class MapView: UIView {
         let distanceAway = closestPointToTap.distance(to: tappedMapPoint)
         
         if distanceAway <= maximumMetersFromPoint {
-            appState.selectedMapPoint = closestPointToTap
+            appState.setSelectedMapPoint(to: closestPointToTap)
         }
     }
 }

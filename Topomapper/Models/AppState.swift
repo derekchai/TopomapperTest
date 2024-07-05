@@ -29,7 +29,7 @@ class AppState {
         }
     }
     
-    var selectedMapPoint: MKMapPoint? = nil {
+    private(set) var selectedMapPoint: MKMapPoint? = nil {
         didSet {
             delegate?.selectedMapPointDidChange(to: selectedMapPoint)
         }
@@ -42,6 +42,10 @@ class AppState {
 extension AppState {
     func setSelectedRoute(to route: Route?) {
         self.selectedRoute = route
+    }
+    
+    func setSelectedMapPoint(to mapPoint: MKMapPoint) {
+        self.selectedMapPoint = mapPoint
     }
 }
 
