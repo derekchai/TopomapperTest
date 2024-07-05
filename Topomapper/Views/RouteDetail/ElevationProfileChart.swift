@@ -24,7 +24,7 @@ struct ElevationProfileChart: View {
     @State private var selectedRoutePoint: RoutePoint?
     
     /// An array of `(elevation, distance)` pairs for each point in the Route
-    /// where distance is the distance of that point from the start, in metres.
+    /// where distance is the distance of that point from the start, in the local unit.
     @State private var chartData: [RoutePoint]? = nil
     
     private var gradeBoundaries: [Route.GradeBoundary]
