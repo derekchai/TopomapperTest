@@ -18,7 +18,7 @@ final class Route {
     
     let name: String
     let points: [RoutePoint]
-    let pointsOfInterest: [PointOfInterest]
+    var pointsOfInterest: [PointOfInterest]
     
     
     // MARK: - Initializers
