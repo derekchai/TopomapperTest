@@ -152,9 +152,7 @@ class MapView: UIView {
         
         var closestPointToTap: MKMapPoint?
         
-        for overlay in mapView.overlays {
-            guard overlay is MKPolyline else { continue }
-            
+        for overlay in mapView.overlays where overlay is MKPolyline {
             let polyline = overlay as! MKPolyline
             
             closestPointToTap = polyline.closestPointInPolyline(to: tappedMapPoint)
