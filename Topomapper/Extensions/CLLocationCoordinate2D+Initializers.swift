@@ -15,4 +15,11 @@ extension CLLocationCoordinate2D {
             longitude: routePoint
                 .longitude)
     }
+    
+    init(from pointOfInterest: PointOfInterest) {
+        self.init(
+            latitude: pointOfInterest.latitude,
+            longitude: pointOfInterest.longitdue
+        )
+    }
 }
