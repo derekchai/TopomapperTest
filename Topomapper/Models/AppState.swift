@@ -13,6 +13,8 @@ import MapKit
 class AppState {
     var delegate: AppStateDelegate?
     
+    var path = NavigationPath()
+    
     /// The Route currently selected by the user.
     var selectedRoute: Route? = nil {
         didSet {
