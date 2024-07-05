@@ -29,9 +29,6 @@ struct ElevationProfileChart: View {
     
     private var gradeBoundaries: [Route.GradeBoundary]
     
-    /// Matches the `rawSelectedDistance` to the nearest actual distance in the
-    /// Route.
-    
     
     // MARK: - Internal Constants
     
@@ -68,9 +65,7 @@ struct ElevationProfileChart: View {
                                 x: .fit(to: .chart),
                                 y: .disabled
                             )
-                        ) {
-                            selectedDistancePopover
-                        }
+                        ) { selectedDistancePopover }
                 }
             }
             .padding(.top, 40)
