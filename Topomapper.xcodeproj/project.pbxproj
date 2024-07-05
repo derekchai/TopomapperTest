@@ -208,11 +208,9 @@
 				A88F2F922C2B83DE00A8F239 /* AppState.swift */,
 				A88F2F7D2C27EBCD00A8F239 /* Downloader.swift */,
 				A88F2F6E2C2564F300A8F239 /* GPXParser.swift */,
-				A8B612962C324D2E005CBFF1 /* Key.swift */,
 				A8394CAF2C2BD25A008FFF0B /* MapType.swift */,
 				A88F2F802C28FEEF00A8F239 /* Route.swift */,
 				A88F2F772C256E8400A8F239 /* RoutePoint.swift */,
-				A8394CC22C2D634B008FFF0B /* TileServerURLTemplate.swift */,
 				A8A7FA092C34F54300C666A9 /* UnitConverterGrade.swift */,
 				A8A7FA0F2C3660F800C666A9 /* LocationManager.swift */,
 			);
@@ -280,6 +278,7 @@
 				A894C8542C242F1F00423C92 /* TopomapperApp.swift */,
 				A88F2F7F2C28E75200A8F239 /* Views */,
 				A8394CBD2C2D6223008FFF0B /* Extensions */,
+				A8A7FA372C37CF2E00C666A9 /* Constants */,
 				A88F2F7C2C27EAD300A8F239 /* Models */,
 				A88F2F8F2C2A408300A8F239 /* Styles */,
 				A894C85A2C242F2100423C92 /* Assets.xcassets */,
@@ -303,6 +302,15 @@
 				A894C8672C242F2100423C92 /* TopomapperTests.swift */,
 			);
 			path = TopomapperTests;
+			sourceTree = "<group>";
+		};
+		A8A7FA372C37CF2E00C666A9 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A8B612962C324D2E005CBFF1 /* Key.swift */,
+				A8394CC22C2D634B008FFF0B /* TileServerURLTemplate.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		A8B612882C2EA98E005CBFF1 /* Annotations */ = {
