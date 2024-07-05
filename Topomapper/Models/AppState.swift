@@ -34,6 +34,9 @@ class AppState {
             delegate?.selectedMapPointDidChange(to: selectedMapPoint)
         }
     }
+    
+    /// Whether the AddPointOfInterestSheet is being presented.
+    var isPresentingAddPointOfInterestSheet = false
 }
 
 protocol AppStateDelegate {

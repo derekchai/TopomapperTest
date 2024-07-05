@@ -28,6 +28,8 @@ struct RouteDetailView: View {
     // MARK: - Body
     
     var body: some View {
+        @Bindable var appState = appState
+        
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading) {
@@ -63,6 +65,9 @@ struct RouteDetailView: View {
                 loadingElevationProfile = false
             }
         }  // NavigationStack
+        .sheet(isPresented: $appState.isPresentingAddPointOfInterestSheet) {
+            AddPointOfInterestSheet()
+        }
     }  // body
     
     

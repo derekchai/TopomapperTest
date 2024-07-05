@@ -8,10 +8,19 @@
 import SwiftUI
 
 struct AnnotationButton: View {
+    
+    
+    // MARK: - Private Variables
+    
+    @Environment(AppState.self) private var appState
+    
+    
+    // MARK: - Body
+    
     var body: some View {
         Menu("", systemImage: "ellipsis.circle") {
             Button("Add point of interest", systemImage: "star") {
-                
+                appState.isPresentingAddPointOfInterestSheet = true
             }
             
             Button("Add stop", systemImage: "tent") {
@@ -20,6 +29,9 @@ struct AnnotationButton: View {
         }
     }
 }
+
+
+// MARK: - Preview
 
 #Preview {
     AnnotationButton()
