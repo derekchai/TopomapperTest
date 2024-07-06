@@ -166,11 +166,7 @@ class MapView: UIView {
             let dictionary = selectedRoute.routePointDictionary
             let key = closestPointToTap.coordinateKey
             
-            print("Key: \(key)")
-            
             guard let routePoint = dictionary[key] else {
-                print("No value found for key")
-                print(selectedRoute.routePointDictionary)
                 return
             }
             

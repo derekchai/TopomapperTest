@@ -32,7 +32,6 @@ class AppState {
     private(set) var selectedRoutePoint: RoutePoint? = nil {
         didSet {
             delegate?.selectedRoutePointDidChange(to: selectedRoutePoint)
-            print("Selected route point set to \(selectedRoutePoint)")
         }
     }
     
