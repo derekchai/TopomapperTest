@@ -19,7 +19,7 @@ extension CLLocationCoordinate2D {
     init(from pointOfInterest: PointOfInterest) {
         self.init(
             latitude: pointOfInterest.latitude,
-            longitude: pointOfInterest.longitdue
+            longitude: pointOfInterest.longitude
         )
     }
 }

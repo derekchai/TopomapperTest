@@ -168,7 +168,7 @@ class MapViewController: UIViewController {
             let annotation = PointOfInterestAnnotation(
                 coordinate: CLLocationCoordinate2D(
                     latitude: pointOfInterest.latitude,
-                    longitude: pointOfInterest.longitdue
+                    longitude: pointOfInterest.longitude
                 ),
                 title: pointOfInterest.title,
                 subtitle: nil,

@@ -90,7 +90,7 @@ extension AddPointOfInterestSheet {
         
         let pointOfInterest = PointOfInterest(
             latitude: selectedRoutePoint.latitude,
-            longitdue: selectedRoutePoint.longitude,
+            longitude: selectedRoutePoint.longitude,
             title: pointOfInterestName,
             glyphSystemName: selectedSymbol.rawValue,
             elevation: selectedRoutePoint.elevation,

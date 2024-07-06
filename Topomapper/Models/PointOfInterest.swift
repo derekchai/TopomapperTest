@@ -13,7 +13,7 @@ struct PointOfInterest: Codable, Identifiable {
     var id = UUID()
 
     let latitude: Double
-    let longitdue: Double
+    let longitude: Double
     
     /// The title of the point of interest.
     let title: String
