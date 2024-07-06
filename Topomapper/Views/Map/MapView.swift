@@ -49,12 +49,11 @@ class MapView: UIView {
         mkMapView.cameraZoomRange = MKMapView
             .CameraZoomRange(minCenterCoordinateDistance: 3000)
         
-        let mapTapGestureRecognizer = UITapGestureRecognizer(
+        let mapLongPressGestureRecognizer = UILongPressGestureRecognizer(
             target: self,
-            action: #selector(handleMapTap)
+            action: #selector(handleMapLongPress)
         )
-        
-        mkMapView.addGestureRecognizer(mapTapGestureRecognizer)
+        mkMapView.addGestureRecognizer(mapLongPressGestureRecognizer)
     }
 
     required init?(coder: NSCoder) {
@@ -133,10 +132,16 @@ class MapView: UIView {
     
     // MARK: - Private Functions
     
-    @objc private func handleMapTap(_ sender: UITapGestureRecognizer) {
-        guard sender.state == .recognized else { return }
+    @objc private func handleMapLongPress(_ sender: UILongPressGestureRecognizer) {
+        // After fingers have touched the screen for the minimum amount of time...
+        guard sender.state == .began else { return }
         guard let mapView = sender.view as? MKMapView else { return }
         guard let selectedRoute = appState.selectedRoute else { return }
+        
+        self.becomeFirstResponder()
+        
+        // Generate haptics.
+        UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
         
         let tappedPoint: CGPoint = sender.location(in: mapView)
         let tappedCoordinate: CLLocationCoordinate2D = mapView.convert(
