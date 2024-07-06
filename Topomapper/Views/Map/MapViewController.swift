@@ -158,6 +158,8 @@ class MapViewController: UIViewController {
         )
         
         mapView.addAnnotation(selectedMapPointAnnotation)
+        mapView.mkMapView
+            .selectAnnotation(selectedMapPointAnnotation, animated: true)
     }
     
     func updatePointOfInterestAnnotations() {
