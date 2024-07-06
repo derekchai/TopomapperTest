@@ -60,7 +60,7 @@ extension MapViewController: MKMapViewDelegate {
         annotationView.isEnabled = true
         annotationView.animatesWhenAdded = true
         
-        if let annotation = annotation as? SelectedMapPointAnnotation {
+        if annotation is SelectedMapPointAnnotation {
             annotationView.titleVisibility = .hidden
             let annotationButton = AnnotationButton()
             let hostingController = UIHostingController(
