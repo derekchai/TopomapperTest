@@ -142,6 +142,7 @@ class MapViewController: UIViewController {
         
         guard appState.selectedRoute != nil else {
             mapView.removeAllExistingAnnotations(ofType: SelectedMapPointAnnotation.self)
+            appState.setSelectedRoutePoint(to: nil)
             return
         }
         

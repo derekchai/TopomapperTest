@@ -44,7 +44,7 @@ extension AppState {
         self.selectedRoute = route
     }
     
-    func setSelectedRoutePoint(to routePoint: RoutePoint) {
+    func setSelectedRoutePoint(to routePoint: RoutePoint?) {
         self.selectedRoutePoint = routePoint
     }
 }
