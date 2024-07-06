@@ -29,6 +29,12 @@ struct ElevationProfileChart: View {
     
     private var gradeBoundaries: [Route.GradeBoundary]
     
+    private var maximumYValue: Double {
+        guard let chartData else { return 0 }
+        
+        return chartData.max(by: { $0.elevation < $1.elevation })!.elevation
+    }
+    
     
     // MARK: - Internal Constants
     
@@ -62,7 +68,7 @@ struct ElevationProfileChart: View {
                     selectionRuleMark
                         .annotation(
                             position: .top,
-                            spacing: 10,
+                            spacing: 15,
                             overflowResolution: .init(
                                 x: .fit(to: .chart),
                                 y: .disabled
@@ -70,7 +76,7 @@ struct ElevationProfileChart: View {
                         ) { selectedDistancePopover }
                 }
             }
-            .padding(.top, 40)
+            .padding(.top, 45)
             .frame(height: elevationProfileChartHeight)
             .chartXAxisLabel(xAxisUnit.symbol)
             .chartYAxisLabel(yAxisUnit.symbol)
@@ -149,24 +155,22 @@ struct ElevationProfileChart: View {
     
     private var pointsOfInterestOverlay: some ChartContent {
         ForEach(route.pointsOfInterest) { point in
-            PointMark(
+            RuleMark(
                 x:
                         .value(
                             "Distance from start",
                             point.distanceFromStart
                                 .inUnit(UnitLength.meters)
                                 .converted(to: xAxisUnit).value
-                        ),
-                y:
-                        .value(
-                            "Elevation",
-                            point.elevation
-                                .inUnit(UnitLength.meters)
-                                .converted(to: yAxisUnit).value
                         )
             )
-            .symbol {
+            .foregroundStyle(.gray.opacity(0.3))
+            .offset(yStart: -5)
+            .zIndex(-1)
+            .annotation(position: .top) {
                 Image(systemName: point.glyphSystemName)
+                    .foregroundStyle(Color.gray.opacity(0.5))
+                    .font(.system(size: 11))
             }
         }
     }
@@ -175,7 +179,7 @@ struct ElevationProfileChart: View {
         RuleMark(
             x: .value("Selected", selectedRoutePoint!.distanceFromStart)
         )
-            .foregroundStyle(.gray.opacity(0.3))
+            .foregroundStyle(.gray.opacity(0.6))
             .offset(yStart: -10)
             .zIndex(-1)
     }
