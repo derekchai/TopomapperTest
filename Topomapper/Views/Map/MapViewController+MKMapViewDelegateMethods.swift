@@ -71,7 +71,7 @@ extension MapViewController: MKMapViewDelegate {
             hostingController.view.backgroundColor = .clear
             
             annotationView.canShowCallout = true
-            annotationView.markerTintColor = .systemRed
+            annotationView.markerTintColor = .systemBlue
             annotationView.rightCalloutAccessoryView = hostingController.view
             
         } else if let annotation = annotation as? StartEndAnnotation {
