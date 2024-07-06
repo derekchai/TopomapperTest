@@ -138,9 +138,9 @@ class MapViewController: UIViewController {
     /// of the selected map point.
     func updateSelectedMapPointAnnotation() {
         guard let mapView = view as? MapView else { return }
-        guard let selectedMapPoint = appState.selectedMapPoint else { return }
+        guard let selectedRoutePoint = appState.selectedRoutePoint else { return }
         
-        let coordinate = selectedMapPoint.coordinate
+        let coordinate = CLLocationCoordinate2D(from: selectedRoutePoint)
         
         let selectedMapPointAnnotation = SelectedMapPointAnnotation(
             coordinate: coordinate,

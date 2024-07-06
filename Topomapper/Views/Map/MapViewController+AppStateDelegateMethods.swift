@@ -10,7 +10,7 @@ import MapKit
 import SwiftUI
 
 extension MapViewController: AppStateDelegate {
-    func selectedMapPointDidChange(to newMapPoint: MKMapPoint?) {
+    func selectedRoutePointDidChange(to newRoutePoint: RoutePoint?) {
         updateSelectedMapPointAnnotation()
     }
 

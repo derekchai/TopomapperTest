@@ -29,9 +29,10 @@ class AppState {
         }
     }
     
-    private(set) var selectedMapPoint: MKMapPoint? = nil {
+    private(set) var selectedRoutePoint: RoutePoint? = nil {
         didSet {
-            delegate?.selectedMapPointDidChange(to: selectedMapPoint)
+            delegate?.selectedRoutePointDidChange(to: selectedRoutePoint)
+            print("Selected route point set to \(selectedRoutePoint)")
         }
     }
     
@@ -44,13 +45,13 @@ extension AppState {
         self.selectedRoute = route
     }
     
-    func setSelectedMapPoint(to mapPoint: MKMapPoint) {
-        self.selectedMapPoint = mapPoint
+    func setSelectedRoutePoint(to routePoint: RoutePoint) {
+        self.selectedRoutePoint = routePoint
     }
 }
 
 protocol AppStateDelegate {
-    func selectedMapPointDidChange(to newMapPoint: MKMapPoint?)
+    func selectedRoutePointDidChange(to newRoutePoint: RoutePoint?)
     
     func selectedRouteDidChange(to newRoute: Route?)
     

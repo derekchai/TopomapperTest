@@ -192,7 +192,7 @@ extension Route {
         var dictionary = [String: RoutePoint]()
         
         for point in self.points {
-            let coordinateKey = "\(point.latitude), \(point.longitude)"
+            let coordinateKey = point.coordinateKey
             dictionary[coordinateKey] = point
         }
         

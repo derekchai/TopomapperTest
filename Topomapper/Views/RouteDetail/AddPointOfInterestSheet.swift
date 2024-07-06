@@ -21,8 +21,8 @@ struct AddPointOfInterestSheet: View {
     
     @State private var selectedSymbol: PointOfInterestSymbol = .star
     
-    var selectedMapPoint: MKMapPoint? {
-        appState.selectedMapPoint
+    var selectedRoutePoint: RoutePoint? {
+        appState.selectedRoutePoint
     }
     
     
@@ -33,11 +33,13 @@ struct AddPointOfInterestSheet: View {
             Form {
                 Section {
                     Map {
-                        if let selectedMapPoint {
+                        if let selectedRoutePoint {
                             Marker(
                                 pointOfInterestName,
                                 systemImage: selectedSymbol.rawValue,
-                                coordinate: selectedMapPoint.coordinate
+                                coordinate: CLLocationCoordinate2D(
+                                    from: selectedRoutePoint
+                                )
                             )
                         }
                     }
@@ -82,13 +84,13 @@ struct AddPointOfInterestSheet: View {
 extension AddPointOfInterestSheet {
     private func addPointOfInterest() {
         guard let selectedRoute = appState.selectedRoute, 
-        let selectedMapPoint = appState.selectedMapPoint else {
+        let selectedRoutePoint = appState.selectedRoutePoint else {
             return
         }
         
         let pointOfInterest = PointOfInterest(
-            latitude: selectedMapPoint.coordinate.latitude,
-            longitdue: selectedMapPoint.coordinate.longitude,
+            latitude: selectedRoutePoint.latitude,
+            longitdue: selectedRoutePoint.longitude,
             title: pointOfInterestName,
             glyphSystemName: selectedSymbol.rawValue
         )

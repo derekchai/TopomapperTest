@@ -135,8 +135,8 @@ class MapView: UIView {
     
     @objc private func handleMapTap(_ sender: UITapGestureRecognizer) {
         guard sender.state == .recognized else { return }
-        
         guard let mapView = sender.view as? MKMapView else { return }
+        guard let selectedRoute = appState.selectedRoute else { return }
         
         let tappedPoint: CGPoint = sender.location(in: mapView)
         let tappedCoordinate: CLLocationCoordinate2D = mapView.convert(
@@ -163,7 +163,18 @@ class MapView: UIView {
         let distanceAway = closestPointToTap.distance(to: tappedMapPoint)
         
         if distanceAway <= maximumMetersFromPoint {
-            appState.setSelectedMapPoint(to: closestPointToTap)
+            let dictionary = selectedRoute.routePointDictionary
+            let key = closestPointToTap.coordinateKey
+            
+            print("Key: \(key)")
+            
+            guard let routePoint = dictionary[key] else {
+                print("No value found for key")
+                print(selectedRoute.routePointDictionary)
+                return
+            }
+            
+            appState.setSelectedRoutePoint(to: routePoint)
         }
     }
 }

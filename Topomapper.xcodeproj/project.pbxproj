@@ -48,6 +48,8 @@
 		A8A7FA342C37845000C666A9 /* AddPointOfInterestSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FA332C37845000C666A9 /* AddPointOfInterestSheet.swift */; };
 		A8A7FA3B2C37E20600C666A9 /* PointOfInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FA3A2C37E20600C666A9 /* PointOfInterest.swift */; };
 		A8A7FA3F2C37EC4300C666A9 /* PointOfInterestAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FA3E2C37EC4300C666A9 /* PointOfInterestAnnotation.swift */; };
+		A8A7FA432C38C53D00C666A9 /* MKMapPoint+CoordinateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FA422C38C53D00C666A9 /* MKMapPoint+CoordinateKey.swift */; };
+		A8A7FA452C38C5A400C666A9 /* RoutePoint+CoordinateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A7FA442C38C5A400C666A9 /* RoutePoint+CoordinateKey.swift */; };
 		A8B612852C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B612842C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift */; };
 		A8B612872C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B612862C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift */; };
 		A8B6128E2C320E43005CBFF1 /* Route+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B6128D2C320E43005CBFF1 /* Route+Properties.swift */; };
@@ -122,6 +124,8 @@
 		A8A7FA332C37845000C666A9 /* AddPointOfInterestSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPointOfInterestSheet.swift; sourceTree = "<group>"; };
 		A8A7FA3A2C37E20600C666A9 /* PointOfInterest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOfInterest.swift; sourceTree = "<group>"; };
 		A8A7FA3E2C37EC4300C666A9 /* PointOfInterestAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOfInterestAnnotation.swift; sourceTree = "<group>"; };
+		A8A7FA422C38C53D00C666A9 /* MKMapPoint+CoordinateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MKMapPoint+CoordinateKey.swift"; path = "../../../../../../Downloads/MKMapPoint+CoordinateKey.swift"; sourceTree = "<group>"; };
+		A8A7FA442C38C5A400C666A9 /* RoutePoint+CoordinateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoutePoint+CoordinateKey.swift"; sourceTree = "<group>"; };
 		A8B612842C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift"; sourceTree = "<group>"; };
 		A8B612862C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMapPointAnnotation.swift; sourceTree = "<group>"; };
 		A8B6128D2C320E43005CBFF1 /* Route+Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Route+Properties.swift"; sourceTree = "<group>"; };
@@ -175,8 +179,10 @@
 				A8394CBB2C2D5B06008FFF0B /* MKPolyline+ClosestPointToPoint.swift */,
 				A8A7FA012C33E3E200C666A9 /* MKPolyline+Initializers.swift */,
 				A8B6128D2C320E43005CBFF1 /* Route+Properties.swift */,
+				A8A7FA442C38C5A400C666A9 /* RoutePoint+CoordinateKey.swift */,
 				A8A7F9FF2C33BA8600C666A9 /* UIEdgeInsets+Visible.swift */,
 				A8A7FA052C349E1600C666A9 /* UnitAngle+Grade.swift */,
+				A8A7FA422C38C53D00C666A9 /* MKMapPoint+CoordinateKey.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -493,6 +499,7 @@
 				A88F2F982C2B999C00A8F239 /* RouteDetailView.swift in Sources */,
 				A8A7FA102C3660F800C666A9 /* LocationManager.swift in Sources */,
 				A88F2F6D2C2522AB00A8F239 /* SearchField.swift in Sources */,
+				A8A7FA452C38C5A400C666A9 /* RoutePoint+CoordinateKey.swift in Sources */,
 				A8A7FA3F2C37EC4300C666A9 /* PointOfInterestAnnotation.swift in Sources */,
 				A88F2F692C251D0A00A8F239 /* SheetView.swift in Sources */,
 				A8394CBC2C2D5B06008FFF0B /* MKPolyline+ClosestPointToPoint.swift in Sources */,
@@ -505,6 +512,7 @@
 				A8394CB02C2BD25A008FFF0B /* MapType.swift in Sources */,
 				A8A7FA0A2C34F54300C666A9 /* UnitConverterGrade.swift in Sources */,
 				A8394CBA2C2D5953008FFF0B /* MKMapPoint+DistanceToPolyline.swift in Sources */,
+				A8A7FA432C38C53D00C666A9 /* MKMapPoint+CoordinateKey.swift in Sources */,
 				A88F2F9E2C2BA69900A8F239 /* ElevationChangeFormatStyle.swift in Sources */,
 				A88F2F932C2B83DE00A8F239 /* AppState.swift in Sources */,
 				A8B612852C2EA504005CBFF1 /* MKMapView+DistanceFromPointByNumberOfPixelsAcross.swift in Sources */,
