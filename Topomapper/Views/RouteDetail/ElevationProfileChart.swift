@@ -56,6 +56,8 @@ struct ElevationProfileChart: View {
                 
                 gradeBoundariesOverlay
                 
+                pointsOfInterestOverlay
+                
                 if selectedRoutePoint != nil {
                     selectionRuleMark
                         .annotation(
@@ -142,6 +144,30 @@ struct ElevationProfileChart: View {
             )
             .foregroundStyle(.red)
             .opacity(0.2)
+        }
+    }
+    
+    private var pointsOfInterestOverlay: some ChartContent {
+        ForEach(route.pointsOfInterest) { point in
+            PointMark(
+                x:
+                        .value(
+                            "Distance from start",
+                            point.distanceFromStart
+                                .inUnit(UnitLength.meters)
+                                .converted(to: xAxisUnit).value
+                        ),
+                y:
+                        .value(
+                            "Elevation",
+                            point.elevation
+                                .inUnit(UnitLength.meters)
+                                .converted(to: yAxisUnit).value
+                        )
+            )
+            .symbol {
+                Image(systemName: point.glyphSystemName)
+            }
         }
     }
     
