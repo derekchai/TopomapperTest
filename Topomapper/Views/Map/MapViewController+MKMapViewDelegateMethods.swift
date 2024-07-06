@@ -77,13 +77,14 @@ extension MapViewController: MKMapViewDelegate {
         } else if let annotation = annotation as? StartEndAnnotation {
             annotationView.titleVisibility = .hidden
             annotationView.canShowCallout = false
-            annotationView.markerTintColor = .systemBlue
+            annotationView.markerTintColor = .systemRed
             annotationView.glyphText = annotation.title == "Start" ? "A" : "B"
             
         } else if let annotation = annotation as? PointOfInterestAnnotation {
             annotationView.canShowCallout = false
             annotationView.glyphImage = UIImage(systemName: annotation.glyphSystemName ?? "mappin")
-            
+            annotationView.markerTintColor = .systemBlue
+
         } else {
             return nil
         }
