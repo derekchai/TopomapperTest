@@ -140,6 +140,11 @@ class MapViewController: UIViewController {
         guard let mapView = view as? MapView else { return }
         guard let selectedRoutePoint = appState.selectedRoutePoint else { return }
         
+        guard appState.selectedRoute != nil else {
+            mapView.removeAllExistingAnnotations(ofType: SelectedMapPointAnnotation.self)
+            return
+        }
+        
         let coordinate = CLLocationCoordinate2D(from: selectedRoutePoint)
         
         let selectedMapPointAnnotation = SelectedMapPointAnnotation(
