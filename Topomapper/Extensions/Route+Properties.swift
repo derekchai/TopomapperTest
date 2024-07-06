@@ -181,4 +181,21 @@ extension Route {
             self.endDistance = endDistance
         }
     }
+    
+    /// Returns a dictionary from the Route's points array where each key is
+    /// the point's coordinates as a string in `latitude, longitude` format,
+    /// and each value is the point itself.
+    ///
+    /// This is useful for fast dictionary lookups matching a lat, lon pair to its
+    /// respective RoutePoint, with time complexity: O(1).
+    var routePointDictionary: [String: RoutePoint] {
+        var dictionary = [String: RoutePoint]()
+        
+        for point in self.points {
+            let coordinateKey = "\(point.latitude), \(point.longitude)"
+            dictionary[coordinateKey] = point
+        }
+        
+        return dictionary
+    }
 }
