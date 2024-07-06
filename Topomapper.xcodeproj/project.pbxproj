@@ -14,6 +14,7 @@
 		A8394CBF2C2D6294008FFF0B /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = A8394CBE2C2D6294008FFF0B /* .gitattributes */; };
 		A8394CC32C2D634B008FFF0B /* TileServerURLTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8394CC22C2D634B008FFF0B /* TileServerURLTemplate.swift */; };
 		A8394CC72C2D707D008FFF0B /* StartEndAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8394CC62C2D707D008FFF0B /* StartEndAnnotation.swift */; };
+		A845B8C52C38E2AF00D79AA5 /* StartEndAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A845B8C42C38E2AF00D79AA5 /* StartEndAnnotationView.swift */; };
 		A88F2F692C251D0A00A8F239 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F682C251D0A00A8F239 /* SheetView.swift */; };
 		A88F2F6D2C2522AB00A8F239 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F6C2C2522AB00A8F239 /* SearchField.swift */; };
 		A88F2F6F2C2564F300A8F239 /* GPXParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F2F6E2C2564F300A8F239 /* GPXParser.swift */; };
@@ -87,6 +88,7 @@
 		A8394CBE2C2D6294008FFF0B /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
 		A8394CC22C2D634B008FFF0B /* TileServerURLTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileServerURLTemplate.swift; sourceTree = "<group>"; };
 		A8394CC62C2D707D008FFF0B /* StartEndAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartEndAnnotation.swift; sourceTree = "<group>"; };
+		A845B8C42C38E2AF00D79AA5 /* StartEndAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartEndAnnotationView.swift; sourceTree = "<group>"; };
 		A88F2F682C251D0A00A8F239 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		A88F2F6C2C2522AB00A8F239 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		A88F2F6E2C2564F300A8F239 /* GPXParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXParser.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				A8394CC62C2D707D008FFF0B /* StartEndAnnotation.swift */,
+				A845B8C42C38E2AF00D79AA5 /* StartEndAnnotationView.swift */,
 				A8B612862C2EA75F005CBFF1 /* SelectedMapPointAnnotation.swift */,
 				A8A7FA3E2C37EC4300C666A9 /* PointOfInterestAnnotation.swift */,
 			);
@@ -493,6 +496,7 @@
 				A8B612902C320E68005CBFF1 /* CLLocationCoordinate2D+Initializers.swift in Sources */,
 				A8A7FA022C33E3E200C666A9 /* MKPolyline+Initializers.swift in Sources */,
 				A8394CC32C2D634B008FFF0B /* TileServerURLTemplate.swift in Sources */,
+				A845B8C52C38E2AF00D79AA5 /* StartEndAnnotationView.swift in Sources */,
 				A8A7FA342C37845000C666A9 /* AddPointOfInterestSheet.swift in Sources */,
 				A8B6128E2C320E43005CBFF1 /* Route+Properties.swift in Sources */,
 				A88F2F852C29797D00A8F239 /* AddRouteSheet.swift in Sources */,

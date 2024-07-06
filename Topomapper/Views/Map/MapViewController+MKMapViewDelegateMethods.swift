@@ -44,51 +44,52 @@ extension MapViewController: MKMapViewDelegate {
     ) -> MKAnnotationView? {
         guard !(annotation is MKUserLocation) else { return nil }
         
-        let identifier = "marker"
-        
-        var annotationView = mapView.dequeueReusableAnnotationView(
-            withIdentifier: identifier
-        ) as? MKMarkerAnnotationView
-        
-        annotationView = MKMarkerAnnotationView(
-            annotation: annotation,
-            reuseIdentifier: identifier
-        )
-        
-        guard let annotationView else { return nil }
-        
-        annotationView.isEnabled = true
-        annotationView.animatesWhenAdded = true
-        
-        if annotation is SelectedMapPointAnnotation {
-            annotationView.titleVisibility = .hidden
-            let annotationButton = AnnotationButton()
-            let hostingController = UIHostingController(
-                rootView: annotationButton
+        if let annotation = annotation as? StartEndAnnotation {
+            let annotationView = StartEndAnnotationView(
+                annotation: annotation,
+                reuseIdentifier: nil
             )
             
-            hostingController.view.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-            hostingController.view.backgroundColor = .clear
-            
-            annotationView.canShowCallout = true
-            annotationView.markerTintColor = .systemBlue
-            annotationView.rightCalloutAccessoryView = hostingController.view
-            
-        } else if let annotation = annotation as? StartEndAnnotation {
-            annotationView.titleVisibility = .hidden
-            annotationView.canShowCallout = false
-            annotationView.markerTintColor = .systemRed
-            annotationView.glyphText = annotation.title == "Start" ? "A" : "B"
-            
-        } else if let annotation = annotation as? PointOfInterestAnnotation {
-            annotationView.canShowCallout = false
-            annotationView.glyphImage = UIImage(systemName: annotation.glyphSystemName ?? "mappin")
-            annotationView.markerTintColor = .systemBlue
-
+            return annotationView
         } else {
-            return nil
+            let annotationView = MKMarkerAnnotationView(
+                annotation: annotation,
+                reuseIdentifier: nil
+            )
+            
+            annotationView.isEnabled = true
+            annotationView.animatesWhenAdded = true
+            
+            if annotation is SelectedMapPointAnnotation {
+                annotationView.titleVisibility = .hidden
+                let annotationButton = AnnotationButton()
+                let hostingController = UIHostingController(
+                    rootView: annotationButton
+                )
+                
+                hostingController.view.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+                hostingController.view.backgroundColor = .clear
+                
+                annotationView.canShowCallout = true
+                annotationView.markerTintColor = .systemBlue
+                annotationView.rightCalloutAccessoryView = hostingController.view
+                
+            } else if let annotation = annotation as? StartEndAnnotation {
+                annotationView.titleVisibility = .hidden
+                annotationView.canShowCallout = false
+                annotationView.markerTintColor = .systemRed
+                annotationView.glyphText = annotation.title == "Start" ? "A" : "B"
+                
+            } else if let annotation = annotation as? PointOfInterestAnnotation {
+                annotationView.canShowCallout = false
+                annotationView.glyphImage = UIImage(systemName: annotation.glyphSystemName ?? "mappin")
+                annotationView.markerTintColor = .systemBlue
+                
+            } else {
+                return nil
+            }
+            
+            return annotationView
         }
-        
-        return annotationView
     }
 }
