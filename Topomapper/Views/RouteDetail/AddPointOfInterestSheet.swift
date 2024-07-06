@@ -92,7 +92,9 @@ extension AddPointOfInterestSheet {
             latitude: selectedRoutePoint.latitude,
             longitdue: selectedRoutePoint.longitude,
             title: pointOfInterestName,
-            glyphSystemName: selectedSymbol.rawValue
+            glyphSystemName: selectedSymbol.rawValue,
+            elevation: selectedRoutePoint.elevation,
+            distanceFromStart: selectedRoutePoint.distanceFromStart
         )
         
         selectedRoute.pointsOfInterest.append(pointOfInterest)

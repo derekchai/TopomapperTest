@@ -21,4 +21,8 @@ struct PointOfInterest: Codable, Identifiable {
     /// The system name of the glyph displayed within the point of interest's
     /// marker map annotation.
     let glyphSystemName: String
+    
+    let elevation: Double
+    
+    let distanceFromStart: Double
 }
